@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>.MSH File Format Render Types</title>
+
+<meta name="GENERATOR" content="MSHTML 8.00.6001.18812"><style type="text/css">
+#hdr { font-size:x-large; font-family: courier new; }
+#flag { font-weight:bold; }
+#hdrcapt { font-size:large; font-family: courier new; }
+#childof { font-size:small; }
+#number { font-weight:bold; color:#FF0000; }
+#string { font-weight:bold; color:#31B404; }
+#other { font-weight:bold; color:#FF8000; }
+#listitem { font-size:small; font-weight:bold }
+</style><style type="text/css"></style></head>
+
+<body>
+<h1 style="TEXT-ALIGN: center">ZeroEngine<br>
+.MSH File Format Render Types</h1><br><br>
+
+<h3>Changelog</h3>
+<ul>
+<li>06.07.2012:<ul>
+			<li>Created this page.
+			</li></ul>
+</li></ul>
+
+
+<h3><a name="main">General Information</a></h3>
+Render Types are stored as 1-byte integers in the ATRB chunk of materials.
+<br><br>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="flag"><a name="glow">Render Types</a></span>
+	<ul>
+		<li><a href="#glow">Glow</a>
+		</li><li><a href="#detail">Detail</a>
+		</li><li><a href="#scroll">Scrolling</a>
+		</li><li><a href="#spec">Specular</a>
+		</li><li><a href="#glossmap">Glossmap</a>
+		</li><li><a href="#chrome">Chrome</a>
+		</li><li><a href="#anim">Animated</a>
+		</li><li><a href="#ice">Ice</a>
+		</li><li><a href="#sky">Sky</a>
+		</li><li><a href="#water">Water</a>
+		</li><li><a href="#lightmap">Lightmap</a>
+		</li><li><a href="#2scroll">2 Scroll</a>
+		</li><li><a href="#rotate">Rotate</a>
+		</li><li><a href="#glowrotate">Glow Rotate</a>
+		</li><li><a href="#planar">Planar Reflection</a>
+		</li><li><a href="#glowscroll">Glow Scroll</a>
+		</li><li><a href="#glow2scroll">Glow 2 Scroll</a>
+		</li><li><a href="#curved">Curved Reflection</a>
+		</li><li><a href="#fade">Normalmap Fade</a>
+		</li><li><a href="#invfade">Normalmap Inv Fade</a>
+		</li><li><a href="#reflection">Ice Reflection</a>
+		</li><li><a href="#refraction">Ice Refraction</a>
+		</li><li><a href="#emboss">Emboss</a>
+		</li><li><a href="#wire">Wireframe</a>
+		</li><li><a href="#energy">Energy</a>
+		</li><li><a href="#afterburner">Afterburner</a>
+		</li><li><a href="#bump">Bumpmap</a>
+		</li><li><a href="#bumpgloss">Bumpmap + Glossmap</a>
+		</li><li><a href="#teleportal">Teleportal</a>
+		</li><li><a href="#multistate">MultiState</a>
+		</li><li><a href="#shield">Shield</a>
+	</li></ul>
+</td></tr></tbody></table>
+
+
+<h3>Render Types:</h3>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="glow">RENDER GLOW</a></span><br>
+		<span id="flag">#1 01</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Glow
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="detail">RENDER DETAIL</a></span><br>
+		<span id="flag">#2 02</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Detail. On GT this is mixed up with Render Lightmap.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		Repetition along U.
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		Repetition along V.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(detail texture).
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="scroll">RENDER SCROLLING</a></span><br>
+		<span id="flag">#3 03</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Scrolling. Scrolls the UV values along the texture.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		U(Horizontal) Scroll Speed.
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		V(Vertical) Scroll Speed.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="spec">RENDER SPECULAR</a></span><br>
+		<span id="flag">#4 04</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Specular. Enables Specular. Specular Flag doesn't seem to be needed for it to work. Specular
+		power is affected by material color and Specular Decay(gloss).
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None.
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="glossmap">RENDER GLOSS MAP</a></span><br>
+		<span id="flag">#5 05</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Gloss Map(Specular Map). This uses the diffuse texture's alpha channel for specular intensity.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Specular Color and Decay are used to determine specularity. Make sure the values are valid. If they are too low
+		the specular might not appear. If the diffuse texture doesn't have an alpha channel specular will be turned off.<br>
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?f=27&t=22886">Specular discussion on GT</a>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="chrome">RENDER CHROME</a></span><br>
+		<span id="flag">#6 06</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Chrome. Environment map.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Additional texture(environment cube map). If this texure is not set the local envmap of the map will be used.
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="anim">RENDER ANIMATED</a></span><br>
+		<span id="flag">#7 07</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Animated. Animates UVs to loop through different UV positions on the texture. UVs should be 
+		mapped to the first cell and not the whole texture. Cells have to be square and will be calculated
+		automatically from the number of frames.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		Number of frames in the texture.(Minimum: 4)
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		Animation Speed.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?p=361010#p361010">Render Animated discussion on GT.</a>
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="ice">RENDER ICE</a></span><br>
+		<span id="flag">#8 08</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Ice.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="sky">RENDER SKY</a></span><br>
+		<span id="flag">#9 09</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Sky.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="water">RENDER WATER</a></span><br>
+		<span id="flag">#10 0a</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Water.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="lightmap">RENDER LIGHTMAP</a></span><br>
+		<span id="flag">#11 0b</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Lightmap. On GT this is mixed up with Render Detail.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(alpha channel determines glow strength, rgb glow color and intensity).
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?p=323899#p323899">Lightmap discussion on GT</a>
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="2scroll">RENDER 2 SCROLL</a></span><br>
+		<span id="flag">#12 0c</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render 2 Scroll.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="rotate">RENDER ROTATE</a></span><br>
+		<span id="flag">#12 0d</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Rotate.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="glowrotate">RENDER GLOW ROTATE</a></span><br>
+		<span id="flag">#14 0e</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Glow Rotate.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="planar">RENDER PLANAR REFLECTION</a></span><br>
+		<span id="flag">#15 0f</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Planar Reflection.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="glowscroll">RENDER GLOW SCROLL</a></span><br>
+		<span id="flag">#16 10</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Glow Scroll.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="glow2scroll">RENDER GLOW 2 SCROLL</a></span><br>
+		<span id="flag">#17 11</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Glow 2 Scroll.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="curved">RENDER CURVED REFLECTION</a></span><br>
+		<span id="flag">#18 12</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Curved Reflection.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="fade">RENDER NORMAL MAP FADE</a></span><br>
+		<span id="flag">#19 13</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="invfade">RENDER NORMAL MAP INV FADE</a></span><br>
+		<span id="flag">#20 14</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="reflection">RENDER ICE REFLECTION</a></span><br>
+		<span id="flag">#21 15</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="refraction">RENDER ICE REFRACTION</a></span><br>
+		<span id="flag">#22 16</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Models bend the light(see Bothan Spy). Model behaves as a transparent object but the transparency is distorted.
+		Alpha channel of the diffuse is used to control the opacity. Bump map controls distortion.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(bump map).
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?p=397720#p397720">Ice Refraction discussion on GT</a>
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="emboss">RENDER EMBOSS</a></span><br>
+		<span id="flag">#23 17</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(specular?).
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="wire">RENDER WIREFRAME</a></span><br>
+		<span id="flag">#24 18</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="energy">RENDER ENERGY</a></span><br>
+		<span id="flag">#25 19</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Render Ice.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		Frequency of the throbbing diffuse texture.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="afterburner">RENDER AFTERBURNER</a></span><br>
+		<span id="flag">#26 1a</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="bump">RENDER BUMPMAP</a></span><br>
+		<span id="flag">#27 1b</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Bump or normal map. Material color and specular decay affect the highlight ingame.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it.
+		Specular flag should be enabled for better effect.
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT</a>
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="bumpgloss">RENDER BUMPMAP + GLOSS MAP</a></span><br>
+		<span id="flag">#28 1c</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		Bump or normal map with specular map.
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		Texture(greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it.
+		Optional texture which controls the specular intensity through it's alpha channel.
+		Specular flag should be enabled.
+		<br>
+		<span id="flag">
+		See also:
+		</span>
+		<a href="http://www.gametoast.com/forums/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT</a>
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="teleportal">RENDER TELEPORTAL</a></span><br>
+		<span id="flag">#29 1d</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="multistate">RENDER MULTISTATE</a></span><br>
+		<span id="flag">#30 1e</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+<br><table style="BACKGROUND-COLOR: rgb(239,239,239); TEXT-ALIGN: left; WIDTH: 50%" border="1" cellspacing="0" cellpadding="5">
+<tbody>
+<tr> <td style="VERTICAL-ALIGN: top">
+	<span id="hdr"><a name="shield">RENDER SHIELD</a></span><br>
+		<span id="flag">#31 1f</span><br>
+		<span id="flag">
+		Description:
+		</span>
+		
+		<br>
+		<span id="flag">
+		Data0:
+		</span>
+		None
+		<br>
+		<span id="flag">
+		Data1:
+		</span>
+		None.
+		<br>
+		<span id="flag">
+		Additional:
+		</span>
+		None
+		<br>
+<br></td></tr></tbody></table>
+
+										
+<h3><a name="links">Links</a></h3>
+<ul>
+<li><a href="msh.htm">Main .msh info page</a>
+</li></ul>
+
+</body></html>
