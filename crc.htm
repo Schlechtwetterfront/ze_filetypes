@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>.MSH File Format CRC Information</TITLE>
+<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18812"></HEAD>
+<style type="text/css">
+#hdr { font-size:x-large; font-family: courier new; }
+#flag { font-weight:bold; }
+#hdrcapt { font-size:large; font-family: courier new; }
+#childof { font-size:small; }
+#number { font-weight:bold; color:#FF0000; }
+#string { font-weight:bold; color:#31B404; }
+#other { font-weight:bold; color:#FF8000; }
+#listitem { font-size:small; font-weight:bold }
+</style>
+<BODY>
+<H1 style="TEXT-ALIGN: center">ZeroEngine<BR>
+.MSH File Format CRC Information</H1><BR><BR>
+
+<H3>Changelog</H3>
+<UL>
+<LI>14.05.2012:<UL>
+			<LI>Created this page.
+			</UL>
+</UL>
+
+
+<H3><a name="main">General Information</a></H3></a>
+CRCs are used in the animation chunks of .msh files. The algorithm used to calculate them
+is as of now unknown. However there's a tool in SWBF2_ModTools called drcrc.exe, which is able to calculate
+those CRCs. Other tools like ZenAsset.exe(munges files, eg animations) are most likely able to calculate and reverse this
+special sort of CRC(labelled 'Zero'). The functions doing this aren't exposed to the commandline though.
+The CRC used in .msh files is 4 bytes long and is stored in pure hex.
+<BR><BR>
+<H3><a name="res">Resources</a></H3></a>
+<UL>
+<LI><SPAN id="flag">drcrc.exe</SPAN> Calculates a Zero CRC from the current content of the clipboard. The clipboard will contain case %crc%: // "%string_used_to_calc_crc%".
+<LI><SPAN id="flag">wDrCRC.exe</SPAN> A wrapper for drcrc created by tirpider. This has some additional functionality like comparing to existing CRCs from the game assets to help
+										getting the string from a given crc. You're able to compare a given crc to a string, too.
+</UL>
+										
+<H3><a name="links">Links</a></H3></a>
+<UL>
+<LI><a href="reorganized_msh_tables.htm">Main .msh info page</A>
+</UL>
+
+</body></HTML>
