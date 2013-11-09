@@ -1,46 +1,82 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML><HEAD><TITLE>.MSH File Format CRC Information</TITLE>
-<META content="text/html; charset=ISO-8859-1" http-equiv=content-type>
-<META name=GENERATOR content="MSHTML 8.00.6001.18812"></HEAD>
-<style type="text/css">
-#hdr { font-size:x-large; font-family: courier new; }
-#flag { font-weight:bold; }
-#hdrcapt { font-size:large; font-family: courier new; }
-#childof { font-size:small; }
-#number { font-weight:bold; color:#FF0000; }
-#string { font-weight:bold; color:#31B404; }
-#other { font-weight:bold; color:#FF8000; }
-#listitem { font-size:small; font-weight:bold }
-</style>
-<BODY>
-<H1 style="TEXT-ALIGN: center">ZeroEngine<BR>
-.MSH File Format CRC Information</H1><BR><BR>
-
-<H3>Changelog</H3>
-<UL>
-<LI>14.05.2012:<UL>
-			<LI>Created this page.
-			</UL>
-</UL>
-
-
-<H3><a name="main">General Information</a></H3></a>
-CRCs are used in the animation chunks of .msh files. The algorithm used to calculate them
-is as of now unknown. However there's a tool in SWBF2_ModTools called drcrc.exe, which is able to calculate
-those CRCs. Other tools like ZenAsset.exe(munges files, eg animations) are most likely able to calculate and reverse this
-special sort of CRC(labelled 'Zero'). The functions doing this aren't exposed to the commandline though.
-The CRC used in .msh files is 4 bytes long and is stored in pure hex.
-<BR><BR>
-<H3><a name="res">Resources</a></H3></a>
-<UL>
-<LI><SPAN id="flag">drcrc.exe</SPAN> Calculates a Zero CRC from the current content of the clipboard. The clipboard will contain case %crc%: // "%string_used_to_calc_crc%".
-<LI><SPAN id="flag">wDrCRC.exe</SPAN> A wrapper for drcrc created by tirpider. This has some additional functionality like comparing to existing CRCs from the game assets to help
-										getting the string from a given crc. You're able to compare a given crc to a string, too.
-</UL>
-										
-<H3><a name="links">Links</a></H3></a>
-<UL>
-<LI><a href="reorganized_msh_tables.htm">Main .msh info page</A>
-</UL>
-
-</body></HTML>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>.MSH File Format CRC Information</title>
+        <link rel="stylesheet" href="stylesheets/styles.css">
+        <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="javascripts/respond.js"></script>
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!--[if lt IE 8]>
+        <link rel="stylesheet" href="stylesheets/ie.css">
+        <![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    </head>
+    <style type="text/css">
+        #hdr { font-size:x-large; font-family: courier new; }
+        #flag { font-weight:bold; }
+        #hdrcapt { font-size:large; font-family: courier new; }
+        #childof { font-size:small; }
+        #number { font-weight:bold; color:#FF0000; }
+        #string { font-weight:bold; color:#31B404; }
+        #other { font-weight:bold; color:#FF8000; }
+        #listitem { font-size:small; font-weight:bold }
+    </style>
+    <body>
+        <div id="header">
+            <nav>
+                <li class="fork"><a href="https://github.com/Schlechtwetterfront/ze_filetypes/crc.html">View On GitHub</a></li>
+                <li class="title">DOWNLOADS</li>
+            </nav>
+        </div>
+        <!-- end header -->
+        <div class="wrapper">
+            <section>
+                <div id="title">
+                    <h1>.MSH File Format CRC Information</h1>
+                    <p></p>
+                    <hr>
+                    <span class="credits left">Project maintained by <a href="https://github.com/Schlechtwetterfront">Schlechtwetterfront</a></span>
+                    <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+                </div>
+                <H1 style="TEXT-ALIGN: center">ZeroEngine<BR>
+                    .MSH File Format CRC Information
+                </H1>
+                <BR><BR>
+                <H3>Changelog</H3>
+                <UL>
+                    <LI>
+                        14.05.2012:
+                        <UL>
+                            <LI>Created this page.
+                        </UL>
+                </UL>
+                <H3><a name="main">General Information</a></H3>
+                </a>
+                CRCs are used in the animation chunks of .msh files. The algorithm used to calculate them
+                is as of now unknown. However there's a tool in SWBF2_ModTools called drcrc.exe, which is able to calculate
+                those CRCs. Other tools like ZenAsset.exe(munges files, eg animations) are most likely able to calculate and reverse this
+                special sort of CRC(labelled 'Zero'). The functions doing this aren't exposed to the commandline though.
+                The CRC used in .msh files is 4 bytes long and is stored in pure hex.
+                <BR><BR>
+                <H3><a name="res">Resources</a></H3>
+                </a>
+                <UL>
+                    <LI><SPAN id="flag">drcrc.exe</SPAN> Calculates a Zero CRC from the current content of the clipboard. The clipboard will contain case %crc%: // "%string_used_to_calc_crc%".
+                    <LI><SPAN id="flag">wDrCRC.exe</SPAN> A wrapper for drcrc created by tirpider. This has some additional functionality like comparing to existing CRCs from the game assets to help
+                        getting the string from a given crc. You're able to compare a given crc to a string, too.
+                </UL>
+                <H3><a name="links">Links</a></H3>
+                </a>
+                <UL>
+                    <LI><a href="reorganized_msh_tables.htm">Main .msh info page</A>
+                </UL>
+            </section>
+        </div>
+        <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    </body>
+</html>
