@@ -1,0 +1,1283 @@
+<!doctype html>
+<html>
+	<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/andesimple.css">
+    <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <link rel="icon" type="image/png" href="../favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ZE File Formats - .MSH Render Types</title>
+</head>
+	<body>
+		<div class="container">
+		
+			
+
+<div class="sidebar">
+	<sidebar_title>ZE File Formats - .MSH Render Types</sidebar_title>
+	<div class="hr_dark"></div>
+	<div class="sidebar-content-scrollable">
+	
+	    <category_label>Navigation</category_label><br>
+	    
+	        <a class="rectangle_button" href="index.html">Back</a>
+	    
+	        <a class="rectangle_button" href="#general_info">General Info</a>
+	    
+	    <div class="hr_dark"></div>
+	
+	    <category_label>Render Types</category_label><br>
+	    
+	        <a class="rectangle_button" href="#glow">01 - Glow</a>
+	    
+	        <a class="rectangle_button" href="#detail">02 - Detail</a>
+	    
+	        <a class="rectangle_button" href="#scrolling">03 - Scrolling</a>
+	    
+	        <a class="rectangle_button" href="#specular">04 - Specular</a>
+	    
+	        <a class="rectangle_button" href="#glossmap">05 - Glossmap</a>
+	    
+	        <a class="rectangle_button" href="#chrome">06 - Chrome</a>
+	    
+	        <a class="rectangle_button" href="#animated">07 - Animated</a>
+	    
+	        <a class="rectangle_button" href="#ice">08 - Ice</a>
+	    
+	        <a class="rectangle_button" href="#sky">09 - Sky</a>
+	    
+	        <a class="rectangle_button" href="#water">10 - Water</a>
+	    
+	        <a class="rectangle_button" href="#lightmap">11 - Lightmap</a>
+	    
+	        <a class="rectangle_button" href="#2scroll">12 - 2 Scroll</a>
+	    
+	        <a class="rectangle_button" href="#rotate">13 - Rotate</a>
+	    
+	        <a class="rectangle_button" href="#glow_rotate">14 - Glow Rotate</a>
+	    
+	        <a class="rectangle_button" href="#planar_reflection">15 - Planar Reflection</a>
+	    
+	        <a class="rectangle_button" href="#glow_scroll">16 - Glow Scroll</a>
+	    
+	        <a class="rectangle_button" href="#gloww2scroll">17 - Glow 2 Scroll</a>
+	    
+	        <a class="rectangle_button" href="#curved_reflection">18 - Curved Reflection</a>
+	    
+	        <a class="rectangle_button" href="#normalmap_fade">19 - Normalmap Fade</a>
+	    
+	        <a class="rectangle_button" href="#normalmap_inv_fade">20 - Normalmap Inv Fade</a>
+	    
+	        <a class="rectangle_button" href="#ice_reflection">21 - Ice Reflection</a>
+	    
+	        <a class="rectangle_button" href="#ice_refraction">22 - Ice Refraction</a>
+	    
+	        <a class="rectangle_button" href="#emboss">23 - Emboss</a>
+	    
+	        <a class="rectangle_button" href="#wireframe">24 - Wireframe</a>
+	    
+	        <a class="rectangle_button" href="#energy">25 - Energy</a>
+	    
+	        <a class="rectangle_button" href="#afterburner">26 - Afterburner</a>
+	    
+	        <a class="rectangle_button" href="#bumpmap">27 - Bumpmap</a>
+	    
+	        <a class="rectangle_button" href="#bumpmap_glossmap">28 - Bumpmap + Glossmap</a>
+	    
+	        <a class="rectangle_button" href="#teleportal">29 - Teleportal</a>
+	    
+	        <a class="rectangle_button" href="#multistate">30 - MultiState</a>
+	    
+	        <a class="rectangle_button" href="#shield">31 - Shield</a>
+	    
+	    <div class="hr_dark"></div>
+	
+	    <category_label>Personal</category_label><br>
+	    
+	        <a class="rectangle_button" href="http://schlechtwetterfront.github.io/">Personal Homepage</a>
+	    
+	    <div class="hr_dark"></div>
+	
+	</div>
+	<script type="text/javascript">
+		var count = 0;
+
+		count =  $("a.rectangle_button").length;
+
+		var height = parseInt($("a.rectangle_button").css("height")) * count + $("category_label").length * parseInt($("category_label").css("height")) + parseInt($("sidebar_title").css("height"));
+		// $("div .sidebar").css("height", height + 10);
+		// $("div .sidebar").css("max-height", height + 10);
+	</script>
+</div>
+			
+
+<div class="content">
+	
+		<div class="section">
+			<a name="general_info"></a>
+			
+		<a class="toggle_collapse" content-id="general_info_content" id="general_info_content_start" starts-collapsed="False">Collapse</a>
+	 <h2>General Info</h2> 
+				<div id="general_info_content">
+				<p>Render Types are stored as 1-byte integers in the ATRB chunk of materials. </p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="glow"></a>
+			
+		<a class="toggle_collapse" content-id="glow_content" id="glow_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Glow</h2> 
+				<div id="glow_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>01</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Glow amount is defined by material color and diffuse texture.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="detail"></a>
+			
+		<a class="toggle_collapse" content-id="detail_content" id="detail_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Detail</h2> 
+				<div id="detail_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>02</td>
+<td>Tiling along U (horizontal)</td>
+<td>Tiling along V (vertical)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Tiles a detail texture. Requires an additional texture (detail texture).</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="scrolling"></a>
+			
+		<a class="toggle_collapse" content-id="scrolling_content" id="scrolling_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Scrolling</h2> 
+				<div id="scrolling_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>03</td>
+<td>Scrolling along U (horizontal)</td>
+<td>Scrolling along V (vertical)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Scrolls the texture.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="specular"></a>
+			
+		<a class="toggle_collapse" content-id="specular_content" id="specular_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Specular</h2> 
+				<div id="specular_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>04</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Enables Specular. Specular Flag doesn't seem to be needed for it to work. Specular power is affected by material color and Specular Decay (gloss).</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="glossmap"></a>
+			
+		<a class="toggle_collapse" content-id="glossmap_content" id="glossmap_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Glossmap</h2> 
+				<div id="glossmap_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>05</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This uses the diffuse texture's alpha channel for specular intensity. Specular Color and Decay are used to determine specularity. Make sure the values are valid. If they are too low the specular might not appear. If the diffuse texture doesn't have an alpha channel specular will be turned off.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="chrome"></a>
+			
+		<a class="toggle_collapse" content-id="chrome_content" id="chrome_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Chrome</h2> 
+				<div id="chrome_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>06</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Environment map. Takes an optional additional texture that will be used instead of the local environment map (specified in the map settings).</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="animated"></a>
+			
+		<a class="toggle_collapse" content-id="animated_content" id="animated_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Animated</h2> 
+				<div id="animated_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>07</td>
+<td>Number of frames in the texture (Minimum: 4)</td>
+<td>Animation Speed.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Animates UVs to loop through different UV positions on the texture. UVs should be mapped to the first cell and not the whole texture. Cells have to be square and will be calculated automatically from the number of frames.  </p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=361010#p361010">Render Animated discussion on GT</a></p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="ice"></a>
+			
+		<a class="toggle_collapse" content-id="ice_content" id="ice_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Ice</h2> 
+				<div id="ice_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8</td>
+<td>08</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Ice.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="sky"></a>
+			
+		<a class="toggle_collapse" content-id="sky_content" id="sky_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Sky</h2> 
+				<div id="sky_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9</td>
+<td>09</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Sky.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="water"></a>
+			
+		<a class="toggle_collapse" content-id="water_content" id="water_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Water</h2> 
+				<div id="water_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>0a</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Water.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="lightmap"></a>
+			
+		<a class="toggle_collapse" content-id="lightmap_content" id="lightmap_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Lightmap</h2> 
+				<div id="lightmap_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>0b</td>
+<td>Number of frames in the texture (Minimum: 4)</td>
+<td>Animation Speed.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Basically a glow map. Requires an additional texture. The texture's alpha channel determines glow strength, rgb glow color and intensity.</p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=323899#p323899">Lightmap discussion on GT </a></p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="2scroll"></a>
+			
+		<a class="toggle_collapse" content-id="2scroll_content" id="2scroll_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>2 Scroll</h2> 
+				<div id="2scroll_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>0c</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>2 Scroll.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="rotate"></a>
+			
+		<a class="toggle_collapse" content-id="rotate_content" id="rotate_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Rotate</h2> 
+				<div id="rotate_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13</td>
+<td>0d</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Rotate.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="glow_rotate"></a>
+			
+		<a class="toggle_collapse" content-id="glow_rotate_content" id="glow_rotate_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Glow Rotate</h2> 
+				<div id="glow_rotate_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>0e</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Glow Rotate.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="planar_reflection"></a>
+			
+		<a class="toggle_collapse" content-id="planar_reflection_content" id="planar_reflection_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Planar Reflection</h2> 
+				<div id="planar_reflection_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15</td>
+<td>0f</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Planar Reflection.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="glow_scroll"></a>
+			
+		<a class="toggle_collapse" content-id="glow_scroll_content" id="glow_scroll_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Glow Scroll</h2> 
+				<div id="glow_scroll_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>10</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Glow Scroll.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="glow2scroll"></a>
+			
+		<a class="toggle_collapse" content-id="glow2scroll_content" id="glow2scroll_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Glow 2 Scroll</h2> 
+				<div id="glow2scroll_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17</td>
+<td>11</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Glow 2 Scroll.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="curved_reflection"></a>
+			
+		<a class="toggle_collapse" content-id="curved_reflection_content" id="curved_reflection_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Curved Reflection</h2> 
+				<div id="curved_reflection_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>18</td>
+<td>12</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Curved Reflection.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="normalmap_fade"></a>
+			
+		<a class="toggle_collapse" content-id="normalmap_fade_content" id="normalmap_fade_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Normalmap Fade</h2> 
+				<div id="normalmap_fade_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19</td>
+<td>13</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Normalmap Fade.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="normalmap_inv_fade"></a>
+			
+		<a class="toggle_collapse" content-id="normalmap_inv_fade_content" id="normalmap_inv_fade_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Normalmap Inv Fade</h2> 
+				<div id="normalmap_inv_fade_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>14</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Normalmap Inv Fade.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="ice_reflection"></a>
+			
+		<a class="toggle_collapse" content-id="ice_reflection_content" id="ice_reflection_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Ice Reflection</h2> 
+				<div id="ice_reflection_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>21</td>
+<td>15</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Ice Reflection.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="ice_refraction"></a>
+			
+		<a class="toggle_collapse" content-id="ice_refraction_content" id="ice_refraction_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Ice Refraction</h2> 
+				<div id="ice_refraction_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22</td>
+<td>16</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Models bend the light (see Bothan Spy). Model behaves as a transparent object but the transparency is distorted. Alpha channel of the diffuse is used to control the opacity. Requires an additional bump texture which controls distortion. </p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=397720#p397720">Ice Refraction discussion on GT </a></p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="emboss"></a>
+			
+		<a class="toggle_collapse" content-id="emboss_content" id="emboss_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Emboss</h2> 
+				<div id="emboss_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>23</td>
+<td>17</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Emboss. Requires an additional texture. Purpose uncertain. Might control specular.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="wireframe"></a>
+			
+		<a class="toggle_collapse" content-id="wireframe_content" id="wireframe_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Wireframe</h2> 
+				<div id="wireframe_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>18</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Wireframe.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="energy"></a>
+			
+		<a class="toggle_collapse" content-id="energy_content" id="energy_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Energy</h2> 
+				<div id="energy_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>25</td>
+<td>19</td>
+<td>-</td>
+<td>Throbbing frequency.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Makes the texture/material throb.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="afterburner"></a>
+			
+		<a class="toggle_collapse" content-id="afterburner_content" id="afterburner_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Afterburner</h2> 
+				<div id="afterburner_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>26</td>
+<td>1a</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Afterburner.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="bumpmap"></a>
+			
+		<a class="toggle_collapse" content-id="bumpmap_content" id="bumpmap_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Bumpmap</h2> 
+				<div id="bumpmap_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27</td>
+<td>1b</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Requires an additional texture (greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it. Specular flag should be enabled for better effect.</p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT </a></p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="bumpmap_glossmap"></a>
+			
+		<a class="toggle_collapse" content-id="bumpmap_glossmap_content" id="bumpmap_glossmap_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Bumpmap + Glossmap</h2> 
+				<div id="bumpmap_glossmap_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>28</td>
+<td>1c</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Requires an additional texture (greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it.
+Optional texture which controls the specular intensity through it's alpha channel. Specular flag should be enabled for better effect.</p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT </a></p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="teleportal"></a>
+			
+		<a class="toggle_collapse" content-id="teleportal_content" id="teleportal_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Teleportal</h2> 
+				<div id="teleportal_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>29</td>
+<td>1d</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Teleportal.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="multistate"></a>
+			
+		<a class="toggle_collapse" content-id="multistate_content" id="multistate_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>MultiState</h2> 
+				<div id="multistate_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>30</td>
+<td>1e</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>MultiState.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="shield"></a>
+			
+		<a class="toggle_collapse" content-id="shield_content" id="shield_content_start" starts-collapsed="True">Collapse</a>
+	 <h2>Shield</h2> 
+				<div id="shield_content">
+				<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Hex</th>
+<th>Data0</th>
+<th>Data1</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>31</td>
+<td>1f</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Shield.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+</div>
+		
+		</div>
+		<script type="text/javascript">
+			function shadeBlend(p,c0,c1) {
+    var n=p<0?p*-1:p,u=Math.round,w=parseInt;
+    if(c0.length>7){
+        var f=c0.split(","),t=(c1?c1:p<0?"rgb(0,0,0)":"rgb(255,255,255)").split(","),R=w(f[0].slice(4)),G=w(f[1]),B=w(f[2]);
+        return "rgb("+(u((w(t[0].slice(4))-R)*n)+R)+","+(u((w(t[1])-G)*n)+G)+","+(u((w(t[2])-B)*n)+B)+")"
+    }else{
+        var f=w(c0.slice(1),16),t=w((c1?c1:p<0?"#000000":"#FFFFFF").slice(1),16),R1=f>>16,G1=f>>8&0x00FF,B1=f&0x0000FF;
+        return "#"+(0x1000000+(u(((t>>16)-R1)*n)+R1)*0x10000+(u(((t>>8&0x00FF)-G1)*n)+G1)*0x100+(u(((t&0x0000FF)-B1)*n)+B1)).toString(16).slice(1)
+    }
+}
+
+var colors = [
+    "#ff7676", // reddish
+    "#8d76ff", // darker violet
+    "#d77f64", // brighter red
+    "#919ddb", // brighter blue
+    "#7cc67c", // green
+];
+
+// Choose random hover color for all elments.
+var box_hover_color = colors[Math.floor(Math.random() * colors.length)];
+
+var box_darkened_color = shadeBlend(-0.5, box_hover_color);
+
+var box_brightened_color = shadeBlend(0.5, box_hover_color);
+
+var box_normal_color = "#252525";
+
+$("div.content a").css({"color": box_hover_color, "border-bottom": "1px dotted " + box_hover_color});
+$("div.content a").hover(
+	function() {
+		$(this).css({"color": box_brightened_color,
+					"border-bottom": "1px solid " + box_brightened_color});
+	},
+	function() {
+		$(this).css({"color": box_hover_color,
+					"border-bottom": "1px dotted " + box_hover_color,
+					"text-decoration": "none"});
+	});
+
+			$("a.toggle_collapse").click(function () {
+    var header = $(this);
+    var content = $("#" + $(this).attr("content-id"));
+
+    $(content).slideToggle(250, function () {
+
+        header.text(function () {
+
+            return $(content).is(":visible") ? "Collapse" : "Expand";
+        });
+    });
+
+});
+
+$("a.toggle_collapse_end").click(function () {
+    var header = $(this);
+    var content_text = "#" + $(this).attr("content-id");
+    var content = $("#" + $(this).attr("content-id"));
+
+    $(content).slideToggle(250, function () {
+        $(content_text + "_start").text(function () {
+            return $(content).is(":visible") ? "Collapse" : "Expand";
+        })
+    });
+
+});
+
+$("a.toggle_collapse").each(function () {
+    var header = $(this);
+    var content = $("#" + $(this).attr("content-id"));
+
+    if ($(this).attr("starts-collapsed") == "True") {
+        $(content).slideToggle(0, function () {
+
+            header.text(function () {
+
+                return $(content).is(":visible") ? "Collapse" : "Expand";
+            });
+        });
+    }
+});
+
+			$("div .sidebar").css("background-color", box_hover_color);
+		</script>
+	</body>
+</html>
