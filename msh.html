@@ -23,6 +23,7 @@
 <div class="sidebar">
 	<sidebar_title>ZE File Formats - .MSH</sidebar_title>
 	<div class="hr_dark"></div>
+	<div id="sidebar-content">
 	
 		<category_label>Navigation</category_label><br>
 		
@@ -164,15 +165,7 @@
 		
 	    <!-- <div class="hr-sidebar-dark"></div> -->
 	
-	<script type="text/javascript">
-		var count = 0;
-
-		count =  $("a.rectangle_button").length;
-
-		var height = parseInt($("a.rectangle_button").css("height")) * count + $("category_label").length * parseInt($("category_label").css("height")) + parseInt($("sidebar_title").css("height"));
-		// $("div .sidebar").css("height", height + 10);
-		// $("div .sidebar").css("max-height", height + 10);
-	</script>
+	</div>
 </div>
 			
 
@@ -187,10 +180,10 @@
 	
 				</div>
 				<div id="overview_content" class="section-content">
-				<p>This page lists all .MSH file chunks. In the .MSH file these chunks are organized in a hierarchy with <a href="#HEDR">HEDR</a> (header) being the first chunk and branching out
+				<p>This page lists all .MSH file chunks. In the .MSH file these chunks are organized in a hierarchy with <a _:="{:" class="bordered" href="#HEDR">HEDR</a> (header) being the first chunk and branching out
 from there (as visualized in the sidebar navigation).  </p>
 <p>Some of these chunks are exclusive to certain versions of the engine (<em>Star Wars: The Clone Wars</em> and before, <em>Star Wars: Battlefront</em> and <em>Star Wars: Battlefront II</em>) or deprecated completely.
-Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limited to <em>Star Wars: Battlefront II</em>.</p>
+Most notably Cloth Simulation (<a _:="{:" class="bordered" href="#CLTH">CLTH</a> and children) being limited to <em>Star Wars: Battlefront II</em>.</p>
 				
 		<div></div>
 	
@@ -220,8 +213,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#Parent chunk">Parent chunk</a></td>
-<td><a href="#All">All</a> <a href="#possible">possible</a> <a href="#children">children</a></td>
+<td><a class="bordered" href="#Parent chunk">Parent chunk</a></td>
+<td><a class="bordered" href="#All">All</a> <a class="bordered" href="#possible">possible</a> <a class="bordered" href="#children">children</a></td>
 <td>Number of appearances or if it's optional.</td>
 <td></td>
 </tr>
@@ -285,7 +278,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tbody>
 <tr>
 <td>-</td>
-<td><a href="#SHVO">SHVO</a> <a href="#MSH2">MSH2</a> <a href="#BLN2">BLN2</a> <a href="#SKL2">SKL2</a> <a href="#ANM2">ANM2</a> <a href="#CL1L">CL1L</a></td>
+<td><a class="bordered" href="#SHVO">SHVO</a> <a class="bordered" href="#MSH2">MSH2</a> <a class="bordered" href="#BLN2">BLN2</a> <a class="bordered" href="#SKL2">SKL2</a> <a class="bordered" href="#ANM2">ANM2</a> <a class="bordered" href="#CL1L">CL1L</a></td>
 <td>Once.</td>
 <td></td>
 </tr>
@@ -320,7 +313,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#HEDR">HEDR</a></td>
+<td><a class="bordered" href="#HEDR">HEDR</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -373,8 +366,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#HEDR">HEDR</a></td>
-<td><a href="#SINF">SINF</a> <a href="#CAMR">CAMR</a> <a href="#MATL">MATL</a> <a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#HEDR">HEDR</a></td>
+<td><a class="bordered" href="#SINF">SINF</a> <a class="bordered" href="#CAMR">CAMR</a> <a class="bordered" href="#MATL">MATL</a> <a class="bordered" href="#MODL">MODL</a></td>
 <td>Once</td>
 <td></td>
 </tr>
@@ -409,8 +402,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MSH2">MSH2</a></td>
-<td><a href="#PROJ">PROJ</a> <a href="#USER">USER</a> <a href="#TIME">TIME</a></td>
+<td><a class="bordered" href="#MSH2">MSH2</a></td>
+<td><a class="bordered" href="#PROJ">PROJ</a> <a class="bordered" href="#USER">USER</a> <a class="bordered" href="#TIME">TIME</a></td>
 <td>Once.</td>
 <td></td>
 </tr>
@@ -462,8 +455,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MSH2">MSH2</a></td>
-<td><a href="#NAME">NAME</a> <a href="#FRAM">FRAM</a> <a href="#BBOX">BBOX</a></td>
+<td><a class="bordered" href="#MSH2">MSH2</a></td>
+<td><a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#FRAM">FRAM</a> <a class="bordered" href="#BBOX">BBOX</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -498,7 +491,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SINF">SINF</a></td>
+<td><a class="bordered" href="#SINF">SINF</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -561,8 +554,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MSH2">MSH2</a></td>
-<td><a href="#NAME">NAME</a> <a href="#DATA">DATA</a></td>
+<td><a class="bordered" href="#MSH2">MSH2</a></td>
+<td><a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#DATA">DATA</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -597,8 +590,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MSH2">MSH2</a></td>
-<td><a href="#MATD">MATD</a></td>
+<td><a class="bordered" href="#MSH2">MSH2</a></td>
+<td><a class="bordered" href="#MATD">MATD</a></td>
 <td>Once.</td>
 <td></td>
 </tr>
@@ -650,8 +643,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MATL">MATL</a></td>
-<td><a href="#NAME">NAME</a> <a href="#MATD_DATA">MATD.DATA</a> <a href="#ATRB">ATRB</a> <a href="#TX0D">TX0D</a></td>
+<td><a class="bordered" href="#MATL">MATL</a></td>
+<td><a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#MATD_DATA">MATD.DATA</a> <a class="bordered" href="#ATRB">ATRB</a> <a class="bordered" href="#TX0D">TX0D</a></td>
 <td>One or more.</td>
 <td></td>
 </tr>
@@ -686,7 +679,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MATD">MATD</a></td>
+<td><a class="bordered" href="#MATD">MATD</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -754,14 +747,14 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MATD">MATD</a></td>
+<td><a class="bordered" href="#MATD">MATD</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="render_types.html">ZeroEngine Render Types</a>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620">Inside Edit Flags (GT)</a>&nbsp;&nbsp;&nbsp;<a href="http://gametoast.com/viewtopic.php?t=24851&amp;f=27&amp;start=31">GameToast ATRB discussion</a>&nbsp;&nbsp;&nbsp;</p>
+<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="render_types.html">ZeroEngine Render Types</a>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620">Inside Edit Flags (GT)</a>&nbsp;&nbsp;&nbsp;<a href="http://gametoast.com/viewtopic.php?t=24851&amp;f=27&amp;start=31">GameToast ATRB discussion</a>&nbsp;&nbsp;&nbsp;<a href="index.html#atrb-calculator">Flag Calculator</a>&nbsp;&nbsp;&nbsp;</p>
 <h3>Structure</h3>
 <table>
 <thead>
@@ -875,7 +868,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MATD">MATD</a></td>
+<td><a class="bordered" href="#MATD">MATD</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -928,7 +921,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MATD">MATD</a></td>
+<td><a class="bordered" href="#MATD">MATD</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -981,8 +974,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MSH2">MSH2</a></td>
-<td><a href="#NAME">NAME</a> <a href="#MTYP">MTYP</a> <a href="#MNDX">MNDX</a> <a href="#PRNT">PRNT</a> <a href="#FLGS">FLGS</a> <a href="#TRAN">TRAN</a> <a href="#GEOM">GEOM</a> <a href="#SWCI">SWCI</a></td>
+<td><a class="bordered" href="#MSH2">MSH2</a></td>
+<td><a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#MTYP">MTYP</a> <a class="bordered" href="#MNDX">MNDX</a> <a class="bordered" href="#PRNT">PRNT</a> <a class="bordered" href="#FLGS">FLGS</a> <a class="bordered" href="#TRAN">TRAN</a> <a class="bordered" href="#GEOM">GEOM</a> <a class="bordered" href="#SWCI">SWCI</a></td>
 <td>One or more.</td>
 <td></td>
 </tr>
@@ -1017,7 +1010,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -1105,7 +1098,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -1158,7 +1151,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1211,7 +1204,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -1299,7 +1292,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -1362,7 +1355,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1430,8 +1423,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#MODL">MODL</a></td>
-<td><a href="#BBOX">BBOX</a> <a href="#SEGM">SEGM</a> <a href="#CLTH">CLTH</a> <a href="#ENVL">ENVL</a></td>
+<td><a class="bordered" href="#MODL">MODL</a></td>
+<td><a class="bordered" href="#BBOX">BBOX</a> <a class="bordered" href="#SEGM">SEGM</a> <a class="bordered" href="#CLTH">CLTH</a> <a class="bordered" href="#ENVL">ENVL</a></td>
 <td>Optional (depends on model type).</td>
 <td></td>
 </tr>
@@ -1454,7 +1447,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 				</div>
 				<div id="ENVL_content" class="section-content">
 				<h3>Description</h3>
-<p>List of indices into <a href="#MODL">MODL</a>. This model is enveloped to those indices' models.</p>
+<p>List of indices into <a _:="{:" class="bordered" href="#MODL">MODL</a>. This model is enveloped to those indices' models.</p>
 <table>
 <thead>
 <tr>
@@ -1466,7 +1459,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#GEOM">GEOM</a></td>
+<td><a class="bordered" href="#GEOM">GEOM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1486,12 +1479,12 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tr>
 <td class="red">long int</td>
 <td>4</td>
-<td>Number of indices into <a href="#MODL">MODL</a>.</td>
+<td>Number of indices into <a _:="{:" class="bordered" href="#MODL">MODL</a>.</td>
 </tr>
 <tr>
 <td class="red">long int []</td>
 <td>4 each</td>
-<td>Index into <a href="#MODL">MODL</a>.</td>
+<td>Index into <a _:="{:" class="bordered" href="#MODL">MODL</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -1524,8 +1517,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#GEOM">GEOM</a></td>
-<td><a href="#SHDW">SHDW</a> <a href="#MATI">MATI</a> <a href="#POSL">POSL</a> <a href="#CLRL">CLRL</a> <a href="#CLRB">CLRB</a> <a href="#WGHT">WGHT</a> <a href="#NRML">NRML</a> <a href="#UV0L">UV0L</a> <a href="#NDXL">NDXL</a> <a href="#NDXT">NDXT</a> <a href="#STRP">STRP</a></td>
+<td><a class="bordered" href="#GEOM">GEOM</a></td>
+<td><a class="bordered" href="#SHDW">SHDW</a> <a class="bordered" href="#MATI">MATI</a> <a class="bordered" href="#POSL">POSL</a> <a class="bordered" href="#CLRL">CLRL</a> <a class="bordered" href="#CLRB">CLRB</a> <a class="bordered" href="#WGHT">WGHT</a> <a class="bordered" href="#NRML">NRML</a> <a class="bordered" href="#UV0L">UV0L</a> <a class="bordered" href="#NDXL">NDXL</a> <a class="bordered" href="#NDXT">NDXT</a> <a class="bordered" href="#STRP">STRP</a></td>
 <td>One or more.</td>
 <td></td>
 </tr>
@@ -1560,7 +1553,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>If the model is a shadow mesh, once.</td>
 <td></td>
@@ -1648,7 +1641,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Once?</td>
 <td></td>
@@ -1701,7 +1694,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Once (unless shadow mesh).</td>
 <td></td>
@@ -1759,7 +1752,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Once (unless shadow mesh).</td>
 <td></td>
@@ -1817,7 +1810,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1875,7 +1868,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1933,7 +1926,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -1986,7 +1979,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -2016,7 +2009,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tr>
 <td class="red">long int</td>
 <td>4</td>
-<td>Index into <a href="#ENVL">ENVL</a> (which then indexes into <a href="#MODL">MODL</a>.</td>
+<td>Index into <a _:="{:" class="bordered" href="#ENVL">ENVL</a> (which then indexes into <a _:="{:" class="bordered" href="#MODL">MODL</a>).</td>
 </tr>
 <tr>
 <td class="red">float</td>
@@ -2054,7 +2047,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional/deprecated.</td>
 <td></td>
@@ -2090,7 +2083,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional/deprecated.</td>
 <td></td>
@@ -2126,8 +2119,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
-<td><a href="#NAME">NAME</a> <a href="#FRAM">FRAM</a> <a href="#BBOX">BBOX</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#FRAM">FRAM</a> <a class="bordered" href="#BBOX">BBOX</a></td>
 <td>Once (unless shadow mesh).</td>
 <td></td>
 </tr>
@@ -2146,12 +2139,12 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tr>
 <td class="red">long int</td>
 <td>4</td>
-<td>Number of indices into <a href="#POSL">POSL</a>.</td>
+<td>Number of indices into <a _:="{:" class="bordered" href="#POSL">POSL</a>.</td>
 </tr>
 <tr>
 <td class="red">short int []</td>
 <td>2 each</td>
-<td>Index into <a href="#POSL">POSL</a>. The indices will form polygons.</td>
+<td>Index into <a _:="{:" class="bordered" href="#POSL">POSL</a>. The indices will form polygons.</td>
 </tr>
 </tbody>
 </table>
@@ -2184,7 +2177,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -2252,7 +2245,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#SEGM">SEGM</a></td>
+<td><a class="bordered" href="#SEGM">SEGM</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -2313,7 +2306,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 				</div>
 				<div id="CLTH_content" class="section-content">
 				<h3>Description</h3>
-<p>Cloth header. Replaces <a href="#SEGM">SEGM</a>.</p>
+<p>Cloth header. Replaces <a _:="{:" class="bordered" href="#SEGM">SEGM</a>.</p>
 <table>
 <thead>
 <tr>
@@ -2325,8 +2318,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#GEOM">GEOM</a></td>
-<td><a href="#CTEXT">CTEXT</a> <a href="#CPOS">CPOS</a> <a href="#CUV0">CUV0</a> <a href="#FIDX">FIDX</a> <a href="#FWGT">FWGT</a> <a href="#CMSH">CMSH</a> <a href="#SPRS">SPRS</a> <a href="#CPRS">CPRS</a> <a href="#BPRS">BPRS</a> <a href="#COLL">COLL</a></td>
+<td><a class="bordered" href="#GEOM">GEOM</a></td>
+<td><a class="bordered" href="#CTEXT">CTEXT</a> <a class="bordered" href="#CPOS">CPOS</a> <a class="bordered" href="#CUV0">CUV0</a> <a class="bordered" href="#FIDX">FIDX</a> <a class="bordered" href="#FWGT">FWGT</a> <a class="bordered" href="#CMSH">CMSH</a> <a class="bordered" href="#SPRS">SPRS</a> <a class="bordered" href="#CPRS">CPRS</a> <a class="bordered" href="#BPRS">BPRS</a> <a class="bordered" href="#COLL">COLL</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -2361,7 +2354,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -2414,7 +2407,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -2472,7 +2465,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2530,7 +2523,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2555,7 +2548,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tr>
 <td class="red">long int ]</td>
 <td>4 each</td>
-<td>Index into <a href="#CPOS">CPOS</a>.</td>
+<td>Index into <a _:="{:" class="bordered" href="#CPOS">CPOS</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -2576,7 +2569,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 				</div>
 				<div id="FWGT_content" class="section-content">
 				<h3>Description</h3>
-<p>Index of <a href="#FIDX">FIDX</a> weighted to a bone by name.</p>
+<p>Index of <a _:="{:" class="bordered" href="#FIDX">FIDX</a> weighted to a bone by name.</p>
 <table>
 <thead>
 <tr>
@@ -2588,7 +2581,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2613,7 +2606,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tr>
 <td class="green">ASCII string</td>
 <td>~</td>
-<td>Name of the bone the corresponding <a href="#FIDX">FIDX</a> is moving with.</td>
+<td>Name of the bone the corresponding <a _:="{:" class="bordered" href="#FIDX">FIDX</a> is moving with.</td>
 </tr>
 </tbody>
 </table>
@@ -2646,7 +2639,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -2704,7 +2697,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2763,7 +2756,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2822,7 +2815,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2881,7 +2874,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#CLTH">CLTH</a></td>
+<td><a class="bordered" href="#CLTH">CLTH</a></td>
 <td>-</td>
 <td>Optional?</td>
 <td></td>
@@ -2964,7 +2957,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#HEDR">HEDR</a></td>
+<td><a class="bordered" href="#HEDR">HEDR</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -3042,7 +3035,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#HEDR">HEDR</a></td>
+<td><a class="bordered" href="#HEDR">HEDR</a></td>
 <td>-</td>
 <td>Optional.</td>
 <td></td>
@@ -3105,8 +3098,8 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#HEDR">HEDR</a></td>
-<td><a href="#CYCL">CYCL</a> <a href="#KFR3">KFR3</a></td>
+<td><a class="bordered" href="#HEDR">HEDR</a></td>
+<td><a class="bordered" href="#CYCL">CYCL</a> <a class="bordered" href="#KFR3">KFR3</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -3141,7 +3134,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#ANM2">ANM2</a></td>
+<td><a class="bordered" href="#ANM2">ANM2</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -3224,7 +3217,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 </thead>
 <tbody>
 <tr>
-<td><a href="#ANM2">ANM2</a></td>
+<td><a class="bordered" href="#ANM2">ANM2</a></td>
 <td>-</td>
 <td>Once.</td>
 <td></td>
@@ -3373,7 +3366,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 				</div>
 				<div id="BBOX_content" class="section-content">
 				<h3>Description</h3>
-<p>Bounding box. <a href="#SINF">SINF</a>'s BBox will determine the blue/green selection box in ZeroEdit.</p>
+<p>Bounding box. <a _:="{:" class="bordered" href="#SINF">SINF</a>'s BBox will determine the blue/green selection box in ZeroEdit.</p>
 <table>
 <thead>
 <tr>
@@ -3454,7 +3447,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tbody>
 <tr>
 <td>-</td>
-<td><a href="#PRFX">PRFX</a> <a href="#NAME">NAME</a> <a href="#DATA">DATA</a></td>
+<td><a class="bordered" href="#PRFX">PRFX</a> <a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#DATA">DATA</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -3552,7 +3545,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tbody>
 <tr>
 <td>-</td>
-<td><a href="#PRFX">PRFX</a> <a href="#NAME">NAME</a> <a href="#DATA">DATA</a></td>
+<td><a class="bordered" href="#PRFX">PRFX</a> <a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#DATA">DATA</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>
@@ -3650,7 +3643,7 @@ Most notably Cloth Simulation (<a href="#CLTH">CLTH</a> and children) being limi
 <tbody>
 <tr>
 <td>-</td>
-<td><a href="#PRFX">PRFX</a> <a href="#NAME">NAME</a> <a href="#DATA">DATA</a></td>
+<td><a class="bordered" href="#PRFX">PRFX</a> <a class="bordered" href="#NAME">NAME</a> <a class="bordered" href="#DATA">DATA</a></td>
 <td>Optional.</td>
 <td></td>
 </tr>

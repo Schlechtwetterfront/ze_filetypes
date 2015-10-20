@@ -23,6 +23,7 @@
 <div class="sidebar">
 	<sidebar_title>ZE File Formats</sidebar_title>
 	<div class="hr_dark"></div>
+	<div id="sidebar-content">
 	
 		<category_label>Navigation</category_label><br>
 		
@@ -30,6 +31,8 @@
 	        <a class="rectangle-button rectangle-button-semi" href="#overview">Overview</a>
 	    
 	        <a class="rectangle-button rectangle-button-semi" href="#zero-crc">Zero CRC</a>
+	    
+	        <a class="rectangle-button rectangle-button-semi" href="#atrb-calculator">ATRB Flag Calculator</a>
 	    
 	        <a class="rectangle-button rectangle-button-semi" href="#zero-crc-implementation">Zero CRC Default Implementation</a>
 	    
@@ -56,29 +59,21 @@
 	    
 	    <!-- <div class="hr-sidebar-dark"></div> -->
 	
-	<script type="text/javascript">
-		var count = 0;
-
-		count =  $("a.rectangle_button").length;
-
-		var height = parseInt($("a.rectangle_button").css("height")) * count + $("category_label").length * parseInt($("category_label").css("height")) + parseInt($("sidebar_title").css("height"));
-		// $("div .sidebar").css("height", height + 10);
-		// $("div .sidebar").css("max-height", height + 10);
-	</script>
+	</div>
 </div>
 			
 
 <div class="content">
 	
 		<div class="section">
-			<a name="main_info"></a>
+			<a name="overview"></a>
 				<div>
-					<div class="section-header">Main Info</div>
+					<div class="section-header">Overview</div>
 					
-		<a class="toggle_collapse" content-id="main_info_content" id="main_info_content_start" starts-collapsed="False">Collapse</a>
+		<a class="toggle_collapse" content-id="overview_content" id="overview_content_start" starts-collapsed="False">Collapse</a>
 	
 				</div>
-				<div id="main_info_content" class="section-content">
+				<div id="overview_content" class="section-content">
 				<p>File format information for some ZeroEngine formats.</p>
 				
 		<div></div>
@@ -98,6 +93,38 @@
 				<div id="zero-crc_content" class="section-content">
 				<p>The CRC used in .msh files is 4 bytes long and is stored in pure hex. The algorithm is proprietary (<em>Zero</em> because it's used in Pandemic's <em>Zero Engine</em>).</p>
 <p>An example implementation of the <em>Zero</em> CRC can be found <a href="https://github.com/Schlechtwetterfront/xsizetools/blob/master/Application/Modules/msh2_crc.py">here (python)</a>.</p>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
+			<a name="atrb-calculator"></a>
+				<div>
+					<div class="section-header">ATRB Flag Calculator</div>
+					
+		<a class="toggle_collapse" content-id="atrb-calculator_content" id="atrb-calculator_content_start" starts-collapsed="False">Collapse</a>
+	
+				</div>
+				<div id="atrb-calculator_content" class="section-content">
+				<p>This can be used to calculate the ATRB flag used in <em>ZeroEngine</em> materials. This can be used to convert a selection of flags into integer and hex representation and the other way around
+to convert an integer/hex into hex/integer and the corresponding selection of flags.</p>
+<p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect. Check out the <a _:="{:" class="bordered" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
+<p><togglebox class="bordered-dark" toggled="false" value="1">Emissive</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="2">Glow</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="4">Single-sided</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="8">Double-sided</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="16">Hard-edged</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="32">Per-Pixel Lighting</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="64">Additive</togglebox>
+<togglebox class="bordered-dark" toggled="false" value="128">Specular</togglebox><br>
+<indented_text>Integer Value</indented_text> <input type="text" id="flag-int-value" class="bordered-dark-nohover" style="width: 26px;" value="0"> 
+<indented_text>Hex Value</indented_text> <input type="text" id="flag-hex-value" class="bordered-dark-nohover" style="width: 26px;" value="00"><br>
+<clickable class="bordered-dark" id="convert-from-flags">Convert From Flags</clickable>
+<clickable class="bordered-dark" id="convert-from-value">Convert From Value</clickable>
+<clickable class="bordered-dark" id="convert-from-hex">Convert From Hex</clickable></p>
 				
 		<div></div>
 	
