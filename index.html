@@ -112,6 +112,8 @@
 				<p>This can be used to calculate the ATRB flag used in <em>ZeroEngine</em> materials. This can be used to convert a selection of flags into integer and hex representation and the other way around
 to convert an integer/hex into hex/integer and the corresponding selection of flags.</p>
 <p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect. Check out the <a _:="{:" class="bordered" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
+<h3>Calculator</h3>
+<p><strong>Flags</strong></p>
 <p><togglebox class="bordered-dark" toggled="false" value="1">Emissive</togglebox>
 <togglebox class="bordered-dark" toggled="false" value="2">Glow</togglebox>
 <togglebox class="bordered-dark" toggled="false" value="4">Single-sided</togglebox>
@@ -119,9 +121,13 @@ to convert an integer/hex into hex/integer and the corresponding selection of fl
 <togglebox class="bordered-dark" toggled="false" value="16">Hard-edged</togglebox>
 <togglebox class="bordered-dark" toggled="false" value="32">Per-Pixel Lighting</togglebox>
 <togglebox class="bordered-dark" toggled="false" value="64">Additive</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="128">Specular</togglebox><br>
+<togglebox class="bordered-dark" toggled="false" value="128">Specular</togglebox>
+<div class="hr"></div></p>
+<p><strong>Values</strong>
 <indented_text>Integer Value</indented_text> <input type="text" id="flag-int-value" class="bordered-dark-nohover" style="width: 26px;" value="0"> 
 <indented_text>Hex Value</indented_text> <input type="text" id="flag-hex-value" class="bordered-dark-nohover" style="width: 26px;" value="00"><br>
+<div class="hr"></div></p>
+<p><strong>Convert</strong>
 <clickable class="bordered-dark" id="convert-from-flags">Convert From Flags</clickable>
 <clickable class="bordered-dark" id="convert-from-value">Convert From Value</clickable>
 <clickable class="bordered-dark" id="convert-from-hex">Convert From Hex</clickable></p>
