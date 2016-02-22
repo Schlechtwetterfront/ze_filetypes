@@ -125,7 +125,7 @@
 <tr>
 <td class="red">long int</td>
 <td>4</td>
-<td>Unknown</td>
+<td>? (ie. 164)</td>
 </tr>
 <tr>
 <td class="red">float [16]</td>
@@ -155,7 +155,7 @@
 <tr>
 <td class="red">long int</td>
 <td>4</td>
-<td>Unknown.</td>
+<td>? (1)</td>
 </tr>
 <tr>
 <td class="red">long int</td>
@@ -163,9 +163,14 @@
 <td>Full map size stored in the .TER file. The same or bigger than the map extents.</td>
 </tr>
 <tr>
+<td class="red">long int</td>
+<td>4</td>
+<td>? (2)</td>
+</tr>
+<tr>
 <td class="orange">byte </td>
 <td>1</td>
-<td>Unkown.</td>
+<td>? (0F)</td>
 </tr>
 <tr>
 <td>TextureLayer [16]</td>
@@ -206,14 +211,14 @@
 <tr>
 <th>Name</th>
 <th>Data Type</th>
-<th>Length</th>
+<th>Size</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Height</strong></td>
 <td class="red">signed short</td>
-<td>Full map size * Full map size * 2</td>
+<td><strong>Full map size * Full map size</strong> * 2</td>
 </tr>
 <tr>
 <td></td>
@@ -223,7 +228,7 @@
 <tr>
 <td><strong>Color</strong></td>
 <td class="red">float [4]</td>
-<td>Full map size * Full map size</td>
+<td><strong>Full map size * Full map size</strong> * 4</td>
 </tr>
 <tr>
 <td></td>
@@ -233,7 +238,17 @@
 <tr>
 <td><strong>Color 2</strong></td>
 <td class="red">float [4]</td>
-<td>Full map size * Full map size</td>
+<td><strong>Full map size * Full map size</strong> * 4</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Color values for every point on the grid. 4 floats (from 0.0 to 1.0) corresponding to the RGBA channels.</td>
+</tr>
+<tr>
+<td><strong>Color 3</strong></td>
+<td class="red">float [4]</td>
+<td><strong>Full map size * Full map size</strong> * 4</td>
 </tr>
 <tr>
 <td></td>
@@ -243,7 +258,7 @@
 <tr>
 <td><strong>Texture</strong></td>
 <td class="orange">byte [16]</td>
-<td>Full map size * Full map size</td>
+<td><strong>Full map size * Full map size</strong> * 16</td>
 </tr>
 <tr>
 <td></td>
@@ -253,7 +268,7 @@
 <tr>
 <td><strong>Water</strong></td>
 <td class="orange">byte</td>
-<td>Full map size * Full map size / 2</td>
+<td><strong>Full map size * Full map size</strong> / 2</td>
 </tr>
 <tr>
 <td></td>
@@ -263,7 +278,7 @@
 <tr>
 <td><strong>Foliage</strong></td>
 <td class="orange">byte</td>
-<td>Full map size * Full map size / 2</td>
+<td><strong>Full map size * Full map size</strong> / 2</td>
 </tr>
 <tr>
 <td></td>
