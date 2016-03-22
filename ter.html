@@ -89,6 +89,83 @@
 		</div>
 	
 		<div class="section">
+			<a name="structure"></a>
+				<div>
+					<div class="section-header">Structure</div>
+					
+		<a class="toggle_collapse" content-id="structure_content" id="structure_content_start" starts-collapsed="False">Collapse</a>
+	
+				</div>
+				<div id="structure_content" class="section-content">
+				<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Size (bytes)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Terrain Header</td>
+<td>2820/2821 (v21/22)</td>
+<td>Header storing general information about the terrain.</td>
+</tr>
+<tr>
+<td>Height Block</td>
+<td><strong>size * size</strong> * 2</td>
+<td>Height grid data.</td>
+</tr>
+<tr>
+<td>Color Block</td>
+<td><strong>size * size</strong> * 4</td>
+<td>RGBA colors for the terrain grid.</td>
+</tr>
+<tr>
+<td>Color Block ?</td>
+<td><strong>size * size</strong> * 4</td>
+<td>RGBA colors for the terrain grid.</td>
+</tr>
+<tr>
+<td>Color Block ?</td>
+<td><strong>size * size</strong> * 4</td>
+<td>RGBA colors for the terrain grid.</td>
+</tr>
+<tr>
+<td>Texture Block</td>
+<td><strong>size * size</strong> * 16</td>
+<td>Texture layer opacity for the terrain grid.</td>
+</tr>
+<tr>
+<td>?</td>
+<td><strong>size * size</strong> * ?</td>
+<td>Maybe Water/Foliage.</td>
+</tr>
+<tr>
+<td>?</td>
+<td><strong>size * size</strong> * ?</td>
+<td>Probably Water.</td>
+</tr>
+<tr>
+<td>?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td>?</td>
+<td>Variable</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+				
+		<div></div>
+	
+				</div>
+			<div class="hr"></div>
+		</div>
+	
+		<div class="section">
 			<a name="terrain_header"></a>
 				<div>
 					<div class="section-header">Terrain Header</div>
@@ -170,7 +247,7 @@
 <tr>
 <td class="orange">byte </td>
 <td>1</td>
-<td>? (0F)</td>
+<td>? (0F) Only exists in SWBF II (version 22) terrain.</td>
 </tr>
 <tr>
 <td>TextureLayer [16]</td>
@@ -364,6 +441,34 @@
 <td class="green">char [32]</td>
 <td>32</td>
 <td>Water texture name.</td>
+</tr>
+</tbody>
+</table>
+<h3>End-of-file Block</h3>
+<p>Can be empty</p>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Size (bytes)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="red">int</td>
+<td>4</td>
+<td>Length of the block.</td>
+</tr>
+<tr>
+<td class="red">int</td>
+<td>4</td>
+<td>Number of items. Can be zero, in which case there are no further fields and this block ends.</td>
+</tr>
+<tr>
+<td class="red">int</td>
+<td>4</td>
+<td>Number of (sub-)items?</td>
 </tr>
 </tbody>
 </table>
