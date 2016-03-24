@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css">
     <link rel="stylesheet" href="../css/schlechtwetterfront_light.css">
+    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.0.min.js"></script>
     <script src="../js/schlechtwetterfront_visual.js"></script>
     <script src="../js/schlechtwetterfront_functional.js"></script>
+    <!-- <script src="../js/bootstrap.min.js"></script> -->
     <link rel="icon" type="image/png" href="../favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -37,7 +39,7 @@
 	
 	    
 	        
-		<a class="rectangle-button rectangle-button-semi" href="#atrb-calculator">ATRB Flag Calculator</a>
+		<a class="rectangle-button rectangle-button-semi" href="#atrb-calculator">ATRB Calculator</a>
 	
 	    
 	        
@@ -117,34 +119,84 @@
 		<div class="section">
 			<a name="atrb-calculator"></a>
 				<!-- <div> -->
-					<div class="section-header">ATRB Flag Calculator</div>
+					<div class="section-header">ATRB Calculator</div>
 					<!-- 
 		<a class="toggle_collapse" content-id="atrb-calculator_content" id="atrb-calculator_content_start" starts-collapsed="False">Collapse</a>
 	 -->
 				<!-- </div> -->
 				<div id="atrb-calculator_content" class="section-content">
-				<p>This can be used to calculate the ATRB flag used in <em>ZeroEngine</em> materials. This can be used to convert a selection of flags into integer and hex representation and the other way around
-to convert an integer/hex into hex/integer and the corresponding selection of flags.</p>
-<p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect. Check out the <a _:="{:" class="bordered" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
+				<p>Use this to calculate flag values, convert render type and data values to hex and convert from and to the .msh ATRB hex chunk.</p>
+<p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect. Check out the <a class="bordered block" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
 <h3>Calculator</h3>
 <p><strong>Flags</strong></p>
-<p><togglebox class="bordered-dark" toggled="false" value="1">Emissive</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="2">Glow</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="4">Single-sided</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="8">Double-sided</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="16">Hard-edged</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="32">Per-Pixel Lighting</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="64">Additive</togglebox>
-<togglebox class="bordered-dark" toggled="false" value="128">Specular</togglebox>
+<p><togglebox class="bordered-dark togglebox-flags" toggled="false" value="1"><span class="circle border-colored-dark"></span>Emissive</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="2"><span class="circle border-colored-dark"></span>Glow</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="4"><span class="circle border-colored-dark"></span>Single-sided</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="8"><span class="circle border-colored-dark"></span>Double-sided</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="16"><span class="circle border-colored-dark"></span>Hard-edged</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="32"><span class="circle border-colored-dark"></span>Per-Pixel Lighting</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="64"><span class="circle border-colored-dark"></span>Additive</togglebox>
+<togglebox class="bordered-dark togglebox-flags" toggled="false" value="128"><span class="circle border-colored-dark"></span>Specular</togglebox>
 <div class="hr"></div></p>
 <p><strong>Values</strong>
-<indented_text>Integer Value</indented_text> <input type="text" id="flag-int-value" class="bordered-dark-nohover" style="width: 26px;" value="0"> 
-<indented_text>Hex Value</indented_text> <input type="text" id="flag-hex-value" class="bordered-dark-nohover" style="width: 26px;" value="00"><br>
+<indented_text>Integer Value</indented_text> <input type="text" size="3" maxlength="3" id="flag-int-value" class="bordered-dark-nohover number-box talign-r" value="0"> 
+<indented_text>Hex Value</indented_text> <input type="text" size="2" maxlength="2" id="flag-hex-value" class="bordered-dark-nohover number-box talign-c" value="00"><br>
 <div class="hr"></div></p>
 <p><strong>Convert</strong>
 <clickable class="bordered-dark" id="convert-from-flags">Convert From Flags</clickable>
 <clickable class="bordered-dark" id="convert-from-value">Convert From Value</clickable>
-<clickable class="bordered-dark" id="convert-from-hex">Convert From Hex</clickable></p>
+<clickable class="bordered-dark" id="convert-from-hex">Convert From Hex</clickable>
+<div class="hr"></div></p>
+<p><strong>Render Type</strong><br />
+<indented_text>Type</indented_text>
+<select class="bordered-dark-nohover" id="render-type-select">
+    <option value="0">00 - Normal</option>
+    <option value="1">01 - Glow</option>
+    <option value="2">02 - Lightmap</option>
+    <option value="3">03 - Scrolling</option>
+    <option value="4">04 - Specular</option>
+    <option value="5">05 - Glossmap</option>
+    <option value="6">06 - Chrome</option>
+    <option value="7">07 - Animated</option>
+    <option value="8">08 - Ice</option>
+    <option value="9">09 - Sky</option>
+    <option value="10">10 - Water</option>
+    <option value="11">11 - Detail</option>
+    <option value="12">12 - 2 Scroll</option>
+    <option value="13">13 - Rotate</option>
+    <option value="14">14 - Glow Rotate</option>
+    <option value="15">15 - Planar Reflection</option>
+    <option value="16">16 - Glow Scroll</option>
+    <option value="17">17 - Glow 2 Scroll</option>
+    <option value="18">18 - Curved Reflection</option>
+    <option value="19">19 - Normalmap Fade</option>
+    <option value="20">20 - Normalmap Inv Fade</option>
+    <option value="21">21 - Ice Reflection</option>
+    <option value="22">22 - Ice Refraction</option>
+    <option value="23">23 - Emboss</option>
+    <option value="24">24 - Wireframe</option>
+    <option value="25">25 - Energy</option>
+    <option value="26">26 - Afterburner</option>
+    <option value="27">27 - Bumpmap</option>
+    <option value="28">28 - Bumpmap + Glossmap</option>
+    <option value="29">29 - Teleportal</option>
+    <option value="30">30 - Multistate</option>
+    <option value="31">31 - Shield</option>
+</select>
+<indented_text>Hex</indented_text> <input type="text" size="2" maxlength="2" id="render-type-hex-value" class="bordered-dark-nohover number-box talign-c" value="00"><br>
+<div class="hr"></div></p>
+<p><strong>Data Values</strong><br />
+<indented_text>Data0 Integer</indented_text> <input type="text" size="3" maxlength="3" id="data0-int-value" class="bordered-dark-nohover number-box talign-r" value="0"> 
+<indented_text>Data0 Hex</indented_text> <input type="text" size="2" maxlength="2" id="data0-hex-value" class="bordered-dark-nohover number-box talign-c" value="00"><br></p>
+<p><indented_text>Data1 Integer</indented_text> <input type="text" size="3" maxlength="3" id="data1-int-value" class="bordered-dark-nohover number-box talign-r" value="0"> 
+<indented_text>Data1 Hex</indented_text> <input type="text" size="2" maxlength="2" id="data1-hex-value" class="bordered-dark-nohover number-box talign-c" value="00"><br>
+<div class="hr"></div></p>
+<p><strong>Chunk</strong>
+<input type="text" size="37" maxlength="35" id="result" class="bordered-dark-nohover number-box talign-c" value="415452420400000000000000"></p>
+<p><strong>Build</strong><br />
+<togglebox class="bordered-dark" id="buildWithSpaces" toggled="false" value="0"><span class="circle border-colored-dark"></span>Build with spaces</togglebox>
+<clickable class="bordered-dark" id="gather-all">Build ATRB Chunk</clickable>
+<clickable class="bordered-dark" id="from-all">Calculate from ATRB Chunk</clickable></p>
 				<!-- 
 		<div></div>
 	 -->
