@@ -3,75 +3,114 @@
 	<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css">
-    <link rel="stylesheet" href="../css/schlechtwetterfront_light.css">
-    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css"> -->
+    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_light.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/site-mainpage.css">
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/schlechtwetterfront_visual.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/schlechtwetterfront_functional.js"></script>
-    <!-- <script src="../js/bootstrap.min.js"></script> -->
+    <script src="../js/schlechtwetterfront_visual.js"></script>
     <link rel="icon" type="image/png" href="../favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>ZE File Formats - .TER</title>
 </head>
 	<body>
-		<div class="container">
-		
-			
+        <div class="container-fluid hidden-lg hidden-md">
+    <nav class="navbar" id="s-navbar">
+        <ul class="nav navbar-nav">
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation</a>
+                <ul class="dropdown-menu">
+                
+                    <li><a href="#overview" class="rectangle-button rectangle-button-semi">Overview</a></li>
+                
+                    <li><a href="index.html" class="rectangle-button rectangle-button-semi">Back</a></li>
+                
+                    <li><a href="http://schlechtwetterfront.github.io/" class="rectangle-button rectangle-button-semi">Homepage</a></li>
+                
+                </ul>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Format</a>
+                <ul class="dropdown-menu">
+                
+                    <li><a href="#terrain_header" class="rectangle-button rectangle-button-semi">Terrain Header</a></li>
+                
+                    <li><a href="#terrain_blocks" class="rectangle-button rectangle-button-semi">Terrain Blocks</a></li>
+                
+                    <li><a href="#terrain_structs" class="rectangle-button rectangle-button-semi">Terrain Structs</a></li>
+                
+                </ul>
+            
+            </li>
+        </ul>
+    </nav>
+</div>
+		<div class="container-fluid container-main">
+            <div class="row">
+    		
+    			
 
-<div class="sidebar">
-	<sidebar_title>ZE File Formats - .TER</sidebar_title>
-	<div class="hr_dark"></div>
-	<div id="sidebar-content">
-	
-		<category_label>Navigation</category_label><br>
-		
-		
-	        
+<div class="col-md-2" role="complementary">
+	<nav class="affix hidden-xs hidden-sm">
+		<div class="sidebar">
+			<div class="sidebar-title">ZE File Formats - .TER</div>
+			<div class="hr"></div>
+			<div id="sidebar-content">
+			
+				<div class="category_label">Navigation</div>
+				
+				
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#overview">Overview</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="index.html">Back</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="http://schlechtwetterfront.github.io/">Homepage</a>
 	
-	    
-	    
-	    <!-- <div class="hr-sidebar-dark"></div> -->
-	
-		<category_label>Format</category_label><br>
-		
-		<div class="sidebar-content-scrollable">
-		
-		
-	        
+			    
+			    
+			
+				<div class="category_label">Format</div>
+				
+				<div class="sidebar-content-scrollable">
+				
+				
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#terrain_header">Terrain Header</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#terrain_blocks">Terrain Blocks</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#terrain_structs">Terrain Structs</a>
 	
-	    
-	    
-		</div>
-		
-	    <!-- <div class="hr-sidebar-dark"></div> -->
-	
-	</div>
-</div>
+			    
+			    
+				</div>
+				
 			
+			</div>
+		</div>
+	</nav>
+</div>
+    			
 
-<div class="content">
+<!-- <div class="content"> -->
+<div class="col-md-10 section-container" role="main">
 	
 		<div class="section">
 			<a name="overview"></a>
@@ -482,7 +521,8 @@
 		</div>
 	
 </div>
-		
+    		
+            </div>
 		</div>
 	</body>
 </html>

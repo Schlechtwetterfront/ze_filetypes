@@ -3,187 +3,282 @@
 	<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css">
-    <link rel="stylesheet" href="../css/schlechtwetterfront_light.css">
-    <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css"> -->
+    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_light.css"> -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/shared.css">
+    <link rel="stylesheet" href="../css/site.css">
+    <link rel="stylesheet" href="../css/site-mainpage.css">
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/schlechtwetterfront_visual.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/schlechtwetterfront_functional.js"></script>
-    <!-- <script src="../js/bootstrap.min.js"></script> -->
+    <script src="../js/schlechtwetterfront_visual.js"></script>
     <link rel="icon" type="image/png" href="../favicon.png"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>ZE File Formats - .MSH Render Types</title>
 </head>
 	<body>
-		<div class="container">
-		
-			
+        <div class="container-fluid hidden-lg hidden-md">
+    <nav class="navbar" id="s-navbar">
+        <ul class="nav navbar-nav">
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation</a>
+                <ul class="dropdown-menu">
+                
+                    <li><a href="#overview" class="rectangle-button rectangle-button-semi">Overview</a></li>
+                
+                    <li><a href="index.html" class="rectangle-button rectangle-button-semi">Back</a></li>
+                
+                    <li><a href="http://schlechtwetterfront.github.io/" class="rectangle-button rectangle-button-semi">Homepage</a></li>
+                
+                </ul>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Render Types</a>
+                <ul class="dropdown-menu">
+                
+                    <li><a href="#glow" class="rectangle-button rectangle-button-semi">01 - Glow</a></li>
+                
+                    <li><a href="#lightmap" class="rectangle-button rectangle-button-semi">02 - Lightmap</a></li>
+                
+                    <li><a href="#scrolling" class="rectangle-button rectangle-button-semi">03 - Scrolling</a></li>
+                
+                    <li><a href="#specular" class="rectangle-button rectangle-button-semi">04 - Specular</a></li>
+                
+                    <li><a href="#glossmap" class="rectangle-button rectangle-button-semi">05 - Glossmap</a></li>
+                
+                    <li><a href="#chrome" class="rectangle-button rectangle-button-semi">06 - Chrome</a></li>
+                
+                    <li><a href="#animated" class="rectangle-button rectangle-button-semi">07 - Animated</a></li>
+                
+                    <li><a href="#ice" class="rectangle-button rectangle-button-semi">08 - Ice</a></li>
+                
+                    <li><a href="#sky" class="rectangle-button rectangle-button-semi">09 - Sky</a></li>
+                
+                    <li><a href="#water" class="rectangle-button rectangle-button-semi">10 - Water</a></li>
+                
+                    <li><a href="#detail" class="rectangle-button rectangle-button-semi">11 - Detail</a></li>
+                
+                    <li><a href="#2scroll" class="rectangle-button rectangle-button-semi">12 - 2 Scroll</a></li>
+                
+                    <li><a href="#rotate" class="rectangle-button rectangle-button-semi">13 - Rotate</a></li>
+                
+                    <li><a href="#glow_rotate" class="rectangle-button rectangle-button-semi">14 - Glow Rotate</a></li>
+                
+                    <li><a href="#planar_reflection" class="rectangle-button rectangle-button-semi">15 - Planar Reflection</a></li>
+                
+                    <li><a href="#glow_scroll" class="rectangle-button rectangle-button-semi">16 - Glow Scroll</a></li>
+                
+                    <li><a href="#glow2scroll" class="rectangle-button rectangle-button-semi">17 - Glow 2 Scroll</a></li>
+                
+                    <li><a href="#curved_reflection" class="rectangle-button rectangle-button-semi">18 - Curved Reflection</a></li>
+                
+                    <li><a href="#normalmap_fade" class="rectangle-button rectangle-button-semi">19 - Normalmap Fade</a></li>
+                
+                    <li><a href="#normalmap_inv_fade" class="rectangle-button rectangle-button-semi">20 - Normalmap Inv Fade</a></li>
+                
+                    <li><a href="#ice_reflection" class="rectangle-button rectangle-button-semi">21 - Ice Reflection</a></li>
+                
+                    <li><a href="#ice_refraction" class="rectangle-button rectangle-button-semi">22 - Ice Refraction</a></li>
+                
+                    <li><a href="#emboss" class="rectangle-button rectangle-button-semi">23 - Emboss</a></li>
+                
+                    <li><a href="#wireframe" class="rectangle-button rectangle-button-semi">24 - Wireframe</a></li>
+                
+                    <li><a href="#energy" class="rectangle-button rectangle-button-semi">25 - Energy</a></li>
+                
+                    <li><a href="#afterburner" class="rectangle-button rectangle-button-semi">26 - Afterburner</a></li>
+                
+                    <li><a href="#bumpmap" class="rectangle-button rectangle-button-semi">27 - Bumpmap</a></li>
+                
+                    <li><a href="#bumpmap_glossmap" class="rectangle-button rectangle-button-semi">28 - Bumpmap + Glossmap</a></li>
+                
+                    <li><a href="#teleportal" class="rectangle-button rectangle-button-semi">29 - Teleportal</a></li>
+                
+                    <li><a href="#multistate" class="rectangle-button rectangle-button-semi">30 - MultiState</a></li>
+                
+                    <li><a href="#shield" class="rectangle-button rectangle-button-semi">31 - Shield</a></li>
+                
+                </ul>
+            
+            </li>
+        </ul>
+    </nav>
+</div>
+		<div class="container-fluid container-main">
+            <div class="row">
+    		
+    			
 
-<div class="sidebar">
-	<sidebar_title>ZE File Formats - .MSH Render Types</sidebar_title>
-	<div class="hr_dark"></div>
-	<div id="sidebar-content">
-	
-		<category_label>Navigation</category_label><br>
-		
-		
-	        
+<div class="col-md-2" role="complementary">
+	<nav class="affix hidden-xs hidden-sm">
+		<div class="sidebar">
+			<div class="sidebar-title">ZE File Formats - .MSH Render Types</div>
+			<div class="hr"></div>
+			<div id="sidebar-content">
+			
+				<div class="category_label">Navigation</div>
+				
+				
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#overview">Overview</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="index.html">Back</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="http://schlechtwetterfront.github.io/">Homepage</a>
 	
-	    
-	    
-	    <!-- <div class="hr-sidebar-dark"></div> -->
-	
-		<category_label>Render Types</category_label><br>
-		
-		<div class="sidebar-content-scrollable">
-		
-		
-	        
+			    
+			    
+			
+				<div class="category_label">Render Types</div>
+				
+				<div class="sidebar-content-scrollable">
+				
+				
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#glow">01 - Glow</a>
 	
-	    
-	        
-		<a class="rectangle-button rectangle-button-semi" href="#detail">02 - Detail</a>
+			    
+			        
+		<a class="rectangle-button rectangle-button-semi" href="#lightmap">02 - Lightmap</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#scrolling">03 - Scrolling</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#specular">04 - Specular</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#glossmap">05 - Glossmap</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#chrome">06 - Chrome</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#animated">07 - Animated</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#ice">08 - Ice</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#sky">09 - Sky</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#water">10 - Water</a>
 	
-	    
-	        
-		<a class="rectangle-button rectangle-button-semi" href="#lightmap">11 - Lightmap</a>
+			    
+			        
+		<a class="rectangle-button rectangle-button-semi" href="#detail">11 - Detail</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#2scroll">12 - 2 Scroll</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#rotate">13 - Rotate</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#glow_rotate">14 - Glow Rotate</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#planar_reflection">15 - Planar Reflection</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#glow_scroll">16 - Glow Scroll</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#glow2scroll">17 - Glow 2 Scroll</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#curved_reflection">18 - Curved Reflection</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#normalmap_fade">19 - Normalmap Fade</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#normalmap_inv_fade">20 - Normalmap Inv Fade</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#ice_reflection">21 - Ice Reflection</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#ice_refraction">22 - Ice Refraction</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#emboss">23 - Emboss</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#wireframe">24 - Wireframe</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#energy">25 - Energy</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#afterburner">26 - Afterburner</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#bumpmap">27 - Bumpmap</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#bumpmap_glossmap">28 - Bumpmap + Glossmap</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#teleportal">29 - Teleportal</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#multistate">30 - MultiState</a>
 	
-	    
-	        
+			    
+			        
 		<a class="rectangle-button rectangle-button-semi" href="#shield">31 - Shield</a>
 	
-	    
-	    
-		</div>
-		
-	    <!-- <div class="hr-sidebar-dark"></div> -->
-	
-	</div>
-</div>
+			    
+			    
+				</div>
+				
 			
+			</div>
+		</div>
+	</nav>
+</div>
+    			
 
-<div class="content">
+<!-- <div class="content"> -->
+<div class="col-md-10 section-container" role="main">
 	
 		<div class="section">
 			<a name="overview"></a>
@@ -241,14 +336,14 @@
 		</div>
 	
 		<div class="section">
-			<a name="detail"></a>
+			<a name="lightmap"></a>
 				<!-- <div> -->
-					<div class="section-header">Detail</div>
+					<div class="section-header">Lightmap</div>
 					<!-- 
-		<a class="toggle_collapse" content-id="detail_content" id="detail_content_start" starts-collapsed="True">Collapse</a>
+		<a class="toggle_collapse" content-id="lightmap_content" id="lightmap_content_start" starts-collapsed="True">Collapse</a>
 	 -->
 				<!-- </div> -->
-				<div id="detail_content" class="section-content">
+				<div id="lightmap_content" class="section-content">
 				<table>
 <thead>
 <tr>
@@ -263,14 +358,15 @@
 <tr>
 <td>2</td>
 <td>02</td>
-<td>Tiling along U (horizontal)</td>
-<td>Tiling along V (vertical)</td>
+<td>-</td>
+<td>-</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>Tiles a detail texture. Requires an additional texture (detail texture).<br />
-May actually be <a href="#lightmap">Lightmap</a>.</p>
+<p>Basically a glow map. Requires an additional texture. The texture's alpha channel determines glow strength, rgb glow color and intensity.
+May actually be <a href="#detail">Detail</a>.</p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=323899#p323899">Lightmap discussion on GT </a></p>
 				<!-- 
 		<div></div>
 	 -->
@@ -578,14 +674,14 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 		</div>
 	
 		<div class="section">
-			<a name="lightmap"></a>
+			<a name="detail"></a>
 				<!-- <div> -->
-					<div class="section-header">Lightmap</div>
+					<div class="section-header">Detail</div>
 					<!-- 
-		<a class="toggle_collapse" content-id="lightmap_content" id="lightmap_content_start" starts-collapsed="True">Collapse</a>
+		<a class="toggle_collapse" content-id="detail_content" id="detail_content_start" starts-collapsed="True">Collapse</a>
 	 -->
 				<!-- </div> -->
-				<div id="lightmap_content" class="section-content">
+				<div id="detail_content" class="section-content">
 				<table>
 <thead>
 <tr>
@@ -600,15 +696,14 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 <tr>
 <td>11</td>
 <td>0b</td>
-<td>-</td>
-<td>-</td>
+<td>Tiling along U (horizontal)</td>
+<td>Tiling along V (vertical)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p>Basically a glow map. Requires an additional texture. The texture's alpha channel determines glow strength, rgb glow color and intensity.
-May actually be <a href="#detail">Detail</a>.</p>
-<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=323899#p323899">Lightmap discussion on GT </a></p>
+<p>Tiles a detail texture. Requires an additional texture (detail texture). The detail map should have an average intensity of about 0.5, which insures that the overall brightness of the object will not be affected.<br />
+May actually be <a href="#lightmap">Lightmap</a>.</p>
 				<!-- 
 		<div></div>
 	 -->
@@ -1122,7 +1217,7 @@ A refraction object can have an optional environment map associated with it.</p>
 <tr>
 <td>25</td>
 <td>19</td>
-<td>-</td>
+<td>Minimum intensity</td>
 <td>Throbbing frequency.</td>
 <td></td>
 </tr>
@@ -1362,7 +1457,8 @@ Optional texture which controls the specular intensity through it's alpha channe
 		</div>
 	
 </div>
-		
+    		
+            </div>
 		</div>
 	</body>
 </html>
