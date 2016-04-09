@@ -125,48 +125,25 @@
 <div class="col-md-10 section-container" role="main">
 	
 		<div class="section">
-			<a name="overview"></a>
-				<!-- <div> -->
-					<div class="section-header">Overview</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="overview_content" id="overview_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="overview">Overview</div>
+
 				<div id="overview_content" class="section-content">
 				<p>File format information for some ZeroEngine formats.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="zero-crc"></a>
-				<!-- <div> -->
-					<div class="section-header">Zero CRC</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="zero-crc_content" id="zero-crc_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="zero-crc">Zero CRC</div>
+
 				<div id="zero-crc_content" class="section-content">
 				<p>The CRC used in .msh files is 4 bytes long and is stored in pure hex. The algorithm is proprietary (<em>Zero</em> because it's used in Pandemic's <em>Zero Engine</em>).</p>
 <p>An example implementation of the <em>Zero</em> CRC can be found <a href="https://github.com/Schlechtwetterfront/xsizetools/blob/master/Application/Modules/msh2_crc.py">here (python)</a>.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="atrb-calculator"></a>
-				<!-- <div> -->
-					<div class="section-header">ATRB Calculator</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="atrb-calculator_content" id="atrb-calculator_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="atrb-calculator">ATRB Calculator</div>
+
 				<div id="atrb-calculator_content" class="section-content">
 				<p>Use this to calculate flag values, convert render type and data values to hex and convert from and to the .msh ATRB hex chunk.</p>
 <p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect. Check out the <a class="bordered block" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
@@ -290,21 +267,12 @@ Data1 Hex <input type="text" size="2" maxlength="2" id="data1-hex-value" class="
 </div>
 
 </div>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="zero-crc-implementation"></a>
-				<!-- <div> -->
-					<div class="section-header">Zero CRC Default Implementation</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="zero-crc-implementation_content" id="zero-crc-implementation_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="zero-crc-implementation">Zero CRC Default Implementation</div>
+
 				<div id="zero-crc-implementation_content" class="section-content">
 				<pre><code class="cpp">// CRC table
 static unsigned table32[256] =
@@ -426,11 +394,7 @@ unsigned __cdecl CalcLowerCRC(const char* str, unsigned crc)
     return ~crc;
 }
 </code></pre>
-				<!-- 
-		<a class="toggle_collapse_end" content-id="zero-crc-implementation_content" id="zero-crc-implementation_content_end">Collapse</a>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 </div>

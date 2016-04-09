@@ -279,31 +279,17 @@
 <div class="col-md-10 section-container" role="main">
 	
 		<div class="section">
-			<a name="overview"></a>
-				<!-- <div> -->
-					<div class="section-header">Overview</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="overview_content" id="overview_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="overview">Overview</div>
+
 				<div id="overview_content" class="section-content">
 				<p>Render Types are stored as 1-byte integers in the ATRB chunk of materials.<br />
 <strong>See Also:</strong> <a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620">Inside Edit Flags (GT)</a> | <a href="mshwalker.log">Analysis of both ModTools' .msh files</a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="glow"></a>
-				<!-- <div> -->
-					<div class="section-header">Glow</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="glow_content" id="glow_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="glow">Glow</div>
+
 				<div id="glow_content" class="section-content">
 				<table>
 <thead>
@@ -326,21 +312,12 @@
 </tbody>
 </table>
 <p>Glow amount is defined by material color and diffuse texture.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="lightmap"></a>
-				<!-- <div> -->
-					<div class="section-header">Lightmap</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="lightmap_content" id="lightmap_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="lightmap">Lightmap</div>
+
 				<div id="lightmap_content" class="section-content">
 				<table>
 <thead>
@@ -365,21 +342,12 @@
 <p>Basically a glow map. Requires an additional texture. The texture's alpha channel determines glow strength, rgb glow color and intensity.
 May actually be <a href="#detail">Detail</a>.</p>
 <p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=323899#p323899">Lightmap discussion on GT </a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="scrolling"></a>
-				<!-- <div> -->
-					<div class="section-header">Scrolling</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="scrolling_content" id="scrolling_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="scrolling">Scrolling</div>
+
 				<div id="scrolling_content" class="section-content">
 				<table>
 <thead>
@@ -402,21 +370,12 @@ May actually be <a href="#detail">Detail</a>.</p>
 </tbody>
 </table>
 <p>Scrolls the texture positively. To scroll in the other directions flip the texture coordinates.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="specular"></a>
-				<!-- <div> -->
-					<div class="section-header">Specular</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="specular_content" id="specular_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="specular">Specular</div>
+
 				<div id="specular_content" class="section-content">
 				<table>
 <thead>
@@ -439,21 +398,12 @@ May actually be <a href="#detail">Detail</a>.</p>
 </tbody>
 </table>
 <p>Enables Specular. Specular Flag doesn't seem to be needed for it to work. Specular power is affected by material color and Specular Decay (gloss).</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="glossmap"></a>
-				<!-- <div> -->
-					<div class="section-header">Glossmap</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="glossmap_content" id="glossmap_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="glossmap">Glossmap</div>
+
 				<div id="glossmap_content" class="section-content">
 				<table>
 <thead>
@@ -476,21 +426,12 @@ May actually be <a href="#detail">Detail</a>.</p>
 </tbody>
 </table>
 <p>This uses the diffuse texture's alpha channel for specular intensity. Specular Color and Decay are used to determine specularity. Make sure the values are valid. If they are too low the specular might not appear. If the diffuse texture doesn't have an alpha channel specular will be turned off.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="chrome"></a>
-				<!-- <div> -->
-					<div class="section-header">Chrome</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="chrome_content" id="chrome_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="chrome">Chrome</div>
+
 				<div id="chrome_content" class="section-content">
 				<table>
 <thead>
@@ -514,21 +455,12 @@ May actually be <a href="#detail">Detail</a>.</p>
 </table>
 <p>Environment map. Gives the illusion of reflection on a surface. If no environment map is specified as Texture1 then the game will choose one dynamically at run time.
 If the object is static or does not move you should provide an environment map.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="animated"></a>
-				<!-- <div> -->
-					<div class="section-header">Animated</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="animated_content" id="animated_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="animated">Animated</div>
+
 				<div id="animated_content" class="section-content">
 				<table>
 <thead>
@@ -553,21 +485,12 @@ If the object is static or does not move you should provide an environment map.<
 <p>Animates UVs to loop through different UV positions on the texture. UVs should be mapped to the first cell and not the whole texture. Cells have to be square and will be calculated automatically from the number of frames.<br />
 The number of cells always habe to be square (4, 9, 16, etc).</p>
 <p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=361010#p361010">Render Animated discussion on GT</a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="ice"></a>
-				<!-- <div> -->
-					<div class="section-header">Ice</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ice_content" id="ice_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="ice">Ice</div>
+
 				<div id="ice_content" class="section-content">
 				<table>
 <thead>
@@ -590,21 +513,12 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 </tbody>
 </table>
 <p>Ice.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="sky"></a>
-				<!-- <div> -->
-					<div class="section-header">Sky</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="sky_content" id="sky_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="sky">Sky</div>
+
 				<div id="sky_content" class="section-content">
 				<table>
 <thead>
@@ -627,21 +541,12 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 </tbody>
 </table>
 <p>Sky.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="water"></a>
-				<!-- <div> -->
-					<div class="section-header">Water</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="water_content" id="water_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="water">Water</div>
+
 				<div id="water_content" class="section-content">
 				<table>
 <thead>
@@ -664,21 +569,12 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 </tbody>
 </table>
 <p>Water.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="detail"></a>
-				<!-- <div> -->
-					<div class="section-header">Detail</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="detail_content" id="detail_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="detail">Detail</div>
+
 				<div id="detail_content" class="section-content">
 				<table>
 <thead>
@@ -702,21 +598,12 @@ The number of cells always habe to be square (4, 9, 16, etc).</p>
 </table>
 <p>Tiles a detail texture. Requires an additional texture (detail texture). The detail map should have an average intensity of about 0.5, which insures that the overall brightness of the object will not be affected.<br />
 May actually be <a href="#lightmap">Lightmap</a>.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="2scroll"></a>
-				<!-- <div> -->
-					<div class="section-header">2 Scroll</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="2scroll_content" id="2scroll_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="2scroll">2 Scroll</div>
+
 				<div id="2scroll_content" class="section-content">
 				<table>
 <thead>
@@ -739,21 +626,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>2 Scroll.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="rotate"></a>
-				<!-- <div> -->
-					<div class="section-header">Rotate</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="rotate_content" id="rotate_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="rotate">Rotate</div>
+
 				<div id="rotate_content" class="section-content">
 				<table>
 <thead>
@@ -776,21 +654,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Rotate.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="glow_rotate"></a>
-				<!-- <div> -->
-					<div class="section-header">Glow Rotate</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="glow_rotate_content" id="glow_rotate_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="glow_rotate">Glow Rotate</div>
+
 				<div id="glow_rotate_content" class="section-content">
 				<table>
 <thead>
@@ -813,21 +682,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Glow Rotate.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="planar_reflection"></a>
-				<!-- <div> -->
-					<div class="section-header">Planar Reflection</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="planar_reflection_content" id="planar_reflection_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="planar_reflection">Planar Reflection</div>
+
 				<div id="planar_reflection_content" class="section-content">
 				<table>
 <thead>
@@ -850,21 +710,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Planar Reflection.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="glow_scroll"></a>
-				<!-- <div> -->
-					<div class="section-header">Glow Scroll</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="glow_scroll_content" id="glow_scroll_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="glow_scroll">Glow Scroll</div>
+
 				<div id="glow_scroll_content" class="section-content">
 				<table>
 <thead>
@@ -887,21 +738,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Glow Scroll.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="glow2scroll"></a>
-				<!-- <div> -->
-					<div class="section-header">Glow 2 Scroll</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="glow2scroll_content" id="glow2scroll_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="glow2scroll">Glow 2 Scroll</div>
+
 				<div id="glow2scroll_content" class="section-content">
 				<table>
 <thead>
@@ -924,21 +766,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Glow 2 Scroll.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="curved_reflection"></a>
-				<!-- <div> -->
-					<div class="section-header">Curved Reflection</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="curved_reflection_content" id="curved_reflection_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="curved_reflection">Curved Reflection</div>
+
 				<div id="curved_reflection_content" class="section-content">
 				<table>
 <thead>
@@ -961,21 +794,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Curved Reflection.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="normalmap_fade"></a>
-				<!-- <div> -->
-					<div class="section-header">Normalmap Fade</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="normalmap_fade_content" id="normalmap_fade_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="normalmap_fade">Normalmap Fade</div>
+
 				<div id="normalmap_fade_content" class="section-content">
 				<table>
 <thead>
@@ -998,21 +822,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Normalmap Fade.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="normalmap_inv_fade"></a>
-				<!-- <div> -->
-					<div class="section-header">Normalmap Inv Fade</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="normalmap_inv_fade_content" id="normalmap_inv_fade_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="normalmap_inv_fade">Normalmap Inv Fade</div>
+
 				<div id="normalmap_inv_fade_content" class="section-content">
 				<table>
 <thead>
@@ -1035,21 +850,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Normalmap Inv Fade.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="ice_reflection"></a>
-				<!-- <div> -->
-					<div class="section-header">Ice Reflection</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ice_reflection_content" id="ice_reflection_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="ice_reflection">Ice Reflection</div>
+
 				<div id="ice_reflection_content" class="section-content">
 				<table>
 <thead>
@@ -1072,21 +878,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 </tbody>
 </table>
 <p>Ice Reflection.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="ice_refraction"></a>
-				<!-- <div> -->
-					<div class="section-header">Ice Refraction</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ice_refraction_content" id="ice_refraction_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="ice_refraction">Ice Refraction</div>
+
 				<div id="ice_refraction_content" class="section-content">
 				<table>
 <thead>
@@ -1111,21 +908,12 @@ May actually be <a href="#lightmap">Lightmap</a>.</p>
 <p>Models bend the light (see Bothan Spy). Model behaves as a transparent object but the transparency is distorted. Alpha channel of the diffuse is used to control the opacity. Requires an additional bump texture which controls amount of distortion. 
 A refraction object can have an optional environment map associated with it.</p>
 <p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=397720#p397720">Ice Refraction discussion on GT </a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="emboss"></a>
-				<!-- <div> -->
-					<div class="section-header">Emboss</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="emboss_content" id="emboss_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="emboss">Emboss</div>
+
 				<div id="emboss_content" class="section-content">
 				<table>
 <thead>
@@ -1148,21 +936,12 @@ A refraction object can have an optional environment map associated with it.</p>
 </tbody>
 </table>
 <p>Emboss. Requires an additional texture. Purpose uncertain. Might control specular.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="wireframe"></a>
-				<!-- <div> -->
-					<div class="section-header">Wireframe</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="wireframe_content" id="wireframe_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="wireframe">Wireframe</div>
+
 				<div id="wireframe_content" class="section-content">
 				<table>
 <thead>
@@ -1185,21 +964,12 @@ A refraction object can have an optional environment map associated with it.</p>
 </tbody>
 </table>
 <p>Wireframe.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="energy"></a>
-				<!-- <div> -->
-					<div class="section-header">Energy</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="energy_content" id="energy_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="energy">Energy</div>
+
 				<div id="energy_content" class="section-content">
 				<table>
 <thead>
@@ -1222,21 +992,12 @@ A refraction object can have an optional environment map associated with it.</p>
 </tbody>
 </table>
 <p>Makes the texture/material throb.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="afterburner"></a>
-				<!-- <div> -->
-					<div class="section-header">Afterburner</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="afterburner_content" id="afterburner_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="afterburner">Afterburner</div>
+
 				<div id="afterburner_content" class="section-content">
 				<table>
 <thead>
@@ -1259,21 +1020,12 @@ A refraction object can have an optional environment map associated with it.</p>
 </tbody>
 </table>
 <p>Afterburner.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="bumpmap"></a>
-				<!-- <div> -->
-					<div class="section-header">Bumpmap</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="bumpmap_content" id="bumpmap_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="bumpmap">Bumpmap</div>
+
 				<div id="bumpmap_content" class="section-content">
 				<table>
 <thead>
@@ -1297,21 +1049,12 @@ A refraction object can have an optional environment map associated with it.</p>
 </table>
 <p>Requires an additional texture (greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it. Specular flag should be enabled for better effect.</p>
 <p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT </a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="bumpmap_glossmap"></a>
-				<!-- <div> -->
-					<div class="section-header">Bumpmap + Glossmap</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="bumpmap_glossmap_content" id="bumpmap_glossmap_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="bumpmap_glossmap">Bumpmap + Glossmap</div>
+
 				<div id="bumpmap_glossmap_content" class="section-content">
 				<table>
 <thead>
@@ -1336,21 +1079,12 @@ A refraction object can have an optional environment map associated with it.</p>
 <p>Requires an additional texture (greyscale bumpmap or normalmap). The bumpmap needs a .option with -format bump in it.
 Optional texture which controls the specular intensity through it's alpha channel. Specular flag should be enabled for better effect.</p>
 <p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541">Bumpmap tutorial on GT </a></p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="teleportal"></a>
-				<!-- <div> -->
-					<div class="section-header">Teleportal</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="teleportal_content" id="teleportal_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="teleportal">Teleportal</div>
+
 				<div id="teleportal_content" class="section-content">
 				<table>
 <thead>
@@ -1373,21 +1107,12 @@ Optional texture which controls the specular intensity through it's alpha channe
 </tbody>
 </table>
 <p>Teleportal.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="multistate"></a>
-				<!-- <div> -->
-					<div class="section-header">MultiState</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="multistate_content" id="multistate_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="multistate">MultiState</div>
+
 				<div id="multistate_content" class="section-content">
 				<table>
 <thead>
@@ -1410,21 +1135,12 @@ Optional texture which controls the specular intensity through it's alpha channe
 </tbody>
 </table>
 <p>MultiState.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 		<div class="section">
-			<a name="shield"></a>
-				<!-- <div> -->
-					<div class="section-header">Shield</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="shield_content" id="shield_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
+				<div class="section-header" name="shield">Shield</div>
+
 				<div id="shield_content" class="section-content">
 				<table>
 <thead>
@@ -1447,11 +1163,7 @@ Optional texture which controls the specular intensity through it's alpha channe
 </tbody>
 </table>
 <p>Shield.</p>
-				<!-- 
-		<div></div>
-	 -->
 				</div>
-			<!-- <div class="hr"></div> -->
 		</div>
 	
 </div>
