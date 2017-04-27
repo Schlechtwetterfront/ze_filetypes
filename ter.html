@@ -1,142 +1,82 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
-    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css"> -->
-    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_light.css"> -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/site.css">
-    <link rel="stylesheet" href="../css/site-mainpage.css">
-    <script src="../js/respond.js"></script>
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/schlechtwetterfront_functional.js"></script>
-    <script src="../js/schlechtwetterfront_visual.js"></script>
-    <link rel="icon" type="image/png" href="../favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ZE File Formats - .TER</title>
-</head>
-	<body>
-        <div class="container-fluid hidden-lg hidden-md">
-    <nav class="navbar" id="s-navbar">
-        <ul class="nav navbar-nav">
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navigation</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#overview" class="rectangle-button rectangle-button-semi">Overview</a></li>
-                
-                    <li><a href="index.html" class="rectangle-button rectangle-button-semi">Back</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Format</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#terrain_header" class="rectangle-button rectangle-button-semi">Terrain Header</a></li>
-                
-                    <li><a href="#terrain_blocks" class="rectangle-button rectangle-button-semi">Terrain Blocks</a></li>
-                
-                    <li><a href="#terrain_structs" class="rectangle-button rectangle-button-semi">Terrain Structs</a></li>
-                
-                </ul>
-            
-            </li>
-        </ul>
-    </nav>
-</div>
-		<div class="container-fluid container-main">
-            <div class="row">
-    		
-    			
+		
+		<title>.ter Format</title>
+		
 
-<div class="col-md-2" role="complementary">
-	<nav class="affix hidden-xs hidden-sm">
-		<div class="sidebar">
-			<a href="http://schlechtwetterfront.github.io/" class="sidebar-homepage"></a>
-            <div class="sidebar-title">
+		<meta name="description" content="">
+		<meta name="keywords" content="programming, code">
 
-            ZE File Formats - .TER
-            </div>
-			<div class="hr"></div>
-			<div id="sidebar-content">
+		<link rel="shortcut icon" type="image/png" href="../images/personal_logo_small.png"/>
+		<link rel="stylesheet" href="../css/subpage-style.css" type="text/css" />
+	</head>
+	<body class="page-fileformats">
+
+		<div class="container">
+
 			
-				<div class="category_label">Navigation</div>
-				
-				
-			        
-		<a class="rectangle-button rectangle-button-semi" href="#overview">Overview</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi" href="index.html">Back</a>
-	
-			    
-			    
+				<aside class="menu">
+	<a href="/ze_filetypes/" class="no-style home">
+		
+		<h1 class="page-title not-fancy">
+		
+			.ter Format
+		
+		</h1>
+	</a>
+	<span class="no-select hr">&middot; &middot; &middot;</span>
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><h6 class="category-title">Navigation</h6></li>
 			
-				<div class="category_label">Format</div>
-				
-				<div class="sidebar-content-scrollable">
-				
-				
-			        
-		<a class="rectangle-button rectangle-button-semi" href="#terrain_header">Terrain Header</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi" href="#terrain_blocks">Terrain Blocks</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi" href="#terrain_structs">Terrain Structs</a>
-	
-			    
-			    
-				</div>
-				
+			<li class="link"><a href="\#overview">Overview</a></li>
 			
-			</div>
-		</div>
-	</nav>
-</div>
-    			
+			<li class="link"><a href="index.html">Back</a></li>
+			
+		
+			<li class="category"><h6 class="category-title">Format</h6></li>
+			
+			<li class="link"><a href="terrain-header">Terrain Header</a></li>
+			
+			<li class="link"><a href="terrain-header">Terrain Blocks</a></li>
+			
+			<li class="link"><a href="terrain-structs">Terrain Structs</a></li>
+			
+		
+		
+		
+	</ul>
+</aside>
+			
 
-<!-- <div class="content"> -->
-<div class="col-md-10 section-container" role="main">
-	
-		<div class="section">
-			<a name="overview"></a>
-				<!-- <div> -->
-					<div class="section-header">Overview</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="overview_content" id="overview_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="overview_content" class="section-content">
-				<p>Terrain files (*.ter) represent a single terrain to be used by a world. This file format is generated by ZeroEditor and used during the munge process to create the <em>tern</em> chunk within *.lvl files.</p>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="structure"></a>
-				<!-- <div> -->
-					<div class="section-header">Structure</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="structure_content" id="structure_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="structure_content" class="section-content">
-				<table>
+			
+			<div class="content">
+				
+				
+
+				
+						
+							<section class="block">
+
+<h2 id="overview">Overview</h2>
+
+<p>Terrain files (*.ter) represent a single terrain to be used by a world.
+This file format is generated by ZeroEditor and used during the munge process
+to create the <em>tern</em> chunk within *.lvl files.</p>
+
+</section>
+						
+							<section class="block">
+
+<h2 id="structure">Structure</h2>
+
+<table>
 <thead>
 <tr>
 <th>Name</th>
@@ -187,23 +127,14 @@
 </tr>
 </tbody>
 </table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="terrain_header"></a>
-				<!-- <div> -->
-					<div class="section-header">Terrain Header</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="terrain_header_content" id="terrain_header_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="terrain_header_content" class="section-content">
-				<p>The Terrain Header is always 2821 bytes in length.</p>
+
+</section>
+						
+							<section class="block">
+
+<h2 id="terrain-header">Terrain Header</h2>
+
+<p>The Terrain Header is always 2821 bytes in length.</p>
 <table>
 <thead>
 <tr>
@@ -214,104 +145,95 @@
 </thead>
 <tbody>
 <tr>
-<td class="orange">byte [4]</td>
+<td><code>byte [4]</code></td>
 <td>4</td>
 <td>Terrain Header Marker (TERR).</td>
 </tr>
 <tr>
-<td class="red">long int</td>
+<td><code>long int</code></td>
 <td>4</td>
 <td>.TER file version number (21 for SWBF, 22 for SWBFII).</td>
 </tr>
 <tr>
-<td class="red">short int [4]</td>
+<td><code>short int [4]</code></td>
 <td>8</td>
 <td>Terrain extents. <em>Example: -8, -8, 8, 8 for a 16x16 map.</em></td>
 </tr>
 <tr>
-<td class="red">long int</td>
+<td><code>long int</code></td>
 <td>4</td>
 <td>? (ie. 164)</td>
 </tr>
 <tr>
-<td class="red">float [16]</td>
+<td><code>float [16]</code></td>
 <td>64</td>
 <td>Tile-range for each texture layer. _0.031 (1/32): the texture spans 32 meters. This is stored as 1/X of the value in ZeroEditor.</td>
 </tr>
 <tr>
-<td class="orange">byte [16]</td>
+<td><code>byte [16]</code></td>
 <td>16</td>
 <td>Mapping for each texture-layer. 0 is normal.</td>
 </tr>
 <tr>
-<td class="orange">byte [64]</td>
+<td><code>byte [64]</code></td>
 <td>64</td>
 <td>Unknown. Possibly 16 floats for texture-layer rotations.</td>
 </tr>
 <tr>
-<td class="red">float </td>
+<td><code>float</code></td>
 <td>4</td>
 <td>Map height multiplier.</td>
 </tr>
 <tr>
-<td class="red">float</td>
+<td><code>float</code></td>
 <td>4</td>
 <td>Grid-scale. Distance between points.</td>
 </tr>
 <tr>
-<td class="red">long int</td>
+<td><code>long int</code></td>
 <td>4</td>
 <td>? (1)</td>
 </tr>
 <tr>
-<td class="red">long int</td>
+<td><code>long int</code></td>
 <td>4</td>
 <td>Full map size stored in the .TER file. The same or bigger than the map extents.</td>
 </tr>
 <tr>
-<td class="red">long int</td>
+<td><code>long int</code></td>
 <td>4</td>
 <td>? (2)</td>
 </tr>
 <tr>
-<td class="orange">byte </td>
+<td><code>byte</code></td>
 <td>1</td>
 <td>? (0F) Only exists in SWBF II (version 22) terrain.</td>
 </tr>
 <tr>
-<td>TextureLayer [16]</td>
+<td><code>TextureLayer [16]</code></td>
 <td>1024</td>
 <td>Texture layers (see below).</td>
 </tr>
 <tr>
-<td>WaterLayer [16]</td>
+<td><code>WaterLayer [16]</code></td>
 <td>1086</td>
 <td>Water layers (see below).</td>
 </tr>
 <tr>
-<td class="orange">byte [524]</td>
+<td><code>byte [524]</code></td>
 <td>524</td>
 <td>Unknown.</td>
 </tr>
 </tbody>
 </table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="terrain_blocks"></a>
-				<!-- <div> -->
-					<div class="section-header">Terrain Blocks</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="terrain_blocks_content" id="terrain_blocks_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="terrain_blocks_content" class="section-content">
-				<p>The Terrain Header is 2820 (SWBF) or 2821 (SWBFII) bytes in length.</p>
+
+</section>
+						
+							<section class="block">
+
+<h2 id="terrain-blocks">Terrain Blocks</h2>
+
+<p>The Terrain Header is 2820 (SWBF) or 2821 (SWBFII) bytes in length.</p>
 <table>
 <thead>
 <tr>
@@ -323,7 +245,7 @@
 <tbody>
 <tr>
 <td><strong>Height</strong></td>
-<td class="red">signed short</td>
+<td><code>signed short</code></td>
 <td><strong>Full map size * Full map size</strong> * 2</td>
 </tr>
 <tr>
@@ -333,7 +255,7 @@
 </tr>
 <tr>
 <td><strong>Color</strong></td>
-<td class="orange">byte [4]</td>
+<td><code>byte [4]</code></td>
 <td><strong>Full map size * Full map size</strong> * 4</td>
 </tr>
 <tr>
@@ -343,7 +265,7 @@
 </tr>
 <tr>
 <td><strong>Color 2</strong></td>
-<td class="orange">byte [4]</td>
+<td><code>byte [4]</code></td>
 <td><strong>Full map size * Full map size</strong> * 4</td>
 </tr>
 <tr>
@@ -353,7 +275,7 @@
 </tr>
 <tr>
 <td><strong>Texture</strong></td>
-<td class="orange">byte [16]</td>
+<td><code>byte [16]</code></td>
 <td><strong>Full map size * Full map size</strong> * 16</td>
 </tr>
 <tr>
@@ -363,7 +285,7 @@
 </tr>
 <tr>
 <td><strong>Water</strong></td>
-<td class="orange">byte</td>
+<td><code>byte</code></td>
 <td><strong>Full map size * Full map size</strong> / 2</td>
 </tr>
 <tr>
@@ -373,7 +295,7 @@
 </tr>
 <tr>
 <td><strong>Foliage</strong></td>
-<td class="orange">byte</td>
+<td><code>byte</code></td>
 <td><strong>Full map size * Full map size</strong> / 2</td>
 </tr>
 <tr>
@@ -383,7 +305,7 @@
 </tr>
 <tr>
 <td><strong>Unknwon</strong></td>
-<td class="orange">byte</td>
+<td><code>byte</code></td>
 <td>Variable</td>
 </tr>
 <tr>
@@ -393,23 +315,14 @@
 </tr>
 </tbody>
 </table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="terrain_structs"></a>
-				<!-- <div> -->
-					<div class="section-header">Terrain Structs</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="terrain_structs_content" id="terrain_structs_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="terrain_structs_content" class="section-content">
-				<h3>TextureLayer</h3>
+
+</section>
+						
+							<section class="block">
+
+<h2 id="terrain-structs">Terrain Structs</h2>
+
+<h3>TextureLayer</h3>
 <table>
 <thead>
 <tr>
@@ -420,12 +333,12 @@
 </thead>
 <tbody>
 <tr>
-<td class="green">char [32]</td>
+<td><code>char [32]</code></td>
 <td>32</td>
 <td>Diffuse texture name.</td>
 </tr>
 <tr>
-<td class="green">char [32]</td>
+<td><code>char [32]</code></td>
 <td>32</td>
 <td>Detail texture name.</td>
 </tr>
@@ -442,32 +355,32 @@
 </thead>
 <tbody>
 <tr>
-<td class="red">float [2]</td>
+<td><code>float [2]</code></td>
 <td>8</td>
 <td>Water height value (twice).</td>
 </tr>
 <tr>
-<td class="orange">byte [8]</td>
+<td><code>byte [8]</code></td>
 <td>8</td>
 <td>Unknown, always zero.</td>
 </tr>
 <tr>
-<td class="red">float [2]</td>
+<td><code>float [2]</code></td>
 <td>8</td>
 <td>UV animation velocity.</td>
 </tr>
 <tr>
-<td class="red">float [2]</td>
+<td><code>float [2]</code></td>
 <td>8</td>
 <td>UV animation repeat.</td>
 </tr>
 <tr>
-<td class="orange">byte [4]</td>
+<td><code>byte [4]</code></td>
 <td>4</td>
 <td>RGBA color values.</td>
 </tr>
 <tr>
-<td class="green">char [32]</td>
+<td><code>char [32]</code></td>
 <td>32</td>
 <td>Water texture name.</td>
 </tr>
@@ -485,32 +398,35 @@
 </thead>
 <tbody>
 <tr>
-<td class="red">int</td>
+<td><code>int</code></td>
 <td>4</td>
 <td>Length of the block.</td>
 </tr>
 <tr>
-<td class="red">int</td>
+<td><code>int</code></td>
 <td>4</td>
 <td>Number of items. Can be zero, in which case there are no further fields and this block ends.</td>
 </tr>
 <tr>
-<td class="red">int</td>
+<td><code>int</code></td>
 <td>4</td>
 <td>Number of (sub-)items?</td>
 </tr>
 </tbody>
 </table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
+
+</section>
+						
+				
+			</div>
+			
+
+			
+				<footer>
+</footer>
+			
+
 		</div>
-	
-</div>
-    		
-            </div>
-		</div>
+
 	</body>
 </html>

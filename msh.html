@@ -1,4108 +1,3936 @@
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
-    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_dark.css"> -->
-    <!-- <link rel="stylesheet" href="../css/schlechtwetterfront_light.css"> -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/shared.css">
-    <link rel="stylesheet" href="../css/site.css">
-    <link rel="stylesheet" href="../css/site-mainpage.css">
-    <script src="../js/respond.js"></script>
-    <script src="../js/jquery-1.11.0.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/schlechtwetterfront_functional.js"></script>
-    <script src="../js/schlechtwetterfront_visual.js"></script>
-    <link rel="icon" type="image/png" href="../favicon.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ZE File Formats - .MSH</title>
-</head>
-	<body>
-        <div class="container-fluid hidden-lg hidden-md">
-    <nav class="navbar" id="s-navbar">
-        <ul class="nav navbar-nav">
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">General Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#HEDR" class="rectangle-button rectangle-button-semi">HEDR</a></li>
-                
-                    <li><a href="#SHVO" class="rectangle-button rectangle-button-semi">SHVO</a></li>
-                
-                    <li><a href="#MSH2" class="rectangle-button rectangle-button-semi">MSH2</a></li>
-                
-                    <li><a href="#SINF" class="rectangle-button rectangle-button-semi">SINF</a></li>
-                
-                    <li><a href="#FRAM" class="rectangle-button rectangle-button-semi">FRAM</a></li>
-                
-                    <li><a href="#CAMR" class="rectangle-button rectangle-button-semi">CAMR</a></li>
-                
-                    <li><a href="#NAME" class="rectangle-button rectangle-button-semi">NAME</a></li>
-                
-                    <li><a href="#BBOX" class="rectangle-button rectangle-button-semi">BBOX</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Material Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#MATD_DATA" class="rectangle-button rectangle-button-semi">MATD.DATA</a></li>
-                
-                    <li><a href="#ATRB" class="rectangle-button rectangle-button-semi">ATRB</a></li>
-                
-                    <li><a href="#TX0D" class="rectangle-button rectangle-button-semi">TX0D</a></li>
-                
-                    <li><a href="#PRFX" class="rectangle-button rectangle-button-semi">PRFX</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Model Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#MTYP" class="rectangle-button rectangle-button-semi">MTYP</a></li>
-                
-                    <li><a href="#MNDX" class="rectangle-button rectangle-button-semi">MNDX</a></li>
-                
-                    <li><a href="#PRNT" class="rectangle-button rectangle-button-semi">PRNT</a></li>
-                
-                    <li><a href="#FLGS" class="rectangle-button rectangle-button-semi">FLGS</a></li>
-                
-                    <li><a href="#TRAN" class="rectangle-button rectangle-button-semi">TRAN</a></li>
-                
-                    <li><a href="#SWCI" class="rectangle-button rectangle-button-semi">SWCI</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Geometry Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#SEGM" class="rectangle-button rectangle-button-semi">SEGM</a></li>
-                
-                    <li><a href="#SHDW" class="rectangle-button rectangle-button-semi">SHDW</a></li>
-                
-                    <li><a href="#MATI" class="rectangle-button rectangle-button-semi">MATI</a></li>
-                
-                    <li><a href="#POSL" class="rectangle-button rectangle-button-semi">POSL</a></li>
-                
-                    <li><a href="#NRML" class="rectangle-button rectangle-button-semi">NRML</a></li>
-                
-                    <li><a href="#UV0L" class="rectangle-button rectangle-button-semi">UV0L</a></li>
-                
-                    <li><a href="#CLRL" class="rectangle-button rectangle-button-semi">CLRL</a></li>
-                
-                    <li><a href="#CLRB" class="rectangle-button rectangle-button-semi">CLRB</a></li>
-                
-                    <li><a href="#NDXT" class="rectangle-button rectangle-button-semi">NDXT</a></li>
-                
-                    <li><a href="#STRP" class="rectangle-button rectangle-button-semi">STRP</a></li>
-                
-                    <li><a href="#VLTB" class="rectangle-button rectangle-button-semi">VLTB</a></li>
-                
-                    <li><a href="#VLTL" class="rectangle-button rectangle-button-semi">VLTL</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cloth Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#CTEX" class="rectangle-button rectangle-button-semi">CTEX</a></li>
-                
-                    <li><a href="#CPOS" class="rectangle-button rectangle-button-semi">CPOS</a></li>
-                
-                    <li><a href="#CUV0" class="rectangle-button rectangle-button-semi">CUV0</a></li>
-                
-                    <li><a href="#FIDX" class="rectangle-button rectangle-button-semi">FIDX</a></li>
-                
-                    <li><a href="#FWGT" class="rectangle-button rectangle-button-semi">FWGT</a></li>
-                
-                    <li><a href="#CMSH" class="rectangle-button rectangle-button-semi">CMSH</a></li>
-                
-                    <li><a href="#SPRS" class="rectangle-button rectangle-button-semi">SPRS</a></li>
-                
-                    <li><a href="#CPRS" class="rectangle-button rectangle-button-semi">CPRS</a></li>
-                
-                    <li><a href="#BPRS" class="rectangle-button rectangle-button-semi">BPRS</a></li>
-                
-                    <li><a href="#COLL" class="rectangle-button rectangle-button-semi">COLL</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Animation Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#BLN2" class="rectangle-button rectangle-button-semi">BLN2</a></li>
-                
-                    <li><a href="#CYCL" class="rectangle-button rectangle-button-semi">CYCL</a></li>
-                
-                    <li><a href="#KFR3" class="rectangle-button rectangle-button-semi">KFR3</a></li>
-                
-                </ul>
-            
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Deprecated Chunks</a>
-                <ul class="dropdown-menu">
-                
-                    <li><a href="#FINF" class="rectangle-button rectangle-button-semi">FINF</a></li>
-                
-                    <li><a href="#LGTP" class="rectangle-button rectangle-button-semi">LGTP</a></li>
-                
-                    <li><a href="#LGTI" class="rectangle-button rectangle-button-semi">LGTI</a></li>
-                
-                    <li><a href="#LGTS" class="rectangle-button rectangle-button-semi">LGTS</a></li>
-                
-                    <li><a href="#FOGD" class="rectangle-button rectangle-button-semi">FOGD</a></li>
-                
-                </ul>
-            
-            </li>
-        </ul>
-    </nav>
-</div>
-		<div class="container-fluid container-main">
-            <div class="row">
-    		
-    			
+		
+		<title>.msh Format</title>
+		
 
-<div class="col-md-2" role="complementary">
-	<nav class="affix hidden-xs hidden-sm">
-		<div class="sidebar">
-			<a href="http://schlechtwetterfront.github.io/" class="sidebar-homepage"></a>
-            <div class="sidebar-title">
+		<meta name="description" content="">
+		<meta name="keywords" content="programming, code">
 
-            ZE File Formats - .MSH
-            </div>
-			<div class="hr"></div>
-			<div id="sidebar-content">
+		<link rel="shortcut icon" type="image/png" href="../images/personal_logo_small.png"/>
+		<link rel="stylesheet" href="../css/subpage-style.css" type="text/css" />
+	</head>
+	<body class="page-fileformats">
+
+		<div class="container">
+
 			
-				<div class="category_label">Navigation</div>
-				
-				
-			        
-		<a class="rectangle-button rectangle-button-semi" href="#overview">Overview</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi" href="index.html">Back</a>
-	
-			    
-			    
+	<aside class="menu">
+	<a href="/ze_filetypes/" class="no-style home">
+		
+		<h1 class="page-title not-fancy">
+		
+			.msh Format
+		
+		</h1>
+	</a>
+	<span class="no-select hr">&middot; &middot; &middot;</span>
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><h6 class="category-title">Navigation</h6></li>
 			
-				<div class="category_label">Chunks</div>
-				
-				<div class="sidebar-content-scrollable">
-				
-				
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#ExampleChunk">ExampleChunk</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#HEDR">HEDR</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SHVO"><indent-child></indent-child><text-container>SHVO</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MSH2"><indent-child></indent-child><text-container>MSH2</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FINF"><indent-child></indent-child><indent-child></indent-child><text-container>FINF</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SINF"><indent-child></indent-child><indent-child></indent-child><text-container>SINF</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FRAM"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>FRAM</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CAMR"><indent-child></indent-child><indent-child></indent-child><text-container>CAMR</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MATL"><indent-child></indent-child><indent-child></indent-child><text-container>MATL (Materials)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MATD"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>MATD (Material)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MATD_DATA"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>MATD.DATA</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#ATRB"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>ATRB</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#TX0D"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>TX0D</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#PRFX"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>PRFX</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MODL"><indent-child></indent-child><indent-child></indent-child><text-container>MODL (Model)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MTYP"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>MTYP</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MNDX"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>MNDX</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#PRNT"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>PRNT</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FLGS"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>FLGS</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#TRAN"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>TRAN</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SWCI"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>SWCI</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#GEOM"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>GEOM (Geometry)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#ENVL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>ENVL (Envelope)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SEGM"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>SEGM</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SHDW"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>SHDW</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#MATI"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>MATI</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#POSL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>POSL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#NRML"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>NRML</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#UV0L"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>UV0L</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CLRL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CLRL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CLRB"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CLRB</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#WGHT"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>WGHT</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#NDXL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>NDXL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#NDXT"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>NDXT</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#STRP"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>STRP</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#VLTB"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>VLTB</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#VLTL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>VLTL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CLTH"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CLTH (Cloth)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CTEX"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CTEX</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CPOS"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CPOS</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CUV0"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CUV0</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FIDX"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>FIDX</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FWGT"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>FWGT</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CMSH"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CMSH</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SPRS"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>SPRS</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CPRS"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>CPRS</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#BPRS"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>BPRS</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#COLL"><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><indent-child></indent-child><text-container>COLL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#SKL2"><indent-child></indent-child><text-container>SKL2 (Skeleton)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#BLN2"><indent-child></indent-child><text-container>BLN2</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#ANM2"><indent-child></indent-child><text-container>ANM2 (Animation)</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#CYCL"><indent-child></indent-child><indent-child></indent-child><text-container>CYCL</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#KFR3"><indent-child></indent-child><indent-child></indent-child><text-container>KFR3</text-container></a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#NAME">NAME</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#BBOX">BBOX</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#LGTP">LGTP</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#LGTI">LGTI</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#LGTS">LGTS</a>
-	
-			    
-			        
-		<a class="rectangle-button rectangle-button-semi rectangle-button-msh" href="#FOGD">FOGD</a>
-	
-			    
-			    
-				</div>
-				
+			<li class="link"><a href="\#overview">Overview</a></li>
 			
+			<li class="link"><a href="index.html">Back</a></li>
+			
+		
+		
+
+
+	
+		<li class="category"><h6 class="category-title">Example</h6></li>
+		
+	
+	<li class="link"><a href="#ExampleChunk" alt="ExampleChunk">ExampleChunk</a></li>
+
+	
+		<li class="category"><h6 class="category-title">General Chunks</h6></li>
+		
+	
+	<li class="link"><a href="#HEDR" alt="HEDR">HEDR</a></li>
+
+	
+	<li class="link"><a href="#SHVO" alt="SHVO">SHVO</a></li>
+
+	
+	<li class="link"><a href="#MSH2" alt="MSH2">MSH2</a></li>
+
+	
+	<li class="link"><a href="#FINF" alt="FINF">FINF</a></li>
+
+	
+	<li class="link"><a href="#SINF" alt="SINF">SINF</a></li>
+
+	
+	<li class="link"><a href="#FRAM" alt="FRAM">FRAM</a></li>
+
+	
+	<li class="link"><a href="#CAMR" alt="CAMR">CAMR</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Materials</h6></li>
+		
+	
+	<li class="link"><a href="#MATL" alt="MATL (Materials)">MATL (Materials)</a></li>
+
+	
+	<li class="link"><a href="#MATD" alt="MATD (Material)">MATD (Material)</a></li>
+
+	
+	<li class="link"><a href="#MATD.DATA" alt="MATD.DATA">MATD.DATA</a></li>
+
+	
+	<li class="link"><a href="#ATRB" alt="ATRB">ATRB</a></li>
+
+	
+	<li class="link"><a href="#TX0D" alt="TX0D">TX0D</a></li>
+
+	
+	<li class="link"><a href="#PRFX" alt="PRFX">PRFX</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Models</h6></li>
+		
+	
+	<li class="link"><a href="#MODL" alt="MODL (Model)">MODL (Model)</a></li>
+
+	
+	<li class="link"><a href="#MTYP" alt="MTYP">MTYP</a></li>
+
+	
+	<li class="link"><a href="#MNDX" alt="MNDX">MNDX</a></li>
+
+	
+	<li class="link"><a href="#PRNT" alt="PRNT">PRNT</a></li>
+
+	
+	<li class="link"><a href="#FLGS" alt="FLGS">FLGS</a></li>
+
+	
+	<li class="link"><a href="#TRAN" alt="TRAN">TRAN</a></li>
+
+	
+	<li class="link"><a href="#SWCI" alt="SWCI">SWCI</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Geometry</h6></li>
+		
+	
+	<li class="link"><a href="#GEOM" alt="GEOM (Geometry)">GEOM (Geometry)</a></li>
+
+	
+	<li class="link"><a href="#ENVL" alt="ENVL (Envelope)">ENVL (Envelope)</a></li>
+
+	
+	<li class="link"><a href="#SEGM" alt="SEGM">SEGM</a></li>
+
+	
+	<li class="link"><a href="#SHDW" alt="SHDW">SHDW</a></li>
+
+	
+	<li class="link"><a href="#MATI" alt="MATI">MATI</a></li>
+
+	
+	<li class="link"><a href="#POSL" alt="POSL">POSL</a></li>
+
+	
+	<li class="link"><a href="#NRML" alt="NRML">NRML</a></li>
+
+	
+	<li class="link"><a href="#UV0L" alt="UV0L">UV0L</a></li>
+
+	
+	<li class="link"><a href="#CLRL" alt="CLRL">CLRL</a></li>
+
+	
+	<li class="link"><a href="#CLRB" alt="CLRB">CLRB</a></li>
+
+	
+	<li class="link"><a href="#WGHT" alt="WGHT">WGHT</a></li>
+
+	
+	<li class="link"><a href="#NDXL" alt="NDXL">NDXL</a></li>
+
+	
+	<li class="link"><a href="#NDXT" alt="NDXT">NDXT</a></li>
+
+	
+	<li class="link"><a href="#STRP" alt="STRP">STRP</a></li>
+
+	
+	<li class="link"><a href="#VLTB" alt="VLTB">VLTB</a></li>
+
+	
+	<li class="link"><a href="#VLTL" alt="VLTL">VLTL</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Cloth</h6></li>
+		
+	
+	<li class="link"><a href="#CLTH" alt="CLTH (Cloth)">CLTH (Cloth)</a></li>
+
+	
+	<li class="link"><a href="#CTEX" alt="CTEX">CTEX</a></li>
+
+	
+	<li class="link"><a href="#CPOS" alt="CPOS">CPOS</a></li>
+
+	
+	<li class="link"><a href="#CUV0" alt="CUV0">CUV0</a></li>
+
+	
+	<li class="link"><a href="#FIDX" alt="FIDX">FIDX</a></li>
+
+	
+	<li class="link"><a href="#FWGT" alt="FWGT">FWGT</a></li>
+
+	
+	<li class="link"><a href="#CMSH" alt="CMSH">CMSH</a></li>
+
+	
+	<li class="link"><a href="#SPRS" alt="SPRS">SPRS</a></li>
+
+	
+	<li class="link"><a href="#CPRS" alt="CPRS">CPRS</a></li>
+
+	
+	<li class="link"><a href="#BPRS" alt="BPRS">BPRS</a></li>
+
+	
+	<li class="link"><a href="#COLL" alt="COLL">COLL</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Animation</h6></li>
+		
+	
+	<li class="link"><a href="#SKL2" alt="SKL2 (Skeleton)">SKL2 (Skeleton)</a></li>
+
+	
+	<li class="link"><a href="#BLN2" alt="BLN2">BLN2</a></li>
+
+	
+	<li class="link"><a href="#ANM2" alt="ANM2 (Animation)">ANM2 (Animation)</a></li>
+
+	
+	<li class="link"><a href="#CYCL" alt="CYCL">CYCL</a></li>
+
+	
+	<li class="link"><a href="#KFR3" alt="KFR3">KFR3</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Other</h6></li>
+		
+	
+	<li class="link"><a href="#NAME" alt="NAME">NAME</a></li>
+
+	
+	<li class="link"><a href="#BBOX" alt="BBOX">BBOX</a></li>
+
+	
+		<li class="category"><h6 class="category-title">Deprecated</h6></li>
+		
+	
+	<li class="link"><a href="#LGTP" alt="LGTP">LGTP</a></li>
+
+	
+	<li class="link"><a href="#LGTI" alt="LGTI">LGTI</a></li>
+
+	
+	<li class="link"><a href="#LGTS" alt="LGTS">LGTS</a></li>
+
+	
+	<li class="link"><a href="#FOGD" alt="FOGD">FOGD</a></li>
+
+
+	</ul>
+</aside>
+
+
+			
+			<div class="content">
+				
+				
+
+				
+	
+						
+							<section class="block">
+
+<h2 id="overview">Overview</h2>
+
+<p>This page lists all .MSH file chunks.
+In the .MSH file these chunks are organized in a hierarchy with <a class="chunk" href="#hedr">HEDR</a>
+(header) being the first chunk and branching out from there
+(as visualized in the sidebar navigation).</p>
+<p>Some of these chunks are exclusive to certain versions of the engine
+(Star Wars: The Clone Wars and before, Star Wars: Battlefront and Star Wars: Battlefront II)
+or deprecated completely. Most notably Cloth Simulation (<a class="chunk" href="#clth">CLTH</a> and children)
+being limited to Star Wars: Battlefront II.</p>
+
+</section>
+						
+				
+	
+		<section class="chunk block">
+			<h2 class="title" id="ExampleChunk">ExampleChunk</h2>
+			
+			<p>This is an example chunk.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#PARENT CHUNK" alt="PARENT CHUNK" class="chunk">PARENT CHUNK</a>
+					</td>
+					<td>
+					
+						<a href="#ALL" alt="ALL" class="chunk">ALL</a>
+					
+						<a href="#POSSIBLE" alt="POSSIBLE" class="chunk">POSSIBLE</a>
+					
+						<a href="#CHILDREN" alt="CHILDREN" class="chunk">CHILDREN</a>
+					
+					</td>
+					<td>
+						Number of appearances or if it's optional.
+					</td>
+				</tr>
+			</table>
+			
+			<p class="see-also">
+				See also:
+				<a href="#" alt="A list of links for further reading.">A list of links for further reading.</a>
+			</p>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte[4]</td>
+					<td>4</td>
+					<td><p>Header/chunk name. Every chunk has this.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Length indicator. Stores the length in bytes <em>excluding</em> the header and the size indicator. Every chunk has this indicator.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td>~</td>
+					<td><p>The rest of the data.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="HEDR">HEDR</h2>
+			
+			<p>.msh file header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+						<a href="#SHVO" alt="SHVO" class="chunk">SHVO</a>
+					
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					
+						<a href="#BLN2" alt="BLN2" class="chunk">BLN2</a>
+					
+						<a href="#SKL2" alt="SKL2" class="chunk">SKL2</a>
+					
+						<a href="#ANM2" alt="ANM2" class="chunk">ANM2</a>
+					
+						<a href="#CL1L" alt="CL1L" class="chunk">CL1L</a>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SHVO">SHVO</h2>
+			
+			<p>Indicates a shadow volume.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#HEDR" alt="HEDR" class="chunk">HEDR</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>0 or 1 (if .msh has a shadow volume).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MSH2">MSH2</h2>
+			
+			<p>.msh file mesh header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#HEDR" alt="HEDR" class="chunk">HEDR</a>
+					</td>
+					<td>
+					
+						<a href="#SINF" alt="SINF" class="chunk">SINF</a>
+					
+						<a href="#CAMR" alt="CAMR" class="chunk">CAMR</a>
+					
+						<a href="#MATL" alt="MATL" class="chunk">MATL</a>
+					
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					
+					</td>
+					<td>
+						Once
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FINF">FINF</h2>
+			
+			<p>Possibly deprecated. File information. PROJ: project name. USER: user name. TIME: time.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					</td>
+					<td>
+					
+						<a href="#PROJ" alt="PROJ" class="chunk">PROJ</a>
+					
+						<a href="#USER" alt="USER" class="chunk">USER</a>
+					
+						<a href="#TIME" alt="TIME" class="chunk">TIME</a>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>4 * X</td>
+					<td><p>File information.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SINF">SINF</h2>
+			
+			<p>Scene information header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					</td>
+					<td>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#FRAM" alt="FRAM" class="chunk">FRAM</a>
+					
+						<a href="#BBOX" alt="BBOX" class="chunk">BBOX</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FRAM">FRAM</h2>
+			
+			<p>Scene frame information.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SINF" alt="SINF" class="chunk">SINF</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Start of frame range.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>End of frame range.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Frames per second (usually ~30).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CAMR">CAMR</h2>
+			
+			<p>Scene camera header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					</td>
+					<td>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#DATA" alt="DATA" class="chunk">DATA</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MATL">MATL (Materials)</h2>
+			
+			<p>Material list header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					</td>
+					<td>
+					
+						<a href="#MATD" alt="MATD" class="chunk">MATD</a>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Count of materials (MATD) in this list.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MATD">MATD (Material)</h2>
+			
+			<p>Material header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MATL" alt="MATL" class="chunk">MATL</a>
+					</td>
+					<td>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#MATD.DATA" alt="MATD.DATA" class="chunk">MATD.DATA</a>
+					
+						<a href="#ATRB" alt="ATRB" class="chunk">ATRB</a>
+					
+						<a href="#TX0D" alt="TX0D" class="chunk">TX0D</a>
+					
+					</td>
+					<td>
+						One or more.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MATD.DATA">MATD.DATA</h2>
+			
+			<p>Material colors and specular sharpness (gloss). Colors are stored in 0-1 range.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MATD" alt="MATD" class="chunk">MATD</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float [4]</td>
+					<td>16</td>
+					<td><p>Diffuse RGBA color.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [4]</td>
+					<td>16</td>
+					<td><p>Specular RGBA color.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [4]</td>
+					<td>16</td>
+					<td><p>Ambient RGBA color.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Specular sharpness (gloss).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="ATRB">ATRB</h2>
+			
+			<p>Material flags (glow and other special rendertypes).</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MATD" alt="MATD" class="chunk">MATD</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			<p class="see-also">
+				See also:
+				<a href="render_types.html" alt="ZeroEngine Render Types">ZeroEngine Render Types</a><span>, </span><a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620" alt="Inside Edit Flags (GT)">Inside Edit Flags (GT)</a><span>, </span><a href="http://gametoast.com/viewtopic.php?t=24851&f=27&start=31" alt="GameToast ATRB discussion">GameToast ATRB discussion</a><span>, </span><a href="index.html#atrb-calculator" alt="Flag Calculator">Flag Calculator</a>
+			</p>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Sum of all flag values.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Render Type number.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Data0 Value. Range: 0-255</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Data1 Value. Range: 0-255</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="TX0D">TX0D</h2>
+			
+			<p>Texture name with extension (not full path). For multiple textures the name of the chunk will change to TX1D, TX2D, TX3D.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MATD" alt="MATD" class="chunk">MATD</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Texture name.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="PRFX">PRFX</h2>
+			
+			<p>Possibly deprecated. Material prefix.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MATD" alt="MATD" class="chunk">MATD</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>4 * X</td>
+					<td><p>Prefix.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MODL">MODL (Model)</h2>
+			
+			<p>Model header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MSH2" alt="MSH2" class="chunk">MSH2</a>
+					</td>
+					<td>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#MTYP" alt="MTYP" class="chunk">MTYP</a>
+					
+						<a href="#MNDX" alt="MNDX" class="chunk">MNDX</a>
+					
+						<a href="#PRNT" alt="PRNT" class="chunk">PRNT</a>
+					
+						<a href="#FLGS" alt="FLGS" class="chunk">FLGS</a>
+					
+						<a href="#TRAN" alt="TRAN" class="chunk">TRAN</a>
+					
+						<a href="#GEOM" alt="GEOM" class="chunk">GEOM</a>
+					
+						<a href="#SWCI" alt="SWCI" class="chunk">SWCI</a>
+					
+					</td>
+					<td>
+						One or more.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MTYP">MTYP</h2>
+			
+			<p>Model type.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Model type.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MNDX">MNDX</h2>
+			
+			<p>0-based Model index.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Model index.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="PRNT">PRNT</h2>
+			
+			<p>Name of the parent model, padded with 00's to fill up to a multiple-of-4 size.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Parent model name.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FLGS">FLGS</h2>
+			
+			<p>Model display flags.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Render Flags.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="TRAN">TRAN</h2>
+			
+			<p>Matrix transform. Scale can get ignored in-game.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3]</td>
+					<td>12</td>
+					<td><p>Scale factor in XYZ.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [4]</td>
+					<td>16</td>
+					<td><p>Quaternion Rotation in XYZW.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3]</td>
+					<td>12</td>
+					<td><p>Translation in XYZ.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SWCI">SWCI</h2>
+			
+			<p>Collision primitive.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Primitive type (0: sphere, 1: sphere, 2: cylinder, 4: cube).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: radius, cylinder: radius, cube: x_length.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: -, cylinder: height, cube: y_length.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: -, cylinder: -, cube: z_length.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="GEOM">GEOM (Geometry)</h2>
+			
+			<p>Geometry header. Will be used for static/dynamic geometry and shadow volumes.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#MODL" alt="MODL" class="chunk">MODL</a>
+					</td>
+					<td>
+					
+						<a href="#BBOX" alt="BBOX" class="chunk">BBOX</a>
+					
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					
+						<a href="#ENVL" alt="ENVL" class="chunk">ENVL</a>
+					
+					</td>
+					<td>
+						Optional (depends on model type).
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="ENVL">ENVL (Envelope)</h2>
+			
+			<p>List of indices into <a class="chunk" href="#MODL">MODL</a>. This model is enveloped to those indices' models.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#GEOM" alt="GEOM" class="chunk">GEOM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of indices into <a class="chunk" href="#MODL">MODL</a>.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int []</td>
+					<td>4 each</td>
+					<td><p>Index into <a class="chunk" href="#MODL">MODL</a>.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SEGM">SEGM</h2>
+			
+			<p>Geometry segment header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#GEOM" alt="GEOM" class="chunk">GEOM</a>
+					</td>
+					<td>
+					
+						<a href="#SHDW" alt="SHDW" class="chunk">SHDW</a>
+					
+						<a href="#MATI" alt="MATI" class="chunk">MATI</a>
+					
+						<a href="#POSL" alt="POSL" class="chunk">POSL</a>
+					
+						<a href="#CLRL" alt="CLRL" class="chunk">CLRL</a>
+					
+						<a href="#CLRB" alt="CLRB" class="chunk">CLRB</a>
+					
+						<a href="#WGHT" alt="WGHT" class="chunk">WGHT</a>
+					
+						<a href="#NRML" alt="NRML" class="chunk">NRML</a>
+					
+						<a href="#UV0L" alt="UV0L" class="chunk">UV0L</a>
+					
+						<a href="#NDXL" alt="NDXL" class="chunk">NDXL</a>
+					
+						<a href="#NDXT" alt="NDXT" class="chunk">NDXT</a>
+					
+						<a href="#STRP" alt="STRP" class="chunk">STRP</a>
+					
+					</td>
+					<td>
+						One or more.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SHDW">SHDW</h2>
+			
+			<p>Shadow mesh geometry.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						If the model is a shadow mesh, once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of vertex positions.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3][]</td>
+					<td>12 each</td>
+					<td><p>Vertex positions (XYZ).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of edges.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>short int [4][]</td>
+					<td>8 each</td>
+					<td><p>Edge. The following 4 entries form one edge.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>> short int</td>
+					<td>2</td>
+					<td><p>Vertex index of this edge entry. Refers to the vertex list above.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>> short int</td>
+					<td>2</td>
+					<td><p>Reference into an edge. Defines the target vertex (the local edge vertex of the referenced edge) to which the edge should be dran from the local vertex.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>> short int</td>
+					<td>2</td>
+					<td><p>Second reference into an edge. In all example .msh files I've seen this always refers to the same vertex as the first edge reference.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>> short int</td>
+					<td>2</td>
+					<td><p>MAX_VALUE of short integers (65535). Indicates the end of this edge.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="MATI">MATI</h2>
+			
+			<p>Material index (index into MATL).</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once?
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Material index.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="POSL">POSL</h2>
+			
+			<p>List of vertex coordinates.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once (unless shadow mesh).
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of coordinates stored in this list.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3][]</td>
+					<td>12 each</td>
+					<td><p>XYZ coordinates for each vertex.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="NRML">NRML</h2>
+			
+			<p>List of normals.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once (unless shadow mesh).
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of normal vectors stored in this list.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3][]</td>
+					<td>12 each</td>
+					<td><p>UVW vector for each vertex.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="UV0L">UV0L</h2>
+			
+			<p>List of UV coordinates.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of UV coordinates stored in this list.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [2][]</td>
+					<td>8 each</td>
+					<td><p>UV coordinate for each vertex.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CLRL">CLRL</h2>
+			
+			<p>List of vertex colors.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of colors stored in this list.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte [4][]</td>
+					<td>4 each</td>
+					<td><p>RGBA color (0-255).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CLRB">CLRB</h2>
+			
+			<p>One vertex color for the whole segment.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte [4]</td>
+					<td>4</td>
+					<td><p>RGBA color (0-255).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="WGHT">WGHT</h2>
+			
+			<p>List of bone-weight percentage pairs. Always 4 pairs per vertex.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of bone weights stored in this list.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td></td>
+					<td><p>The following appears 4 times per vertex (to allow for soft weighting).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Index into <a class="chunk" href="#ENVL">ENVL</a> (which then indexes into <a class="chunk" href="#MODL">MODL</a>).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Weight value (0-1).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="NDXL">NDXL</h2>
+			
+			<p>Polygons.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional/deprecated.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="NDXT">NDXT</h2>
+			
+			<p>Triangles.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional/deprecated.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="STRP">STRP</h2>
+			
+			<p>List of triangles strips. The start of a strip is indicated by 2 entries with a high bit set (0x8000 or 32768 added). Triangles are listed CW, CCW, CW, CCW... NOTE: In some meshes this chunk has a trailing short which is not calculated into the length/size of this chunk or the # of indices. This short can be ignored. If added to the last polygon it will break it as it always seems to be 0.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#FRAM" alt="FRAM" class="chunk">FRAM</a>
+					
+						<a href="#BBOX" alt="BBOX" class="chunk">BBOX</a>
+					
+					</td>
+					<td>
+						Once (unless shadow mesh).
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of indices into <a class="chunk" href="#POSL">POSL</a>.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>short int []</td>
+					<td>2 each</td>
+					<td><p>Index into <a class="chunk" href="#POSL">POSL</a>. The indices will form polygons.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="VLTB">VLTB</h2>
+			
+			<p>Possibly deprecated. Baked vertex light.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="VLTL">VLTL</h2>
+			
+			<p>Possibly deprecated. Unique baked vertex lights for vertices.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#SEGM" alt="SEGM" class="chunk">SEGM</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of colors to come.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="byte"
+					>byte</td>
+					<td>1</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CLTH">CLTH (Cloth)</h2>
+			
+			<p>Cloth header. Replaces <a class="chunk" href="#SEGM">SEGM</a>.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#GEOM" alt="GEOM" class="chunk">GEOM</a>
+					</td>
+					<td>
+					
+						<a href="#CTEXT" alt="CTEXT" class="chunk">CTEXT</a>
+					
+						<a href="#CPOS" alt="CPOS" class="chunk">CPOS</a>
+					
+						<a href="#CUV0" alt="CUV0" class="chunk">CUV0</a>
+					
+						<a href="#FIDX" alt="FIDX" class="chunk">FIDX</a>
+					
+						<a href="#FWGT" alt="FWGT" class="chunk">FWGT</a>
+					
+						<a href="#CMSH" alt="CMSH" class="chunk">CMSH</a>
+					
+						<a href="#SPRS" alt="SPRS" class="chunk">SPRS</a>
+					
+						<a href="#CPRS" alt="CPRS" class="chunk">CPRS</a>
+					
+						<a href="#BPRS" alt="BPRS" class="chunk">BPRS</a>
+					
+						<a href="#COLL" alt="COLL" class="chunk">COLL</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CTEX">CTEX</h2>
+			
+			<p>Texture name with extension.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Texture name.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CPOS">CPOS</h2>
+			
+			<p>List of vertex coordinates.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of vertex positions.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3][]</td>
+					<td>12 each</td>
+					<td><p>XYZ coordinates.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CUV0">CUV0</h2>
+			
+			<p>List of UV coordinates.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of UV coordinates.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [2][]</td>
+					<td>8 each</td>
+					<td><p>UV coordinate.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FIDX">FIDX</h2>
+			
+			<p>List of fixed points.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of points.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int ]</td>
+					<td>4 each</td>
+					<td><p>Index into <a class="chunk" href="#CPOS">CPOS</a>.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FWGT">FWGT</h2>
+			
+			<p>Index of <a class="chunk" href="#FIDX">FIDX</a> weighted to a bone by name.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of points.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Name of the bone the corresponding <a class="chunk" href="#FIDX">FIDX</a> is moving with.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CMSH">CMSH</h2>
+			
+			<p>Cloth triangles.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of points.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int [3][]</td>
+					<td>16 each</td>
+					<td><p>Triangle points defined CCW.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SPRS">SPRS</h2>
+			
+			<p>Stretch constraint data. Keeps cloth size by storing relations between points (like edges around a quad).</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			<p class="see-also">
+				See also:
+				<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300" alt="Constraint discussion (GT)">Constraint discussion (GT)</a>
+			</p>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of items.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>short int [2][]</td>
+					<td>4 each</td>
+					<td><p>Two points sharing an edge.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CPRS">CPRS</h2>
+			
+			<p>Cross constraint data. Keeps individual pieces of the cloth from shearing (cross relations between points). Think of the edges as sticky tape, glueing the points together.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			<p class="see-also">
+				See also:
+				<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300" alt="Constraint discussion (GT)">Constraint discussion (GT)</a>
+			</p>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of items.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>short int [2][]</td>
+					<td>4 each</td>
+					<td><p>Two points sharing a quad.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="BPRS">BPRS</h2>
+			
+			<p>Bend constraint data. Keeps the cloth's shape (relations between border-points of the cloth mesh, disables bending along those edges).</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			<p class="see-also">
+				See also:
+				<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300" alt="Constraint discussion (GT)">Constraint discussion (GT)</a>
+			</p>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of items.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="short"
+					>short int [2][]</td>
+					<td>4 each</td>
+					<td><p>Two border-points sharing a 'straight' edge over the complete cloth.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="COLL">COLL</h2>
+			
+			<p>Cloth collision. Note that this chunk is padded with 00's until it has a multiple of 4 chunk size.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#CLTH" alt="CLTH" class="chunk">CLTH</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional?
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of collisions.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Collision object name.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>~</td>
+					<td><p>Object name this collision moves with.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Primitive type (0: sphere, 1: cylinder, 2: cube).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: radius, cylinder: radius, cube: x_length / 2).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: radius, cylinder: height, cube: y_length / 2).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Data (sphere: radius, cylinder: -, cube: z_length / 2).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="SKL2">SKL2 (Skeleton)</h2>
+			
+			<p>Skeleton/chain. Lists some bone properties for every item in the chain. The values don't seem to make a big difference.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#HEDR" alt="HEDR" class="chunk">HEDR</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of bones in this skeleton.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="crc"
+					>CRC checksum</td>
+					<td>4</td>
+					<td><p><a href="index.html">CRC checksum</a> of the bone.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Type (bone?). Usual value: 0.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Constrain. Usual value: -1 or 1.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Bone length 1. Usual value: 0.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Bone length 2. Usual value: 0.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="BLN2">BLN2</h2>
+			
+			<p>Blend factors for the chain items (bones). Purpose unknown. Blend factor usually is 0/nothing (if float). </p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#HEDR" alt="HEDR" class="chunk">HEDR</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of bones.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="crc"
+					>CRC checksum</td>
+					<td>4</td>
+					<td><p><a href="index.html">CRC checksum</a> of the bone.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					>?</td>
+					<td>4</td>
+					<td><p>Blend factor. Usual value: 0.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="ANM2">ANM2 (Animation)</h2>
+			
+			<p>Animation header.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#HEDR" alt="HEDR" class="chunk">HEDR</a>
+					</td>
+					<td>
+					
+						<a href="#CYCL" alt="CYCL" class="chunk">CYCL</a>
+					
+						<a href="#KFR3" alt="KFR3" class="chunk">KFR3</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="CYCL">CYCL</h2>
+			
+			<p>Animation cycles. Can contain multiple animations.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#ANM2" alt="ANM2" class="chunk">ANM2</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of animations.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td></td>
+					<td><p>The following can appear multiple times.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>64</td>
+					<td><p>Aimation name.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Frame rate.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Play Style.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>First frame.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Last frame.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="KFR3">KFR3</h2>
+			
+			<p>All the frames and their local translation and rotation. Frame indices don't have to be consecutive. They can skip frames (like keyframes).</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						<a href="#ANM2" alt="ANM2" class="chunk">ANM2</a>
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Number of bones in this animation.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td></td>
+					<td><p>The following will appear once per chain item.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="crc"
+					>> CRC checksum</td>
+					<td>4</td>
+					<td><p><a href="index.html">CRC checksum</a>.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>> long int</td>
+					<td>4</td>
+					<td><p>Keyframe type.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>> long int</td>
+					<td>4</td>
+					<td><p>Number of translation frames.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>> long int</td>
+					<td>4</td>
+					<td><p>Number of rotation frames.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td></td>
+					<td><p>Translation frames will be listed first.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>>> long int</td>
+					<td>4</td>
+					<td><p>Translation frame index.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>>> float [3][]</td>
+					<td>12</td>
+					<td><p>Translation in XYZ.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						
+					></td>
+					<td></td>
+					<td><p>Rotation frames will be listed second.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>>> long int</td>
+					<td>4</td>
+					<td><p>Rotation frame index.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>>> float [4][]</td>
+					<td>16</td>
+					<td><p>Quaternion rotation in XYZW.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="NAME">NAME</h2>
+			
+			<p>Name, padded with 00's to fill up a multiple-of-4 size.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="string"
+					>ASCII string</td>
+					<td>4 * X</td>
+					<td><p>Name.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="BBOX">BBOX</h2>
+			
+			<p>Bounding box. <a class="chunk" href="#SINF">SINF</a>'s BBox will determine the blue/green selection box in ZeroEdit.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Once.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float [4]</td>
+					<td>16</td>
+					<td><p>Quaternion Rotation in XYZW.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3]</td>
+					<td>12</td>
+					<td><p>Center of the BBox.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float [3]</td>
+					<td>12</td>
+					<td><p>Extents of the BBox (width/2, height/2, depth/2).</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Bounding sphere radius.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="LGTP">LGTP</h2>
+			
+			<p>Possibly deprecated. Point Light.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+						<a href="#PRFX" alt="PRFX" class="chunk">PRFX</a>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#DATA" alt="DATA" class="chunk">DATA</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>X.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Y.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Z.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff start.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff end.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Flags (1: CastShadows).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="LGTI">LGTI</h2>
+			
+			<p>Possibly deprecated. Infinite Light.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+						<a href="#PRFX" alt="PRFX" class="chunk">PRFX</a>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#DATA" alt="DATA" class="chunk">DATA</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>X.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Y.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Z.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff start.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff end.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Flags (1: CastShadows).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="LGTS">LGTS</h2>
+			
+			<p>Possibly deprecated. Spot Light.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+						<a href="#PRFX" alt="PRFX" class="chunk">PRFX</a>
+					
+						<a href="#NAME" alt="NAME" class="chunk">NAME</a>
+					
+						<a href="#DATA" alt="DATA" class="chunk">DATA</a>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>X.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Y.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Z.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Interest X.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Interest Y.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Interest Z.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff start.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Falloff end.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Cone Angle.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Spread Angle.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="long"
+					>long int</td>
+					<td>4</td>
+					<td><p>Flags (1: CastShadows).</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+		<section class="chunk block">
+			<h2 class="title" id="FOGD">FOGD</h2>
+			
+			<p>Possibly deprecated. Fog data.</p>
+			<table class="hierarchy">
+				<thead>
+					<tr>
+						<th>Parent</th>
+						<th>Children</th>
+						<th>Appearance</th>
+					</tr>
+				</thead>
+				<tr>
+					<td>
+						-
+					</td>
+					<td>
+					
+					</td>
+					<td>
+						Optional.
+					</td>
+				</tr>
+			</table>
+			
+			
+			
+			<table class="structure">
+				<thead>
+					<tr class="title"><th>Structure</th></tr>
+					<tr>
+						<th>Data Type</th><th>Size</th><th>Description</th>
+					</tr>
+				</thead>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Red.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Green.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Blue.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Alpha.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Near plane.</p></td>
+				</tr>
+				
+				<tr>
+					<td
+						class="float"
+					>float</td>
+					<td>4</td>
+					<td><p>Far plane.</p></td>
+				</tr>
+				
+			</table>
+			
+		</section>
+	
+
 			</div>
-		</div>
-	</nav>
-</div>
-    			
+			
 
-<!-- <div class="content"> -->
-<div class="col-md-10 section-container" role="main">
-	
-		<div class="section">
-			<a name="overview"></a>
-				<!-- <div> -->
-					<div class="section-header">Overview</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="overview_content" id="overview_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="overview_content" class="section-content">
-				<p>This page lists all .MSH file chunks. In the .MSH file these chunks are organized in a hierarchy with <a class="bordered block" href="#HEDR">HEDR</a> (header) being the first chunk and branching out
-from there (as visualized in the sidebar navigation).  </p>
-<p>Some of these chunks are exclusive to certain versions of the engine (<em>Star Wars: The Clone Wars</em> and before, <em>Star Wars: Battlefront</em> and <em>Star Wars: Battlefront II</em>) or deprecated completely.
-Most notably Cloth Simulation (<a class="bordered block" href="#CLTH">CLTH</a> and children) being limited to <em>Star Wars: Battlefront II</em>.</p>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
+			
+				<footer>
+</footer>
+			
+
 		</div>
-	
-		<div class="section">
-			<a name="ExampleChunk"></a>
-				<!-- <div> -->
-					<div class="section-header">ExampleChunk</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ExampleChunk_content" id="ExampleChunk_content_start" starts-collapsed="False">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="ExampleChunk_content" class="section-content">
-				<h3>Description</h3>
-<p>This is an example chunk.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#PARENT CHUNK">PARENT CHUNK</a></td>
-<td><a class="bordered block" href="#ALL">ALL</a> <a class="bordered block" href="#POSSIBLE">POSSIBLE</a> <a class="bordered block" href="#CHILDREN">CHILDREN</a></td>
-<td>Number of appearances or if it's optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="#">A list of links for further reading.</a>&nbsp;&nbsp;&nbsp;</p>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="orange">byte[4]</td>
-<td>4</td>
-<td>Header/chunk name. Every chunk has this.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Length indicator. Stores the length in bytes <em>excluding</em> the header and the size indicator. Every chunk has this indicator.</td>
-</tr>
-<tr>
-<td></td>
-<td>~</td>
-<td>The rest of the data.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="HEDR"></a>
-				<!-- <div> -->
-					<div class="section-header">HEDR</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="HEDR_content" id="HEDR_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="HEDR_content" class="section-content">
-				<h3>Description</h3>
-<p>.msh file header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td><a class="bordered block" href="#SHVO">SHVO</a> <a class="bordered block" href="#MSH2">MSH2</a> <a class="bordered block" href="#BLN2">BLN2</a> <a class="bordered block" href="#SKL2">SKL2</a> <a class="bordered block" href="#ANM2">ANM2</a> <a class="bordered block" href="#CL1L">CL1L</a></td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SHVO"></a>
-				<!-- <div> -->
-					<div class="section-header">SHVO</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SHVO_content" id="SHVO_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SHVO_content" class="section-content">
-				<h3>Description</h3>
-<p>Indicates a shadow volume.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#HEDR">HEDR</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>0 or 1 (if .msh has a shadow volume).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MSH2"></a>
-				<!-- <div> -->
-					<div class="section-header">MSH2</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MSH2_content" id="MSH2_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MSH2_content" class="section-content">
-				<h3>Description</h3>
-<p>.msh file mesh header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#HEDR">HEDR</a></td>
-<td><a class="bordered block" href="#SINF">SINF</a> <a class="bordered block" href="#CAMR">CAMR</a> <a class="bordered block" href="#MATL">MATL</a> <a class="bordered block" href="#MODL">MODL</a></td>
-<td>Once</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FINF"></a>
-				<!-- <div> -->
-					<div class="section-header">FINF</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FINF_content" id="FINF_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FINF_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. File information. PROJ: project name. USER: user name. TIME: time.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MSH2">MSH2</a></td>
-<td><a class="bordered block" href="#PROJ">PROJ</a> <a class="bordered block" href="#USER">USER</a> <a class="bordered block" href="#TIME">TIME</a></td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>4 * X</td>
-<td>File information.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SINF"></a>
-				<!-- <div> -->
-					<div class="section-header">SINF</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SINF_content" id="SINF_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SINF_content" class="section-content">
-				<h3>Description</h3>
-<p>Scene information header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MSH2">MSH2</a></td>
-<td><a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#FRAM">FRAM</a> <a class="bordered block" href="#BBOX">BBOX</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FRAM"></a>
-				<!-- <div> -->
-					<div class="section-header">FRAM</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FRAM_content" id="FRAM_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FRAM_content" class="section-content">
-				<h3>Description</h3>
-<p>Scene frame information.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SINF">SINF</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Start of frame range.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>End of frame range.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Frames per second (usually ~30).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CAMR"></a>
-				<!-- <div> -->
-					<div class="section-header">CAMR</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CAMR_content" id="CAMR_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CAMR_content" class="section-content">
-				<h3>Description</h3>
-<p>Scene camera header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MSH2">MSH2</a></td>
-<td><a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#DATA">DATA</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MATL"></a>
-				<!-- <div> -->
-					<div class="section-header">MATL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MATL_content" id="MATL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MATL_content" class="section-content">
-				<h3>Description</h3>
-<p>Material list header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MSH2">MSH2</a></td>
-<td><a class="bordered block" href="#MATD">MATD</a></td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Count of materials (MATD) in this list.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MATD"></a>
-				<!-- <div> -->
-					<div class="section-header">MATD</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MATD_content" id="MATD_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MATD_content" class="section-content">
-				<h3>Description</h3>
-<p>Material header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MATL">MATL</a></td>
-<td><a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#MATD_DATA">MATD.DATA</a> <a class="bordered block" href="#ATRB">ATRB</a> <a class="bordered block" href="#TX0D">TX0D</a></td>
-<td>One or more.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MATD_DATA"></a>
-				<!-- <div> -->
-					<div class="section-header">MATD.DATA</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MATD_DATA_content" id="MATD_DATA_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MATD_DATA_content" class="section-content">
-				<h3>Description</h3>
-<p>Material colors and specular sharpness (gloss). Colors are stored in 0-1 range.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MATD">MATD</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float [4]</td>
-<td>16</td>
-<td>Diffuse RGBA color.</td>
-</tr>
-<tr>
-<td class="red">float [4]</td>
-<td>16</td>
-<td>Specular RGBA color.</td>
-</tr>
-<tr>
-<td class="red">float [4]</td>
-<td>16</td>
-<td>Ambient RGBA color.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Specular sharpness (gloss).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="ATRB"></a>
-				<!-- <div> -->
-					<div class="section-header">ATRB</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ATRB_content" id="ATRB_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="ATRB_content" class="section-content">
-				<h3>Description</h3>
-<p>Material flags (glow and other special rendertypes).</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MATD">MATD</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="render_types.html">ZeroEngine Render Types</a>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620">Inside Edit Flags (GT)</a>&nbsp;&nbsp;&nbsp;<a href="http://gametoast.com/viewtopic.php?t=24851&amp;f=27&amp;start=31">GameToast ATRB discussion</a>&nbsp;&nbsp;&nbsp;<a href="index.html#atrb-calculator">Flag Calculator</a>&nbsp;&nbsp;&nbsp;</p>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Sum of all flag values.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Render Type number.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Data0 Value. Range: 0-255</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Data1 Value. Range: 0-255</td>
-</tr>
-</tbody>
-</table>
-<h3>Flags</h3>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Flag</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Emissive</td>
-<td>Emissive material (unlit).</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Glow</td>
-<td>Simple glow.</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Single-sided Transparency</td>
-<td>Can't be used with Double-sided Transparency.</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Double-sided Transparency</td>
-<td>Can't be used with Single-sided Transparency.</td>
-</tr>
-<tr>
-<td>16</td>
-<td>Hard-edged Transparency</td>
-<td>Pixels are either opaque (&gt;128/50%) or transparent (&lt;129).</td>
-</tr>
-<tr>
-<td>32</td>
-<td>Per-Pixel Lighting</td>
-<td>More expensive and better looking lighting method (default is Per-Vertex Lighting).</td>
-</tr>
-<tr>
-<td>64</td>
-<td>Additive Transparency</td>
-<td>Performs an Add instead of a Blend when multiple transparent surfaces overlap.</td>
-</tr>
-<tr>
-<td>128</td>
-<td>Specular</td>
-<td>Controlled by specular color and decay (gloss) in the material. Optional alpha channel in the diffuse texture acts as gloss map.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="TX0D"></a>
-				<!-- <div> -->
-					<div class="section-header">TX0D</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="TX0D_content" id="TX0D_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="TX0D_content" class="section-content">
-				<h3>Description</h3>
-<p>Texture name with extension (not full path). For multiple textures the name of the chunk will change to TX1D, TX2D, TX3D.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MATD">MATD</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Texture name.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="PRFX"></a>
-				<!-- <div> -->
-					<div class="section-header">PRFX</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="PRFX_content" id="PRFX_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="PRFX_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Material prefix.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MATD">MATD</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>4 * X</td>
-<td>Prefix.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MODL"></a>
-				<!-- <div> -->
-					<div class="section-header">MODL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MODL_content" id="MODL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MODL_content" class="section-content">
-				<h3>Description</h3>
-<p>Model header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MSH2">MSH2</a></td>
-<td><a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#MTYP">MTYP</a> <a class="bordered block" href="#MNDX">MNDX</a> <a class="bordered block" href="#PRNT">PRNT</a> <a class="bordered block" href="#FLGS">FLGS</a> <a class="bordered block" href="#TRAN">TRAN</a> <a class="bordered block" href="#GEOM">GEOM</a> <a class="bordered block" href="#SWCI">SWCI</a></td>
-<td>One or more.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MTYP"></a>
-				<!-- <div> -->
-					<div class="section-header">MTYP</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MTYP_content" id="MTYP_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MTYP_content" class="section-content">
-				<h3>Description</h3>
-<p>Model type.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Model type.</td>
-</tr>
-</tbody>
-</table>
-<h3>Model Types</h3>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>Null.</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Dynamic mesh (weighted/enveloped).</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Cloth.</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Bone.</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Static mesh.</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Shadow mesh.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MNDX"></a>
-				<!-- <div> -->
-					<div class="section-header">MNDX</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MNDX_content" id="MNDX_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MNDX_content" class="section-content">
-				<h3>Description</h3>
-<p>0-based Model index.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Model index.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="PRNT"></a>
-				<!-- <div> -->
-					<div class="section-header">PRNT</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="PRNT_content" id="PRNT_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="PRNT_content" class="section-content">
-				<h3>Description</h3>
-<p>Name of the parent model, padded with 00's to fill up to a multiple-of-4 size.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Parent model name.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FLGS"></a>
-				<!-- <div> -->
-					<div class="section-header">FLGS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FLGS_content" id="FLGS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FLGS_content" class="section-content">
-				<h3>Description</h3>
-<p>Model display flags.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Render Flags.</td>
-</tr>
-</tbody>
-</table>
-<h3>Render Flags</h3>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Flag</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Hidden.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Dynamically lit.</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Retain normals.</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Render after shadows.</td>
-</tr>
-<tr>
-<td>16</td>
-<td>Don't flatten geometry.</td>
-</tr>
-<tr>
-<td>32</td>
-<td>PS2 optimize.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="TRAN"></a>
-				<!-- <div> -->
-					<div class="section-header">TRAN</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="TRAN_content" id="TRAN_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="TRAN_content" class="section-content">
-				<h3>Description</h3>
-<p>Matrix transform. Scale can get ignored in-game.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float [3]</td>
-<td>12</td>
-<td>Scale factor in XYZ.</td>
-</tr>
-<tr>
-<td class="red">float [4]</td>
-<td>16</td>
-<td>Quaternion Rotation in XYZW.</td>
-</tr>
-<tr>
-<td class="red">float [3]</td>
-<td>12</td>
-<td>Translation in XYZ.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SWCI"></a>
-				<!-- <div> -->
-					<div class="section-header">SWCI</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SWCI_content" id="SWCI_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SWCI_content" class="section-content">
-				<h3>Description</h3>
-<p>Collision primitive.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Primitive type (0: sphere, 1: sphere, 2: cylinder, 4: cube).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: radius, cylinder: radius, cube: x_length.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: -, cylinder: height, cube: y_length.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: -, cylinder: -, cube: z_length.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="GEOM"></a>
-				<!-- <div> -->
-					<div class="section-header">GEOM</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="GEOM_content" id="GEOM_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="GEOM_content" class="section-content">
-				<h3>Description</h3>
-<p>Geometry header. Will be used for static/dynamic geometry and shadow volumes.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#MODL">MODL</a></td>
-<td><a class="bordered block" href="#BBOX">BBOX</a> <a class="bordered block" href="#SEGM">SEGM</a> <a class="bordered block" href="#CLTH">CLTH</a> <a class="bordered block" href="#ENVL">ENVL</a></td>
-<td>Optional (depends on model type).</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="ENVL"></a>
-				<!-- <div> -->
-					<div class="section-header">ENVL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ENVL_content" id="ENVL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="ENVL_content" class="section-content">
-				<h3>Description</h3>
-<p>List of indices into <a _:="{:" class="bordered" href="#MODL">MODL</a>. This model is enveloped to those indices' models.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#GEOM">GEOM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of indices into <a _:="{:" class="bordered" href="#MODL">MODL</a>.</td>
-</tr>
-<tr>
-<td class="red">long int []</td>
-<td>4 each</td>
-<td>Index into <a _:="{:" class="bordered" href="#MODL">MODL</a>.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SEGM"></a>
-				<!-- <div> -->
-					<div class="section-header">SEGM</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SEGM_content" id="SEGM_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SEGM_content" class="section-content">
-				<h3>Description</h3>
-<p>Geometry segment header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#GEOM">GEOM</a></td>
-<td><a class="bordered block" href="#SHDW">SHDW</a> <a class="bordered block" href="#MATI">MATI</a> <a class="bordered block" href="#POSL">POSL</a> <a class="bordered block" href="#CLRL">CLRL</a> <a class="bordered block" href="#CLRB">CLRB</a> <a class="bordered block" href="#WGHT">WGHT</a> <a class="bordered block" href="#NRML">NRML</a> <a class="bordered block" href="#UV0L">UV0L</a> <a class="bordered block" href="#NDXL">NDXL</a> <a class="bordered block" href="#NDXT">NDXT</a> <a class="bordered block" href="#STRP">STRP</a></td>
-<td>One or more.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SHDW"></a>
-				<!-- <div> -->
-					<div class="section-header">SHDW</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SHDW_content" id="SHDW_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SHDW_content" class="section-content">
-				<h3>Description</h3>
-<p>Shadow mesh geometry.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>If the model is a shadow mesh, once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of vertex positions.</td>
-</tr>
-<tr>
-<td class="red">float [3][]</td>
-<td>12 each</td>
-<td>Vertex positions (XYZ).</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of edges.</td>
-</tr>
-<tr>
-<td class="red">short int [4][]</td>
-<td>8 each</td>
-<td>Edge. The following 4 entries form one edge.</td>
-</tr>
-<tr>
-<td class="red">&gt; short int</td>
-<td>2</td>
-<td>Vertex index of this edge entry. Refers to the vertex list above.</td>
-</tr>
-<tr>
-<td class="red">&gt; short int</td>
-<td>2</td>
-<td>Reference into an edge. Defines the target vertex (the local edge vertex of the referenced edge) to which the edge should be dran from the local vertex.</td>
-</tr>
-<tr>
-<td class="red">&gt; short int</td>
-<td>2</td>
-<td>Second reference into an edge. In all example .msh files I've seen this always refers to the same vertex as the first edge reference.</td>
-</tr>
-<tr>
-<td class="red">&gt; short int</td>
-<td>2</td>
-<td>MAX_VALUE of short integers (65535). Indicates the end of this edge.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="MATI"></a>
-				<!-- <div> -->
-					<div class="section-header">MATI</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="MATI_content" id="MATI_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="MATI_content" class="section-content">
-				<h3>Description</h3>
-<p>Material index (index into MATL).</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Once?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Material index.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="POSL"></a>
-				<!-- <div> -->
-					<div class="section-header">POSL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="POSL_content" id="POSL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="POSL_content" class="section-content">
-				<h3>Description</h3>
-<p>List of vertex coordinates.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Once (unless shadow mesh).</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of coordinates stored in this list.</td>
-</tr>
-<tr>
-<td class="red">float [3][]</td>
-<td>12 each</td>
-<td>XYZ coordinates for each vertex.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="NRML"></a>
-				<!-- <div> -->
-					<div class="section-header">NRML</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="NRML_content" id="NRML_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="NRML_content" class="section-content">
-				<h3>Description</h3>
-<p>List of normals.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Once (unless shadow mesh).</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of normal vectors stored in this list.</td>
-</tr>
-<tr>
-<td class="red">float [3][]</td>
-<td>12 each</td>
-<td>UVW vector for each vertex.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="UV0L"></a>
-				<!-- <div> -->
-					<div class="section-header">UV0L</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="UV0L_content" id="UV0L_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="UV0L_content" class="section-content">
-				<h3>Description</h3>
-<p>List of UV coordinates.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of UV coordinates stored in this list.</td>
-</tr>
-<tr>
-<td class="red">float [2][]</td>
-<td>8 each</td>
-<td>UV coordinate for each vertex.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CLRL"></a>
-				<!-- <div> -->
-					<div class="section-header">CLRL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CLRL_content" id="CLRL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CLRL_content" class="section-content">
-				<h3>Description</h3>
-<p>List of vertex colors.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of colors stored in this list.</td>
-</tr>
-<tr>
-<td class="orange">byte [4][]</td>
-<td>4 each</td>
-<td>RGBA color (0-255).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CLRB"></a>
-				<!-- <div> -->
-					<div class="section-header">CLRB</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CLRB_content" id="CLRB_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CLRB_content" class="section-content">
-				<h3>Description</h3>
-<p>One vertex color for the whole segment.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="orange">byte [4]</td>
-<td>4</td>
-<td>RGBA color (0-255).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="WGHT"></a>
-				<!-- <div> -->
-					<div class="section-header">WGHT</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="WGHT_content" id="WGHT_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="WGHT_content" class="section-content">
-				<h3>Description</h3>
-<p>List of bone-weight percentage pairs. Always 4 pairs per vertex.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of bone weights stored in this list.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>The following appears 4 times per vertex (to allow for soft weighting).</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Index into <a _:="{:" class="bordered" href="#ENVL">ENVL</a> (which then indexes into <a _:="{:" class="bordered" href="#MODL">MODL</a>).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Weight value (0-1).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="NDXL"></a>
-				<!-- <div> -->
-					<div class="section-header">NDXL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="NDXL_content" id="NDXL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="NDXL_content" class="section-content">
-				<h3>Description</h3>
-<p>Polygons.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional/deprecated.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="NDXT"></a>
-				<!-- <div> -->
-					<div class="section-header">NDXT</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="NDXT_content" id="NDXT_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="NDXT_content" class="section-content">
-				<h3>Description</h3>
-<p>Triangles.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional/deprecated.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="STRP"></a>
-				<!-- <div> -->
-					<div class="section-header">STRP</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="STRP_content" id="STRP_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="STRP_content" class="section-content">
-				<h3>Description</h3>
-<p>List of triangles strips. The start of a strip is indicated by 2 entries with a high bit set (0x8000 or 32768 added). Triangles are listed CW, CCW, CW, CCW... NOTE: In some meshes this chunk has a trailing short which is not calculated into the length/size of this chunk or the # of indices. This short can be ignored. If added to the last polygon it will break it as it always seems to be 0.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td><a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#FRAM">FRAM</a> <a class="bordered block" href="#BBOX">BBOX</a></td>
-<td>Once (unless shadow mesh).</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of indices into <a _:="{:" class="bordered" href="#POSL">POSL</a>.</td>
-</tr>
-<tr>
-<td class="red">short int []</td>
-<td>2 each</td>
-<td>Index into <a _:="{:" class="bordered" href="#POSL">POSL</a>. The indices will form polygons.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="VLTB"></a>
-				<!-- <div> -->
-					<div class="section-header">VLTB</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="VLTB_content" id="VLTB_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="VLTB_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Baked vertex light.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Alpha.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="VLTL"></a>
-				<!-- <div> -->
-					<div class="section-header">VLTL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="VLTL_content" id="VLTL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="VLTL_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Unique baked vertex lights for vertices.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#SEGM">SEGM</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of colors to come.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="orange">byte</td>
-<td>1</td>
-<td>Alpha.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CLTH"></a>
-				<!-- <div> -->
-					<div class="section-header">CLTH</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CLTH_content" id="CLTH_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CLTH_content" class="section-content">
-				<h3>Description</h3>
-<p>Cloth header. Replaces <a _:="{:" class="bordered" href="#SEGM">SEGM</a>.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#GEOM">GEOM</a></td>
-<td><a class="bordered block" href="#CTEXT">CTEXT</a> <a class="bordered block" href="#CPOS">CPOS</a> <a class="bordered block" href="#CUV0">CUV0</a> <a class="bordered block" href="#FIDX">FIDX</a> <a class="bordered block" href="#FWGT">FWGT</a> <a class="bordered block" href="#CMSH">CMSH</a> <a class="bordered block" href="#SPRS">SPRS</a> <a class="bordered block" href="#CPRS">CPRS</a> <a class="bordered block" href="#BPRS">BPRS</a> <a class="bordered block" href="#COLL">COLL</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CTEX"></a>
-				<!-- <div> -->
-					<div class="section-header">CTEX</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CTEX_content" id="CTEX_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CTEX_content" class="section-content">
-				<h3>Description</h3>
-<p>Texture name with extension.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Texture name.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CPOS"></a>
-				<!-- <div> -->
-					<div class="section-header">CPOS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CPOS_content" id="CPOS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CPOS_content" class="section-content">
-				<h3>Description</h3>
-<p>List of vertex coordinates.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of vertex positions.</td>
-</tr>
-<tr>
-<td class="red">float [3][]</td>
-<td>12 each</td>
-<td>XYZ coordinates.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CUV0"></a>
-				<!-- <div> -->
-					<div class="section-header">CUV0</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CUV0_content" id="CUV0_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CUV0_content" class="section-content">
-				<h3>Description</h3>
-<p>List of UV coordinates.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of UV coordinates.</td>
-</tr>
-<tr>
-<td class="red">float [2][]</td>
-<td>8 each</td>
-<td>UV coordinate.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FIDX"></a>
-				<!-- <div> -->
-					<div class="section-header">FIDX</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FIDX_content" id="FIDX_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FIDX_content" class="section-content">
-				<h3>Description</h3>
-<p>List of fixed points.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of points.</td>
-</tr>
-<tr>
-<td class="red">long int ]</td>
-<td>4 each</td>
-<td>Index into <a _:="{:" class="bordered" href="#CPOS">CPOS</a>.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FWGT"></a>
-				<!-- <div> -->
-					<div class="section-header">FWGT</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FWGT_content" id="FWGT_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FWGT_content" class="section-content">
-				<h3>Description</h3>
-<p>Index of <a _:="{:" class="bordered" href="#FIDX">FIDX</a> weighted to a bone by name.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of points.</td>
-</tr>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Name of the bone the corresponding <a _:="{:" class="bordered" href="#FIDX">FIDX</a> is moving with.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CMSH"></a>
-				<!-- <div> -->
-					<div class="section-header">CMSH</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CMSH_content" id="CMSH_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CMSH_content" class="section-content">
-				<h3>Description</h3>
-<p>Cloth triangles.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of points.</td>
-</tr>
-<tr>
-<td class="red">long int [3][]</td>
-<td>16 each</td>
-<td>Triangle points defined CCW.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SPRS"></a>
-				<!-- <div> -->
-					<div class="section-header">SPRS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SPRS_content" id="SPRS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SPRS_content" class="section-content">
-				<h3>Description</h3>
-<p>Stretch constraint data. Keeps cloth size by storing relations between points (like edges around a quad).</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300">Constraint discussion (GT)</a>&nbsp;&nbsp;&nbsp;</p>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of items.</td>
-</tr>
-<tr>
-<td class="red">short int [2][]</td>
-<td>4 each</td>
-<td>Two points sharing an edge.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CPRS"></a>
-				<!-- <div> -->
-					<div class="section-header">CPRS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CPRS_content" id="CPRS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CPRS_content" class="section-content">
-				<h3>Description</h3>
-<p>Cross constraint data. Keeps individual pieces of the cloth from shearing (cross relations between points). Think of the edges as sticky tape, glueing the points together.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300">Constraint discussion (GT)</a>&nbsp;&nbsp;&nbsp;</p>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of items.</td>
-</tr>
-<tr>
-<td class="red">short int [2][]</td>
-<td>4 each</td>
-<td>Two points sharing a quad.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="BPRS"></a>
-				<!-- <div> -->
-					<div class="section-header">BPRS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="BPRS_content" id="BPRS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="BPRS_content" class="section-content">
-				<h3>Description</h3>
-<p>Bend constraint data. Keeps the cloth's shape (relations between border-points of the cloth mesh, disables bending along those edges).</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>See also:</strong>&nbsp;&nbsp;&nbsp;<a href="http://www.gametoast.com/viewtopic.php?p=472300#p472300">Constraint discussion (GT)</a>&nbsp;&nbsp;&nbsp;</p>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of items.</td>
-</tr>
-<tr>
-<td class="red">short int [2][]</td>
-<td>4 each</td>
-<td>Two border-points sharing a 'straight' edge over the complete cloth.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="COLL"></a>
-				<!-- <div> -->
-					<div class="section-header">COLL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="COLL_content" id="COLL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="COLL_content" class="section-content">
-				<h3>Description</h3>
-<p>Cloth collision. Note that this chunk is padded with 00's until it has a multiple of 4 chunk size.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#CLTH">CLTH</a></td>
-<td>-</td>
-<td>Optional?</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of collisions.</td>
-</tr>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Collision object name.</td>
-</tr>
-<tr>
-<td class="green">ASCII string</td>
-<td>~</td>
-<td>Object name this collision moves with.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Primitive type (0: sphere, 1: cylinder, 2: cube).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: radius, cylinder: radius, cube: x_length / 2).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: radius, cylinder: height, cube: y_length / 2).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Data (sphere: radius, cylinder: -, cube: z_length / 2).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="SKL2"></a>
-				<!-- <div> -->
-					<div class="section-header">SKL2</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="SKL2_content" id="SKL2_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="SKL2_content" class="section-content">
-				<h3>Description</h3>
-<p>Skeleton/chain. Lists some bone properties for every item in the chain. The values don't seem to make a big difference.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#HEDR">HEDR</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of bones in this skeleton.</td>
-</tr>
-<tr>
-<td>CRC checksum</td>
-<td>4</td>
-<td><a href="index.html">CRC checksum</a> of the bone.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Type (bone?). Usual value: 0.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Constrain. Usual value: -1 or 1.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Bone length 1. Usual value: 0.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Bone length 2. Usual value: 0.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="BLN2"></a>
-				<!-- <div> -->
-					<div class="section-header">BLN2</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="BLN2_content" id="BLN2_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="BLN2_content" class="section-content">
-				<h3>Description</h3>
-<p>Blend factors for the chain items (bones). Purpose unknown. Blend factor usually is 0/nothing (if float). </p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#HEDR">HEDR</a></td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of bones.</td>
-</tr>
-<tr>
-<td>CRC checksum</td>
-<td>4</td>
-<td><a href="index.html">CRC checksum</a> of the bone.</td>
-</tr>
-<tr>
-<td>?</td>
-<td>4</td>
-<td>Blend factor. Usual value: 0.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="ANM2"></a>
-				<!-- <div> -->
-					<div class="section-header">ANM2</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="ANM2_content" id="ANM2_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="ANM2_content" class="section-content">
-				<h3>Description</h3>
-<p>Animation header.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#HEDR">HEDR</a></td>
-<td><a class="bordered block" href="#CYCL">CYCL</a> <a class="bordered block" href="#KFR3">KFR3</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="CYCL"></a>
-				<!-- <div> -->
-					<div class="section-header">CYCL</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="CYCL_content" id="CYCL_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="CYCL_content" class="section-content">
-				<h3>Description</h3>
-<p>Animation cycles. Can contain multiple animations.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#ANM2">ANM2</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of animations.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>The following can appear multiple times.</td>
-</tr>
-<tr>
-<td class="green">ASCII string</td>
-<td>64</td>
-<td>Aimation name.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Frame rate.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Play Style.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>First frame.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Last frame.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="KFR3"></a>
-				<!-- <div> -->
-					<div class="section-header">KFR3</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="KFR3_content" id="KFR3_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="KFR3_content" class="section-content">
-				<h3>Description</h3>
-<p>All the frames and their local translation and rotation. Frame indices don't have to be consecutive. They can skip frames (like keyframes).</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="bordered block" href="#ANM2">ANM2</a></td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Number of bones in this animation.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>The following will appear once per chain item.</td>
-</tr>
-<tr>
-<td>&gt; CRC checksum</td>
-<td>4</td>
-<td><a href="index.html">CRC checksum</a>.</td>
-</tr>
-<tr>
-<td class="red">&gt; long int</td>
-<td>4</td>
-<td>Keyframe type.</td>
-</tr>
-<tr>
-<td class="red">&gt; long int</td>
-<td>4</td>
-<td>Number of translation frames.</td>
-</tr>
-<tr>
-<td class="red">&gt; long int</td>
-<td>4</td>
-<td>Number of rotation frames.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Translation frames will be listed first.</td>
-</tr>
-<tr>
-<td class="red">&gt;&gt; long int</td>
-<td>4</td>
-<td>Translation frame index.</td>
-</tr>
-<tr>
-<td class="red">&gt;&gt; float [3][]</td>
-<td>12</td>
-<td>Translation in XYZ.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Rotation frames will be listed second.</td>
-</tr>
-<tr>
-<td class="red">&gt;&gt; long int</td>
-<td>4</td>
-<td>Rotation frame index.</td>
-</tr>
-<tr>
-<td class="red">&gt;&gt; float [4][]</td>
-<td>16</td>
-<td>Quaternion rotation in XYZW.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="NAME"></a>
-				<!-- <div> -->
-					<div class="section-header">NAME</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="NAME_content" id="NAME_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="NAME_content" class="section-content">
-				<h3>Description</h3>
-<p>Name, padded with 00's to fill up a multiple-of-4 size.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="green">ASCII string</td>
-<td>4 * X</td>
-<td>Name.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="BBOX"></a>
-				<!-- <div> -->
-					<div class="section-header">BBOX</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="BBOX_content" id="BBOX_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="BBOX_content" class="section-content">
-				<h3>Description</h3>
-<p>Bounding box. <a _:="{:" class="bordered" href="#SINF">SINF</a>'s BBox will determine the blue/green selection box in ZeroEdit.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>-</td>
-<td>Once.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float [4]</td>
-<td>16</td>
-<td>Quaternion Rotation in XYZW.</td>
-</tr>
-<tr>
-<td class="red">float [3]</td>
-<td>12</td>
-<td>Center of the BBox.</td>
-</tr>
-<tr>
-<td class="red">float [3]</td>
-<td>12</td>
-<td>Extents of the BBox (width/2, height/2, depth/2).</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Bounding sphere radius.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="LGTP"></a>
-				<!-- <div> -->
-					<div class="section-header">LGTP</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="LGTP_content" id="LGTP_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="LGTP_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Point Light.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td><a class="bordered block" href="#PRFX">PRFX</a> <a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#DATA">DATA</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Alpha.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>X.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Y.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Z.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff start.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff end.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Flags (1: CastShadows).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="LGTI"></a>
-				<!-- <div> -->
-					<div class="section-header">LGTI</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="LGTI_content" id="LGTI_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="LGTI_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Infinite Light.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td><a class="bordered block" href="#PRFX">PRFX</a> <a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#DATA">DATA</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Alpha.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>X.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Y.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Z.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff start.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff end.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Flags (1: CastShadows).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="LGTS"></a>
-				<!-- <div> -->
-					<div class="section-header">LGTS</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="LGTS_content" id="LGTS_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="LGTS_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Spot Light.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td><a class="bordered block" href="#PRFX">PRFX</a> <a class="bordered block" href="#NAME">NAME</a> <a class="bordered block" href="#DATA">DATA</a></td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Alpha.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>X.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Y.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Z.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Interest X.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Interest Y.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Interest Z.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff start.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Falloff end.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Cone Angle.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Spread Angle.</td>
-</tr>
-<tr>
-<td class="red">long int</td>
-<td>4</td>
-<td>Flags (1: CastShadows).</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-		<div class="section">
-			<a name="FOGD"></a>
-				<!-- <div> -->
-					<div class="section-header">FOGD</div>
-					<!-- 
-		<a class="toggle_collapse" content-id="FOGD_content" id="FOGD_content_start" starts-collapsed="True">Collapse</a>
-	 -->
-				<!-- </div> -->
-				<div id="FOGD_content" class="section-content">
-				<h3>Description</h3>
-<p>Possibly deprecated. Fog data.</p>
-<table>
-<thead>
-<tr>
-<th>Parent</th>
-<th>Children</th>
-<th>Necessity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-</td>
-<td>-</td>
-<td>Optional.</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3>Structure</h3>
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Red.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Green.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Blue.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Alpha.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Near plane.</td>
-</tr>
-<tr>
-<td class="red">float</td>
-<td>4</td>
-<td>Far plane.</td>
-</tr>
-</tbody>
-</table>
-				<!-- 
-		<div></div>
-	 -->
-				</div>
-			<!-- <div class="hr"></div> -->
-		</div>
-	
-</div>
-    		
-            </div>
-		</div>
+
 	</body>
 </html>

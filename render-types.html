@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		
+		<title>Render Types</title>
+		
+
+		<meta name="description" content="">
+		<meta name="keywords" content="programming, code">
+
+		<link rel="shortcut icon" type="image/png" href="../images/personal_logo_small.png"/>
+		<link rel="stylesheet" href="../css/subpage-style.css" type="text/css" />
+	</head>
+	<body class="page-fileformats">
+
+		<div class="container">
+
+			
+    <aside class="menu">
+	<a href="/ze_filetypes/" class="no-style home">
+		
+		<h1 class="page-title not-fancy">
+		
+			Render Types
+		
+		</h1>
+	</a>
+	<span class="no-select hr">&middot; &middot; &middot;</span>
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><h6 class="category-title">Navigation</h6></li>
+			
+			<li class="link"><a href="\#overview">Overview</a></li>
+			
+			<li class="link"><a href="index.html">Back</a></li>
+			
+		
+		
+    <li class="category"><h6 class="category-title">Render Types</h6></li>
+    <li class="link">
+            <a href="#glow" alt="Glow">
+                01 - Glow
+            </a>
+        </li><li class="link">
+            <a href="#lightmap" alt="Lightmap">
+                02 - Lightmap
+            </a>
+        </li><li class="link">
+            <a href="#scrolling" alt="Scrolling">
+                03 - Scrolling
+            </a>
+        </li><li class="link">
+            <a href="#specular" alt="Specular">
+                04 - Specular
+            </a>
+        </li><li class="link">
+            <a href="#glossmap" alt="Glossmap">
+                05 - Glossmap
+            </a>
+        </li><li class="link">
+            <a href="#chrome" alt="Chrome">
+                06 - Chrome
+            </a>
+        </li><li class="link">
+            <a href="#animated" alt="Animated">
+                07 - Animated
+            </a>
+        </li><li class="link">
+            <a href="#ice" alt="Ice">
+                08 - Ice
+            </a>
+        </li><li class="link">
+            <a href="#sky" alt="Sky">
+                09 - Sky
+            </a>
+        </li><li class="link">
+            <a href="#water" alt="Water">
+                10 - Water
+            </a>
+        </li><li class="link">
+            <a href="#detail" alt="Detail">
+                11 - Detail
+            </a>
+        </li><li class="link">
+            <a href="#two-scroll" alt="2 Scroll">
+                12 - 2 Scroll
+            </a>
+        </li><li class="link">
+            <a href="#rotate" alt="Rotate">
+                13 - Rotate
+            </a>
+        </li><li class="link">
+            <a href="#glow-rotate" alt="Glow Rotate">
+                14 - Glow Rotate
+            </a>
+        </li><li class="link">
+            <a href="#planar-reflection" alt="Planar Reflection">
+                15 - Planar Reflection
+            </a>
+        </li><li class="link">
+            <a href="#glow-scroll" alt="Glow Scroll">
+                16 - Glow Scroll
+            </a>
+        </li><li class="link">
+            <a href="#glow-two-scroll" alt="Glow 2 Scroll">
+                17 - Glow 2 Scroll
+            </a>
+        </li><li class="link">
+            <a href="#curved-reflection" alt="Curved Reflection">
+                18 - Curved Reflection
+            </a>
+        </li><li class="link">
+            <a href="#normalmap-fade" alt="Normalmap Fade">
+                19 - Normalmap Fade
+            </a>
+        </li><li class="link">
+            <a href="#normalmap-inv-fade" alt="Normalmap Inv Fade">
+                20 - Normalmap Inv Fade
+            </a>
+        </li><li class="link">
+            <a href="#ice-reflection" alt="Ice Reflection">
+                21 - Ice Reflection
+            </a>
+        </li><li class="link">
+            <a href="#ice-refraction" alt="Ice Refraction">
+                22 - Ice Refraction
+            </a>
+        </li><li class="link">
+            <a href="#emboss" alt="Emboss">
+                23 - Emboss
+            </a>
+        </li><li class="link">
+            <a href="#wireframe" alt="Wireframe">
+                24 - Wireframe
+            </a>
+        </li><li class="link">
+            <a href="#energy" alt="Energy">
+                25 - Energy
+            </a>
+        </li><li class="link">
+            <a href="#afterburner" alt="Afterburner">
+                26 - Afterburner
+            </a>
+        </li><li class="link">
+            <a href="#bumpmap" alt="Bumpmap">
+                27 - Bumpmap
+            </a>
+        </li><li class="link">
+            <a href="#bumpmap-glossmap" alt="Bumpmap + Glossmap">
+                28 - Bumpmap + Glossmap
+            </a>
+        </li><li class="link">
+            <a href="#teleportal" alt="Teleportal">
+                29 - Teleportal
+            </a>
+        </li><li class="link">
+            <a href="#multistate" alt="Multistate">
+                30 - Multistate
+            </a>
+        </li><li class="link">
+            <a href="#shield" alt="Shield">
+                31 - Shield
+            </a>
+        </li>
+
+	</ul>
+</aside>
+
+
+			
+			<div class="content">
+				
+				
+
+				
+    
+						
+							<section class="block">
+
+<h2 id="overview">Overview</h2>
+
+<p>Render Types are stored as 1-byte integers in the ATRB chunk of materials.</p>
+<p>See also: <a href="http://www.gametoast.com/viewtopic.php?p=279620#p279620">Inside Edit Flags</a>,
+<a href="http://schlechtwetterfront.github.io/ze_filetypes/mshwalker.log">Analysis of both ModTools' .msh files</a></p>
+
+</section>
+						
+				
+    
+        <section class="render-type block">
+            <h2 class="title" id="glow">Glow</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>01</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Glow amount is defined by material color and diffuse texture.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="lightmap">Lightmap</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>2</td>
+                    <td>02</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Basically a glow map. Requires an additional texture. The texture's alpha channel determines glow strength, rgb glow color and intensity.
+May actually be <a href="#detail">Detail</a>.</p>
+
+            
+            <p class="see-also">
+                See also:
+                
+                    <a href="http://www.gametoast.com/viewtopic.php?p=323899#p323899" alt="Lightmap discussion on GT">Lightmap discussion on GT</a>
+            </p>
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="scrolling">Scrolling</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>3</td>
+                    <td>03</td>
+                    <td><p>Scrolling along U (horizontal)</p></td>
+                    <td><p>Scrolling along V (vertical)</p></td>
+                </tr>
+            </table>
+
+            <p>Scrolls the texture positively. To scroll in the other directions flip the texture coordinates.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="specular">Specular</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>4</td>
+                    <td>04</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Enables Specular. Specular Flag doesn't seem to be needed for it to work.
+Specular power is affected by material color and Specular Decay (gloss).</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="glossmap">Glossmap</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>5</td>
+                    <td>05</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>This uses the diffuse texture's alpha channel for specular intensity.
+Specular Color and Decay are used to determine specularity.
+Make sure the values are valid.
+If they are too low the specular might not appear.
+If the diffuse texture doesn't have an alpha channel specular will be turned off.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="chrome">Chrome</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>6</td>
+                    <td>06</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Environment map. Gives the illusion of reflection on a surface.
+If no environment map is specified as Texture1 then the game will choose one
+dynamically at run time.
+If the object is static or does not move you should provide an environment map.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="animated">Animated</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>7</td>
+                    <td>07</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Animates UVs to loop through different UV positions on the texture.
+UVs should be mapped to the first cell and not the whole texture.
+Cells have to be square and will be calculated automatically from the number of frames.<br />
+The number of cells always habe to be square (4, 9, 16, etc).</p>
+
+            
+            <p class="see-also">
+                See also:
+                
+                    <a href="http://www.gametoast.com/viewtopic.php?p=361010#p361010" alt="Render Animated discussion on GT">Render Animated discussion on GT</a>
+            </p>
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="ice">Ice</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>8</td>
+                    <td>08</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Ice.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="sky">Sky</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>9</td>
+                    <td>09</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Sky.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="water">Water</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>10</td>
+                    <td>0A</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Water.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="detail">Detail</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>11</td>
+                    <td>0B</td>
+                    <td><p>Tiling along U (horizontal)</p></td>
+                    <td><p>Tiling along V (vertical)</p></td>
+                </tr>
+            </table>
+
+            <p>Tiles a detail texture. Requires an additional texture (detail texture).
+The detail map should have an average intensity of about 0.5,
+which insures that the overall brightness of the object will not be affected.<br />
+May actually be <a href="#lightmap">Lightmap</a>.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="two-scroll">2 Scroll</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>12</td>
+                    <td>0C</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>2 Scroll.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="rotate">Rotate</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>13</td>
+                    <td>0D</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Rotate.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="glow-rotate">Glow Rotate</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>14</td>
+                    <td>0E</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Glow rotate.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="planar-reflection">Planar Reflection</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>15</td>
+                    <td>0F</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Planar reflection.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="glow-scroll">Glow Scroll</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>16</td>
+                    <td>10</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Glow scroll.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="glow-two-scroll">Glow 2 Scroll</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>17</td>
+                    <td>11</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Glow 2 scroll.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="curved-reflection">Curved Reflection</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>18</td>
+                    <td>12</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Curved reflection.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="normalmap-fade">Normalmap Fade</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>19</td>
+                    <td>13</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Normal map fade.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="normalmap-inv-fade">Normalmap Inv Fade</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>20</td>
+                    <td>14</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Normal map inv fade.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="ice-reflection">Ice Reflection</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>21</td>
+                    <td>15</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Ice reflection.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="ice-refraction">Ice Refraction</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>22</td>
+                    <td>16</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Models bend the light (see Bothan Spy).
+Model behaves as a transparent object but the transparency is distorted.
+Alpha channel of the diffuse is used to control the opacity.
+Requires an additional bump texture which controls amount of distortion. 
+A refraction object can have an optional environment map associated with it.</p>
+
+            
+            <p class="see-also">
+                See also:
+                
+                    <a href="http://www.gametoast.com/viewtopic.php?p=397720#p397720" alt="Ice Refraction discussion on GT">Ice Refraction discussion on GT</a>
+            </p>
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="emboss">Emboss</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>23</td>
+                    <td>17</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Emboss. Requires an additional texture. Purpose uncertain. Might control specular.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="wireframe">Wireframe</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>24</td>
+                    <td>18</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Wireframe.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="energy">Energy</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>25</td>
+                    <td>19</td>
+                    <td><p>Minimum intensity.</p></td>
+                    <td><p>Throbbing frequency.</p></td>
+                </tr>
+            </table>
+
+            <p>Makes the texture/material throb.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="afterburner">Afterburner</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>26</td>
+                    <td>1A</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Afterburner.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="bumpmap">Bumpmap</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>27</td>
+                    <td>1B</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Requires an additional texture (greyscale bumpmap or normalmap).
+The bumpmap needs a .option file containing <code>-format bump</code>.
+Specular flag should be enabled for better effect.</p>
+
+            
+            <p class="see-also">
+                See also:
+                
+                    <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541" alt="Bumpmap tutorial on GT">Bumpmap tutorial on GT</a>
+            </p>
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="bumpmap-glossmap">Bumpmap + Glossmap</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>28</td>
+                    <td>1C</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Requires an additional texture (greyscale bumpmap or normalmap).
+The bumpmap needs a .option file containing <code>-format bump</code>.
+Optional texture which controls the specular intensity through it's alpha channel.
+Specular flag should be enabled for better effect.</p>
+
+            
+            <p class="see-also">
+                See also:
+                
+                    <a href="http://www.gametoast.com/viewtopic.php?p=262541#p262541" alt="Bumpmap tutorial on GT">Bumpmap tutorial on GT</a>
+            </p>
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="teleportal">Teleportal</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>29</td>
+                    <td>1D</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Teleportal.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="multistate">Multistate</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>30</td>
+                    <td>1E</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Multistate.</p>
+
+            
+        </section>
+    
+        <section class="render-type block">
+            <h2 class="title" id="shield">Shield</h2>
+
+            <table class="render-type">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hex</th>
+                        <th>Data0</th>
+                        <th>Data1</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>31</td>
+                    <td>1F</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <p>Shield.</p>
+
+            
+        </section>
+    
+
+			</div>
+			
+
+			
+				<footer>
+</footer>
+			
+
+		</div>
+
+	</body>
+</html>
