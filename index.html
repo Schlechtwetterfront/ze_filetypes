@@ -16,52 +16,51 @@
 	</head>
 	<body class="page-fileformats">
 
+		<div class="container-fluid page__header">
+			
+				<header class="page__title container">
+	<h1>ZeroEngine File Formats</h1>
+</header>
+			
+		</div>
+
 		<div class="container">
 
 			
-				<aside class="menu">
-	<a href="/" class="no-style home">
-		
-		<h1 class="page-title not-fancy">
-		
-			ZeroEngine File Formats
-		
-		</h1>
-	</a>
-	<span class="no-select hr">&middot; &middot; &middot;</span>
-	<ul class="navigation blocks">
-		
-		
-		
-			<li class="category"><h6 class="category-title">Navigation</h6></li>
-			
-			<li class="link"><a href="#overview">Overview</a></li>
-			
-			<li class="link"><a href="#zero-crc">Zero CRC</a></li>
-			
-			<li class="link"><a href="#atrb-calculator">ATRB Calculator</a></li>
-			
-		
-			<li class="category"><h6 class="category-title">File Formats</h6></li>
-			
-			<li class="link"><a href="msh.html">.MSH (Models & Animation)</a></li>
-			
-			<li class="link"><a href="ter.html">.TER (Terrain)</a></li>
-			
-			<li class="link"><a href="xxw.html">.XXW (Terrain)</a></li>
-			
-			<li class="link"><a href="render-types.html">.MSH Render Types</a></li>
-			
-		
-			<li class="category"><h6 class="category-title">Other Resources</h6></li>
-			
-			<li class="link"><a href="https://github.com/Schlechtwetterfront/xsizetools">View on Github</a></li>
-			
-		
-		
-		
-	</ul>
-</aside>
+				<nav class="menu">
+    <ul class="menu__nav blocks">
+        
+        
+        
+            <li class="menu__category"><h5 class="category-title">Navigation</h5></li>
+            
+            <li class="menu__link"><a href="#overview">Overview</a></li>
+            
+            <li class="menu__link"><a href="#zero-crc">Zero CRC</a></li>
+            
+            <li class="menu__link"><a href="#atrb-calculator">ATRB Calculator</a></li>
+            
+        
+            <li class="menu__category"><h5 class="category-title">File Formats</h5></li>
+            
+            <li class="menu__link"><a href="msh.html">.MSH (Models & Animation)</a></li>
+            
+            <li class="menu__link"><a href="ter.html">.TER (Terrain)</a></li>
+            
+            <li class="menu__link"><a href="xxw.html">.XXW (Terrain)</a></li>
+            
+            <li class="menu__link"><a href="render-types.html">.MSH Render Types</a></li>
+            
+        
+            <li class="menu__category"><h5 class="category-title">Other Resources</h5></li>
+            
+            <li class="menu__link"><a href="https://github.com/Schlechtwetterfront/xsizetools">View on Github</a></li>
+            
+        
+        
+        
+    </ul>
+</nav>
 			
 
 			
@@ -71,7 +70,7 @@
 
 				
 						
-							<section class="block">
+							<section class="block block-overview">
 
 <h2 id="overview">Overview</h2>
 
@@ -79,7 +78,7 @@
 
 </section>
 						
-							<section class="block">
+							<section class="block block-zero-crc">
 
 <h2 id="zero-crc">Zero CRC</h2>
 
@@ -191,7 +190,7 @@ Check out the <a href="msh.html#ATRB">ATRB</a> chunk for more information on eac
     <div class="chunk">
         <div>
             <input type="text" id="chunk" maxlength="35" size="37" value="415452420400000000000000">
-            <label><input type="checkbox" id="build-with-spaces">Build with spaces</label>
+            <label><input type="checkbox" id="build-with-spaces">Spaces</label>
         </div>
         <div>
             <button type="button" id="build">&darr; Build ATRB Chunk</button>
@@ -205,7 +204,7 @@ Check out the <a href="msh.html#ATRB">ATRB</a> chunk for more information on eac
 
 </section>
 						
-							<section class="block">
+							<section class="block block-zero-crc-implementation">
 
 <h2 id="zero-crc-implementation">Zero CRC Default Implementation</h2>
 

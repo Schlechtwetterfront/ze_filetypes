@@ -16,243 +16,242 @@
 	</head>
 	<body class="page-fileformats">
 
+		<div class="container-fluid page__header">
+			
+				<header class="page__title container">
+	<h1>.msh Format</h1>
+</header>
+			
+		</div>
+
 		<div class="container">
 
 			
-	<aside class="menu">
-	<a href="/" class="no-style home">
-		
-		<h1 class="page-title not-fancy">
-		
-			.msh Format
-		
-		</h1>
-	</a>
-	<span class="no-select hr">&middot; &middot; &middot;</span>
-	<ul class="navigation blocks">
-		
-		
-		
-			<li class="category"><h6 class="category-title">Navigation</h6></li>
-			
-			<li class="link"><a href="#overview">Overview</a></li>
-			
-			<li class="link"><a href="index.html">Back</a></li>
-			
-		
-		
+	<nav class="menu">
+    <ul class="menu__nav blocks">
+        
+        
+        
+            <li class="menu__category"><h5 class="category-title">Navigation</h5></li>
+            
+            <li class="menu__link"><a href="#overview">Overview</a></li>
+            
+            <li class="menu__link"><a href="index.html">Back</a></li>
+            
+        
+        
 
 
 	
-		<li class="category"><h6 class="category-title">Example</h6></li>
+		<li class="menu__category"><h5 class="category-title">Example</h5></li>
 		
 	
-	<li class="link"><a href="#ExampleChunk" alt="ExampleChunk">ExampleChunk</a></li>
+	<li class="menu__link"><a href="#ExampleChunk" alt="ExampleChunk">ExampleChunk</a></li>
 
 	
-		<li class="category"><h6 class="category-title">General Chunks</h6></li>
+		<li class="menu__category"><h5 class="category-title">General Chunks</h5></li>
 		
 	
-	<li class="link"><a href="#HEDR" alt="HEDR">HEDR</a></li>
+	<li class="menu__link"><a href="#HEDR" alt="HEDR">HEDR</a></li>
 
 	
-	<li class="link"><a href="#SHVO" alt="SHVO">SHVO</a></li>
+	<li class="menu__link"><a href="#SHVO" alt="SHVO">SHVO</a></li>
 
 	
-	<li class="link"><a href="#MSH2" alt="MSH2">MSH2</a></li>
+	<li class="menu__link"><a href="#MSH2" alt="MSH2">MSH2</a></li>
 
 	
-	<li class="link"><a href="#FINF" alt="FINF">FINF</a></li>
+	<li class="menu__link"><a href="#FINF" alt="FINF">FINF</a></li>
 
 	
-	<li class="link"><a href="#SINF" alt="SINF">SINF</a></li>
+	<li class="menu__link"><a href="#SINF" alt="SINF">SINF</a></li>
 
 	
-	<li class="link"><a href="#FRAM" alt="FRAM">FRAM</a></li>
+	<li class="menu__link"><a href="#FRAM" alt="FRAM">FRAM</a></li>
 
 	
-	<li class="link"><a href="#CAMR" alt="CAMR">CAMR</a></li>
+	<li class="menu__link"><a href="#CAMR" alt="CAMR">CAMR</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Materials</h6></li>
+		<li class="menu__category"><h5 class="category-title">Materials</h5></li>
 		
 	
-	<li class="link"><a href="#MATL" alt="MATL (Materials)">MATL (Materials)</a></li>
+	<li class="menu__link"><a href="#MATL" alt="MATL (Materials)">MATL (Materials)</a></li>
 
 	
-	<li class="link"><a href="#MATD" alt="MATD (Material)">MATD (Material)</a></li>
+	<li class="menu__link"><a href="#MATD" alt="MATD (Material)">MATD (Material)</a></li>
 
 	
-	<li class="link"><a href="#MATD.DATA" alt="MATD.DATA">MATD.DATA</a></li>
+	<li class="menu__link"><a href="#MATD.DATA" alt="MATD.DATA">MATD.DATA</a></li>
 
 	
-	<li class="link"><a href="#ATRB" alt="ATRB">ATRB</a></li>
+	<li class="menu__link"><a href="#ATRB" alt="ATRB">ATRB</a></li>
 
 	
-	<li class="link"><a href="#TX0D" alt="TX0D">TX0D</a></li>
+	<li class="menu__link"><a href="#TX0D" alt="TX0D">TX0D</a></li>
 
 	
-	<li class="link"><a href="#PRFX" alt="PRFX">PRFX</a></li>
+	<li class="menu__link"><a href="#PRFX" alt="PRFX">PRFX</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Models</h6></li>
+		<li class="menu__category"><h5 class="category-title">Models</h5></li>
 		
 	
-	<li class="link"><a href="#MODL" alt="MODL (Model)">MODL (Model)</a></li>
+	<li class="menu__link"><a href="#MODL" alt="MODL (Model)">MODL (Model)</a></li>
 
 	
-	<li class="link"><a href="#MTYP" alt="MTYP">MTYP</a></li>
+	<li class="menu__link"><a href="#MTYP" alt="MTYP">MTYP</a></li>
 
 	
-	<li class="link"><a href="#MNDX" alt="MNDX">MNDX</a></li>
+	<li class="menu__link"><a href="#MNDX" alt="MNDX">MNDX</a></li>
 
 	
-	<li class="link"><a href="#PRNT" alt="PRNT">PRNT</a></li>
+	<li class="menu__link"><a href="#PRNT" alt="PRNT">PRNT</a></li>
 
 	
-	<li class="link"><a href="#FLGS" alt="FLGS">FLGS</a></li>
+	<li class="menu__link"><a href="#FLGS" alt="FLGS">FLGS</a></li>
 
 	
-	<li class="link"><a href="#TRAN" alt="TRAN">TRAN</a></li>
+	<li class="menu__link"><a href="#TRAN" alt="TRAN">TRAN</a></li>
 
 	
-	<li class="link"><a href="#SWCI" alt="SWCI">SWCI</a></li>
+	<li class="menu__link"><a href="#SWCI" alt="SWCI">SWCI</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Geometry</h6></li>
+		<li class="menu__category"><h5 class="category-title">Geometry</h5></li>
 		
 	
-	<li class="link"><a href="#GEOM" alt="GEOM (Geometry)">GEOM (Geometry)</a></li>
+	<li class="menu__link"><a href="#GEOM" alt="GEOM (Geometry)">GEOM (Geometry)</a></li>
 
 	
-	<li class="link"><a href="#ENVL" alt="ENVL (Envelope)">ENVL (Envelope)</a></li>
+	<li class="menu__link"><a href="#ENVL" alt="ENVL (Envelope)">ENVL (Envelope)</a></li>
 
 	
-	<li class="link"><a href="#SEGM" alt="SEGM">SEGM</a></li>
+	<li class="menu__link"><a href="#SEGM" alt="SEGM">SEGM</a></li>
 
 	
-	<li class="link"><a href="#SHDW" alt="SHDW">SHDW</a></li>
+	<li class="menu__link"><a href="#SHDW" alt="SHDW">SHDW</a></li>
 
 	
-	<li class="link"><a href="#MATI" alt="MATI">MATI</a></li>
+	<li class="menu__link"><a href="#MATI" alt="MATI">MATI</a></li>
 
 	
-	<li class="link"><a href="#POSL" alt="POSL">POSL</a></li>
+	<li class="menu__link"><a href="#POSL" alt="POSL">POSL</a></li>
 
 	
-	<li class="link"><a href="#NRML" alt="NRML">NRML</a></li>
+	<li class="menu__link"><a href="#NRML" alt="NRML">NRML</a></li>
 
 	
-	<li class="link"><a href="#UV0L" alt="UV0L">UV0L</a></li>
+	<li class="menu__link"><a href="#UV0L" alt="UV0L">UV0L</a></li>
 
 	
-	<li class="link"><a href="#CLRL" alt="CLRL">CLRL</a></li>
+	<li class="menu__link"><a href="#CLRL" alt="CLRL">CLRL</a></li>
 
 	
-	<li class="link"><a href="#CLRB" alt="CLRB">CLRB</a></li>
+	<li class="menu__link"><a href="#CLRB" alt="CLRB">CLRB</a></li>
 
 	
-	<li class="link"><a href="#WGHT" alt="WGHT">WGHT</a></li>
+	<li class="menu__link"><a href="#WGHT" alt="WGHT">WGHT</a></li>
 
 	
-	<li class="link"><a href="#NDXL" alt="NDXL">NDXL</a></li>
+	<li class="menu__link"><a href="#NDXL" alt="NDXL">NDXL</a></li>
 
 	
-	<li class="link"><a href="#NDXT" alt="NDXT">NDXT</a></li>
+	<li class="menu__link"><a href="#NDXT" alt="NDXT">NDXT</a></li>
 
 	
-	<li class="link"><a href="#STRP" alt="STRP">STRP</a></li>
+	<li class="menu__link"><a href="#STRP" alt="STRP">STRP</a></li>
 
 	
-	<li class="link"><a href="#VLTB" alt="VLTB">VLTB</a></li>
+	<li class="menu__link"><a href="#VLTB" alt="VLTB">VLTB</a></li>
 
 	
-	<li class="link"><a href="#VLTL" alt="VLTL">VLTL</a></li>
+	<li class="menu__link"><a href="#VLTL" alt="VLTL">VLTL</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Cloth</h6></li>
+		<li class="menu__category"><h5 class="category-title">Cloth</h5></li>
 		
 	
-	<li class="link"><a href="#CLTH" alt="CLTH (Cloth)">CLTH (Cloth)</a></li>
+	<li class="menu__link"><a href="#CLTH" alt="CLTH (Cloth)">CLTH (Cloth)</a></li>
 
 	
-	<li class="link"><a href="#CTEX" alt="CTEX">CTEX</a></li>
+	<li class="menu__link"><a href="#CTEX" alt="CTEX">CTEX</a></li>
 
 	
-	<li class="link"><a href="#CPOS" alt="CPOS">CPOS</a></li>
+	<li class="menu__link"><a href="#CPOS" alt="CPOS">CPOS</a></li>
 
 	
-	<li class="link"><a href="#CUV0" alt="CUV0">CUV0</a></li>
+	<li class="menu__link"><a href="#CUV0" alt="CUV0">CUV0</a></li>
 
 	
-	<li class="link"><a href="#FIDX" alt="FIDX">FIDX</a></li>
+	<li class="menu__link"><a href="#FIDX" alt="FIDX">FIDX</a></li>
 
 	
-	<li class="link"><a href="#FWGT" alt="FWGT">FWGT</a></li>
+	<li class="menu__link"><a href="#FWGT" alt="FWGT">FWGT</a></li>
 
 	
-	<li class="link"><a href="#CMSH" alt="CMSH">CMSH</a></li>
+	<li class="menu__link"><a href="#CMSH" alt="CMSH">CMSH</a></li>
 
 	
-	<li class="link"><a href="#SPRS" alt="SPRS">SPRS</a></li>
+	<li class="menu__link"><a href="#SPRS" alt="SPRS">SPRS</a></li>
 
 	
-	<li class="link"><a href="#CPRS" alt="CPRS">CPRS</a></li>
+	<li class="menu__link"><a href="#CPRS" alt="CPRS">CPRS</a></li>
 
 	
-	<li class="link"><a href="#BPRS" alt="BPRS">BPRS</a></li>
+	<li class="menu__link"><a href="#BPRS" alt="BPRS">BPRS</a></li>
 
 	
-	<li class="link"><a href="#COLL" alt="COLL">COLL</a></li>
+	<li class="menu__link"><a href="#COLL" alt="COLL">COLL</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Animation</h6></li>
+		<li class="menu__category"><h5 class="category-title">Animation</h5></li>
 		
 	
-	<li class="link"><a href="#SKL2" alt="SKL2 (Skeleton)">SKL2 (Skeleton)</a></li>
+	<li class="menu__link"><a href="#SKL2" alt="SKL2 (Skeleton)">SKL2 (Skeleton)</a></li>
 
 	
-	<li class="link"><a href="#BLN2" alt="BLN2">BLN2</a></li>
+	<li class="menu__link"><a href="#BLN2" alt="BLN2">BLN2</a></li>
 
 	
-	<li class="link"><a href="#ANM2" alt="ANM2 (Animation)">ANM2 (Animation)</a></li>
+	<li class="menu__link"><a href="#ANM2" alt="ANM2 (Animation)">ANM2 (Animation)</a></li>
 
 	
-	<li class="link"><a href="#CYCL" alt="CYCL">CYCL</a></li>
+	<li class="menu__link"><a href="#CYCL" alt="CYCL">CYCL</a></li>
 
 	
-	<li class="link"><a href="#KFR3" alt="KFR3">KFR3</a></li>
+	<li class="menu__link"><a href="#KFR3" alt="KFR3">KFR3</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Other</h6></li>
+		<li class="menu__category"><h5 class="category-title">Other</h5></li>
 		
 	
-	<li class="link"><a href="#CL1L" alt="CL1L">CL1L</a></li>
+	<li class="menu__link"><a href="#CL1L" alt="CL1L">CL1L</a></li>
 
 	
-	<li class="link"><a href="#NAME" alt="NAME">NAME</a></li>
+	<li class="menu__link"><a href="#NAME" alt="NAME">NAME</a></li>
 
 	
-	<li class="link"><a href="#BBOX" alt="BBOX">BBOX</a></li>
+	<li class="menu__link"><a href="#BBOX" alt="BBOX">BBOX</a></li>
 
 	
-		<li class="category"><h6 class="category-title">Deprecated</h6></li>
+		<li class="menu__category"><h5 class="category-title">Deprecated</h5></li>
 		
 	
-	<li class="link"><a href="#LGTP" alt="LGTP">LGTP</a></li>
+	<li class="menu__link"><a href="#LGTP" alt="LGTP">LGTP</a></li>
 
 	
-	<li class="link"><a href="#LGTI" alt="LGTI">LGTI</a></li>
+	<li class="menu__link"><a href="#LGTI" alt="LGTI">LGTI</a></li>
 
 	
-	<li class="link"><a href="#LGTS" alt="LGTS">LGTS</a></li>
+	<li class="menu__link"><a href="#LGTS" alt="LGTS">LGTS</a></li>
 
 	
-	<li class="link"><a href="#FOGD" alt="FOGD">FOGD</a></li>
+	<li class="menu__link"><a href="#FOGD" alt="FOGD">FOGD</a></li>
 
 
-	</ul>
-</aside>
+    </ul>
+</nav>
 
 
 			
@@ -263,7 +262,7 @@
 				
 	
 						
-							<section class="block">
+							<section class="block block-overview">
 
 <h2 id="overview">Overview</h2>
 
