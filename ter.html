@@ -16,42 +16,38 @@
 	</head>
 	<body class="page-fileformats">
 
-		<div class="container-fluid page__header">
-			
-				<header class="page__title container">
-	<h1>.ter Format</h1>
-</header>
-			
+		<div class="container padded">
+			<h1 class="page-title">.ter Format</h1>
 		</div>
 
 		<div class="container">
 
 			
-				<nav class="menu">
-    <ul class="menu__nav blocks">
-        
-        
-        
-            <li class="menu__category"><h5 class="category-title">Navigation</h5></li>
-            
-            <li class="menu__link"><a href="#overview">Overview</a></li>
-            
-            <li class="menu__link"><a href="index.html">Back</a></li>
-            
-        
-            <li class="menu__category"><h5 class="category-title">Format</h5></li>
-            
-            <li class="menu__link"><a href="terrain-header">Terrain Header</a></li>
-            
-            <li class="menu__link"><a href="terrain-header">Terrain Blocks</a></li>
-            
-            <li class="menu__link"><a href="terrain-structs">Terrain Structs</a></li>
-            
-        
-        
-        
-    </ul>
-</nav>
+				<aside class="menu">
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><span class="category-title">Navigation</span></li>
+			
+			<li class="link"><a href="#overview">Overview</a></li>
+			
+			<li class="link"><a href="index.html">Back</a></li>
+			
+		
+			<li class="category"><span class="category-title">Format</span></li>
+			
+			<li class="link"><a href="terrain-header">Terrain Header</a></li>
+			
+			<li class="link"><a href="terrain-header">Terrain Blocks</a></li>
+			
+			<li class="link"><a href="terrain-structs">Terrain Structs</a></li>
+			
+		
+		
+		
+	</ul>
+</aside>
 			
 
 			
@@ -61,7 +57,7 @@
 
 				
 						
-							<section class="block block-overview">
+							<section class="block">
 
 <h2 id="overview">Overview</h2>
 
@@ -71,7 +67,7 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 
 </section>
 						
-							<section class="block block-structure">
+							<section class="block">
 
 <h2 id="structure">Structure</h2>
 
@@ -87,24 +83,49 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td>Terrain Header</td>
 <td>2820/2821 (v21/22)</td>
-<td>Header storing general information about the terrain</td>
+<td>Header storing general information about the terrain.</td>
 </tr>
 <tr>
-<td>Terrain Blocks</td>
-<td>Variable</td>
-<td>See <a href="#terrain-blocks">Terrain Blocks</a></td>
+<td>Height Block</td>
+<td><strong>size * size</strong> * 2</td>
+<td>Height grid data.</td>
 </tr>
 <tr>
-<td>End-Of-File Block</td>
+<td>Color Block</td>
+<td><strong>size * size</strong> * 4</td>
+<td>RGBA colors for the terrain grid.</td>
+</tr>
+<tr>
+<td>Color Block</td>
+<td><strong>size * size</strong> * 4</td>
+<td>RGBA colors for the terrain grid.</td>
+</tr>
+<tr>
+<td>Texture Block</td>
+<td><strong>size * size</strong> * 16</td>
+<td>Texture layer opacity for the terrain grid.</td>
+</tr>
+<tr>
+<td>?</td>
+<td><strong>size * size</strong> / 2</td>
+<td>Maybe Water/Foliage.</td>
+</tr>
+<tr>
+<td>?</td>
+<td><strong>size * size</strong> / 2</td>
+<td>Probably Water.</td>
+</tr>
+<tr>
+<td>?</td>
 <td>Variable</td>
-<td>See <a href="#end-of-file">End-Of-File Block</a></td>
+<td>Not sure what this contains but it seems that this block is not required.</td>
 </tr>
 </tbody>
 </table>
 
 </section>
 						
-							<section class="block block-terrain-header">
+							<section class="block">
 
 <h2 id="terrain-header">Terrain Header</h2>
 
@@ -121,99 +142,89 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td><code>byte [4]</code></td>
 <td>4</td>
-<td>Terrain Header Marker (TERR)</td>
+<td>Terrain Header Marker (TERR).</td>
 </tr>
 <tr>
 <td><code>long int</code></td>
 <td>4</td>
-<td>.TER file version number (21 for SWBF, 22 for SWBFII)</td>
+<td>.TER file version number (21 for SWBF, 22 for SWBFII).</td>
 </tr>
 <tr>
 <td><code>short int [4]</code></td>
 <td>8</td>
-<td>Terrain extents <br> <em>Example: -8, -8, 8, 8 for a 16x16 map</em></td>
+<td>Terrain extents. <em>Example: -8, -8, 8, 8 for a 16x16 map.</em></td>
 </tr>
 <tr>
 <td><code>long int</code></td>
 <td>4</td>
-<td>Unknown (usually 164)</td>
+<td>? (ie. 164)</td>
 </tr>
 <tr>
 <td><code>float [16]</code></td>
 <td>64</td>
-<td>Tile-range for each texture layer <br> <em>0.031 (1/32): the texture spans 32 meters. This is stored as 1/X of the value in ZeroEditor</em></td>
+<td>Tile-range for each texture layer. _0.031 (1/32): the texture spans 32 meters. This is stored as 1/X of the value in ZeroEditor.</td>
 </tr>
 <tr>
 <td><code>byte [16]</code></td>
 <td>16</td>
-<td>Mapping for each texture-layer. 0 is normal</td>
+<td>Mapping for each texture-layer. 0 is normal.</td>
 </tr>
 <tr>
 <td><code>byte [64]</code></td>
 <td>64</td>
-<td>Unknown. Possibly 16 floats for texture-layer rotations</td>
+<td>Unknown. Possibly 16 floats for texture-layer rotations.</td>
 </tr>
 <tr>
 <td><code>float</code></td>
 <td>4</td>
-<td>Map height multiplier</td>
+<td>Map height multiplier.</td>
 </tr>
 <tr>
 <td><code>float</code></td>
 <td>4</td>
-<td>Grid-scale. Distance between points</td>
+<td>Grid-scale. Distance between points.</td>
 </tr>
 <tr>
 <td><code>long int</code></td>
 <td>4</td>
-<td>Unknown (usually 1)</td>
+<td>? (1)</td>
 </tr>
 <tr>
 <td><code>long int</code></td>
 <td>4</td>
-<td>Full map size stored in the .TER file. The same or bigger than the map extents</td>
+<td>Full map size stored in the .TER file. The same or bigger than the map extents.</td>
 </tr>
 <tr>
 <td><code>long int</code></td>
 <td>4</td>
-<td>Terrain options set in the editor as mask. Allows toggling of certain features (i.e. for space maps) <br> <em>0 &mdash; None <br> 1 &mdash; Terrain <br> 2 &mdash; Water <br> 4 &mdash; Foliage</em></td>
+<td>? (2)</td>
 </tr>
 <tr>
 <td><code>byte</code></td>
 <td>1</td>
-<td>Unknown (0F) Only exists in SWBF II (version 22) terrain</td>
+<td>? (0F) Only exists in SWBF II (version 22) terrain.</td>
 </tr>
 <tr>
 <td><code>TextureLayer [16]</code></td>
 <td>1024</td>
-<td><a href="#texture-layer"><code>TextureLayer</code></a>s</td>
+<td>Texture layers (see below).</td>
 </tr>
 <tr>
 <td><code>WaterLayer [16]</code></td>
-<td>1088</td>
-<td><a href="#water-layer"><code>WaterLayer</code></a>s</td>
+<td>1086</td>
+<td>Water layers (see below).</td>
 </tr>
 <tr>
-<td><code>char [16][32]</code></td>
-<td>512</td>
-<td>Road decal texture names</td>
-</tr>
-<tr>
-<td><code>long int</code></td>
-<td>4</td>
-<td>4x4 terrain blocks covered by decals (?)</td>
-</tr>
-<tr>
-<td><code>byte[8]</code></td>
-<td>8</td>
-<td>Unknown data possibly related to the road decals</td>
+<td><code>byte [524]</code></td>
+<td>524</td>
+<td>Unknown.</td>
 </tr>
 </tbody>
 </table>
 
 </section>
 						
-							<section class="block block-terrain-blocks">
+							<section class="block">
 
 <h2 id="terrain-blocks">Terrain Blocks</h2>
 
@@ -235,7 +246,7 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td></td>
 <td></td>
-<td>Height value for every point on the grid. This value will be multiplied with the map scale multiplier</td>
+<td>Height value for every point on the grid. This value will be multiplied with the map scale multiplier.</td>
 </tr>
 <tr>
 <td><strong>Color</strong></td>
@@ -245,7 +256,7 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td></td>
 <td></td>
-<td>Color values for every point on the grid. 4 bytes (from 0 to 255) corresponding to the RGBA channels</td>
+<td>Color values for every point on the grid. 4 bytes (from 0 to 255) corresponding to the RGBA channels.</td>
 </tr>
 <tr>
 <td><strong>Color 2</strong></td>
@@ -255,7 +266,7 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td></td>
 <td></td>
-<td>Color values for every point on the grid. 4 bytes (from 0 to 255) corresponding to the RGBA channels</td>
+<td>Color values for every point on the grid. 4 bytes (from 0 to 255) corresponding to the RGBA channels.</td>
 </tr>
 <tr>
 <td><strong>Texture</strong></td>
@@ -265,37 +276,17 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td></td>
 <td></td>
-<td>One byte (0-255) for each <a href="#texture-layer"><code>TextureLayer</code></a> indicating the transparency of the corresponding texture layer</td>
-</tr>
-<tr>
-<td><strong>Blend Heights</strong></td>
-<td><code>byte [?]</code></td>
-<td><strong> Full map size * Full map size</strong> * 2</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Last used blend heights for every block, possibly lower-left and upper-right values of the blend tool</td>
-</tr>
-<tr>
-<td><strong>Blend Heights</strong></td>
-<td><code>byte [?]</code></td>
-<td><strong> Full map size * Full map size</strong> * 2</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>Last used blend heights for every block, possibly lower-left and upper-right values of the blend tool</td>
+<td>One byte (0-255) for each texture layer indicating the transparency of the corresponding texture layer.</td>
 </tr>
 <tr>
 <td><strong>Water</strong></td>
 <td><code>byte</code></td>
-<td><strong>Full map size * Full map size</strong> * 2</td>
+<td><strong>Full map size * Full map size</strong> / 2</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>See <a href="#water-info"><code>WaterInfo</code></a> below</td>
+<td>Structure unknown.</td>
 </tr>
 <tr>
 <td><strong>Foliage</strong></td>
@@ -305,29 +296,28 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td></td>
 <td></td>
-<td>See <a href="#foliage">Foliage</a> below</td>
+<td>Structure unknown.</td>
 </tr>
 <tr>
-<td><strong>Unknown</strong></td>
+<td><strong>Unknwon</strong></td>
 <td><code>byte</code></td>
 <td>Variable</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>Structure unknown</td>
+<td>Structure unknown.</td>
 </tr>
 </tbody>
 </table>
 
 </section>
 						
-							<section class="block block-terrain-structs">
+							<section class="block">
 
 <h2 id="terrain-structs">Terrain Structs</h2>
 
-<h3 id="texture-layer">TextureLayer</h3>
-
+<h3>TextureLayer</h3>
 <table>
 <thead>
 <tr>
@@ -340,17 +330,16 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td><code>char [32]</code></td>
 <td>32</td>
-<td>Diffuse texture name</td>
+<td>Diffuse texture name.</td>
 </tr>
 <tr>
 <td><code>char [32]</code></td>
 <td>32</td>
-<td>Detail texture name</td>
+<td>Detail texture name.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="water-layer">WaterLayer</h3>
-
+<h3>WaterLayer</h3>
 <table>
 <thead>
 <tr>
@@ -363,17 +352,17 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td><code>float [2]</code></td>
 <td>8</td>
-<td>Water height value (twice)</td>
+<td>Water height value (twice).</td>
 </tr>
 <tr>
 <td><code>byte [8]</code></td>
 <td>8</td>
-<td>Unknown, always zero</td>
+<td>Unknown, always zero.</td>
 </tr>
 <tr>
 <td><code>float [2]</code></td>
 <td>8</td>
-<td>UV animation velocity</td>
+<td>UV animation velocity.</td>
 </tr>
 <tr>
 <td><code>float [2]</code></td>
@@ -383,63 +372,16 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td><code>byte [4]</code></td>
 <td>4</td>
-<td>RGBA color values</td>
+<td>RGBA color values.</td>
 </tr>
 <tr>
 <td><code>char [32]</code></td>
 <td>32</td>
-<td>Water texture name</td>
+<td>Water texture name.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="water-info">WaterInfo</h3>
-
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Size (bytes)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>byte</code></td>
-<td>1</td>
-<td><a href="#texture-layer"><code>TextureLayer</code></a> id mask for layers 0 - 7 <br> <em>1 &mdash; Layer 0 <br> 2 &mdash; Layer 1 <br> 4 &mdash; Layer 2 <br> 8 &mdash; Layer 3 <br> 16 &mdash; Layer 4 <br> 32 &mdash; Layer 5 <br> 64 &mdash; Layer 6 <br> 128 &mdash; Layer 7</em></td>
-</tr>
-<tr>
-<td><code>byte</code></td>
-<td>1</td>
-<td><a href="#texture-layer"><code>TextureLayer</code></a> id mask for layers 8 - 15 <br> <em>1 &mdash; Layer 8 <br> 2 &mdash; Layer 9 <br> 4 &mdash; Layer 10 <br> 8 &mdash; Layer 11 <br> 16 &mdash; Layer 12 <br> 32 &mdash; Layer 13 <br> 64 &mdash; Layer 14 <br> 128 &mdash; Layer 15</em></td>
-</tr>
-<tr>
-<td><code>byte</code></td>
-<td>1</td>
-<td><a href="#water-layer"><code>WaterLayer</code></a> id (0 - 15)</td>
-</tr>
-<tr>
-<td><code>byte</code></td>
-<td>1</td>
-<td>Unknown</td>
-</tr>
-</tbody>
-</table>
-<h3 id="foliage">Foliage</h3>
-
-<p>Always stored as 1024x1024 no matter the terrain size set in ZeroEditor.</p>
-<p>Every value is a mask of the foliage layers applied to 8 vertices.</p>
-<p>128 &mdash; Layer 3 for the first four vertices (first square/block)<br />
-64 &mdash; Layer 2<br />
-32 &mdash; Layer 1<br />
-16 &mdash; Layer 0<br />
-8 &mdash; Layer 3 for the second four vertices (second square/block)<br />
-4 &mdash; Layer 2<br />
-2 &mdash; Layer 1<br />
-1 &mdash; Layer 0  </p>
-<p>So in hex representation the byte could be cut in half to represent the two blocks of vertices.</p>
-<h3 id="end-of-file">End-of-file Block</h3>
-
+<h3>End-of-file Block</h3>
 <p>Can be empty</p>
 <table>
 <thead>
@@ -453,12 +395,12 @@ to create the <em>tern</em> chunk within *.lvl files.</p>
 <tr>
 <td><code>int</code></td>
 <td>4</td>
-<td>Length of the block</td>
+<td>Length of the block.</td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td>4</td>
-<td>Number of items. Can be zero, in which case there are no further fields and this block ends</td>
+<td>Number of items. Can be zero, in which case there are no further fields and this block ends.</td>
 </tr>
 <tr>
 <td><code>int</code></td>

@@ -16,51 +16,47 @@
 	</head>
 	<body class="page-fileformats">
 
-		<div class="container-fluid page__header">
-			
-				<header class="page__title container">
-	<h1>ZeroEngine File Formats</h1>
-</header>
-			
+		<div class="container padded">
+			<h1 class="page-title">ZeroEngine File Formats</h1>
 		</div>
 
 		<div class="container">
 
 			
-				<nav class="menu">
-    <ul class="menu__nav blocks">
-        
-        
-        
-            <li class="menu__category"><h5 class="category-title">Navigation</h5></li>
-            
-            <li class="menu__link"><a href="#overview">Overview</a></li>
-            
-            <li class="menu__link"><a href="#zero-crc">Zero CRC</a></li>
-            
-            <li class="menu__link"><a href="#atrb-calculator">ATRB Calculator</a></li>
-            
-        
-            <li class="menu__category"><h5 class="category-title">File Formats</h5></li>
-            
-            <li class="menu__link"><a href="msh.html">.MSH (Models & Animation)</a></li>
-            
-            <li class="menu__link"><a href="ter.html">.TER (Terrain)</a></li>
-            
-            <li class="menu__link"><a href="xxw.html">.XXW (Terrain)</a></li>
-            
-            <li class="menu__link"><a href="render-types.html">.MSH Render Types</a></li>
-            
-        
-            <li class="menu__category"><h5 class="category-title">Other Resources</h5></li>
-            
-            <li class="menu__link"><a href="https://github.com/Schlechtwetterfront/xsizetools">View on Github</a></li>
-            
-        
-        
-        
-    </ul>
-</nav>
+				<aside class="menu">
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><span class="category-title">Navigation</span></li>
+			
+			<li class="link"><a href="#overview">Overview</a></li>
+			
+			<li class="link"><a href="#zero-crc">Zero CRC</a></li>
+			
+			<li class="link"><a href="#atrb-calculator">ATRB Calculator</a></li>
+			
+		
+			<li class="category"><span class="category-title">File Formats</span></li>
+			
+			<li class="link"><a href="msh.html">.MSH (Models & Animation)</a></li>
+			
+			<li class="link"><a href="ter.html">.TER (Terrain)</a></li>
+			
+			<li class="link"><a href="xxw.html">.XXW (Terrain)</a></li>
+			
+			<li class="link"><a href="render-types.html">.MSH Render Types</a></li>
+			
+		
+			<li class="category"><span class="category-title">Other Resources</span></li>
+			
+			<li class="link"><a href="https://github.com/Schlechtwetterfront/xsizetools">View on Github</a></li>
+			
+		
+		
+		
+	</ul>
+</aside>
 			
 
 			
@@ -70,7 +66,7 @@
 
 				
 						
-							<section class="block block-overview">
+							<section class="block">
 
 <h2 id="overview">Overview</h2>
 
@@ -78,7 +74,7 @@
 
 </section>
 						
-							<section class="block block-zero-crc">
+							<section class="block">
 
 <h2 id="zero-crc">Zero CRC</h2>
 
@@ -94,7 +90,7 @@ An example implementation of the <em>Zero</em> CRC can be found <a href="https:/
 
 <p>Use this to calculate flag values, convert render type and data values to hex and convert from and to the .msh ATRB hex chunk.</p>
 <p>Note that Single-sided and Double-sided Transparency are exclusive, so selecting both might not have the desired/any effect.
-Check out the <a href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
+Check out the <a class="chunk" href="msh.html#ATRB">ATRB</a> chunk for more information on each flag.</p>
 <h3>Calculator</h3>
 
 <div class="calculator">
@@ -204,7 +200,7 @@ Check out the <a href="msh.html#ATRB">ATRB</a> chunk for more information on eac
 
 </section>
 						
-							<section class="block block-zero-crc-implementation">
+							<section class="block">
 
 <h2 id="zero-crc-implementation">Zero CRC Default Implementation</h2>
 

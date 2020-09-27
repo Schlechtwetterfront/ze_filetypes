@@ -16,242 +16,238 @@
 	</head>
 	<body class="page-fileformats">
 
-		<div class="container-fluid page__header">
-			
-				<header class="page__title container">
-	<h1>.msh Format</h1>
-</header>
-			
+		<div class="container padded">
+			<h1 class="page-title">.msh Format</h1>
 		</div>
 
 		<div class="container">
 
 			
-	<nav class="menu">
-    <ul class="menu__nav blocks">
-        
-        
-        
-            <li class="menu__category"><h5 class="category-title">Navigation</h5></li>
-            
-            <li class="menu__link"><a href="#overview">Overview</a></li>
-            
-            <li class="menu__link"><a href="index.html">Back</a></li>
-            
-        
-        
+	<aside class="menu">
+	<ul class="navigation blocks">
+		
+		
+		
+			<li class="category"><span class="category-title">Navigation</span></li>
+			
+			<li class="link"><a href="#overview">Overview</a></li>
+			
+			<li class="link"><a href="index.html">Back</a></li>
+			
+		
+		
 
 
 	
-		<li class="menu__category"><h5 class="category-title">Example</h5></li>
+		<li class="category"><span class="category-title">Example</span></li>
 		
 	
-	<li class="menu__link"><a href="#ExampleChunk" alt="ExampleChunk">ExampleChunk</a></li>
+	<li class="link"><a href="#ExampleChunk" alt="ExampleChunk" class="chunk">ExampleChunk</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">General Chunks</h5></li>
+		<li class="category"><span class="category-title">General Chunks</span></li>
 		
 	
-	<li class="menu__link"><a href="#HEDR" alt="HEDR">HEDR</a></li>
+	<li class="link"><a href="#HEDR" alt="HEDR" class="chunk">HEDR</a></li>
 
 	
-	<li class="menu__link"><a href="#SHVO" alt="SHVO">SHVO</a></li>
+	<li class="link"><a href="#SHVO" alt="SHVO" class="chunk">SHVO</a></li>
 
 	
-	<li class="menu__link"><a href="#MSH2" alt="MSH2">MSH2</a></li>
+	<li class="link"><a href="#MSH2" alt="MSH2" class="chunk">MSH2</a></li>
 
 	
-	<li class="menu__link"><a href="#FINF" alt="FINF">FINF</a></li>
+	<li class="link"><a href="#FINF" alt="FINF" class="chunk">FINF</a></li>
 
 	
-	<li class="menu__link"><a href="#SINF" alt="SINF">SINF</a></li>
+	<li class="link"><a href="#SINF" alt="SINF" class="chunk">SINF</a></li>
 
 	
-	<li class="menu__link"><a href="#FRAM" alt="FRAM">FRAM</a></li>
+	<li class="link"><a href="#FRAM" alt="FRAM" class="chunk">FRAM</a></li>
 
 	
-	<li class="menu__link"><a href="#CAMR" alt="CAMR">CAMR</a></li>
+	<li class="link"><a href="#CAMR" alt="CAMR" class="chunk">CAMR</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Materials</h5></li>
+		<li class="category"><span class="category-title">Materials</span></li>
 		
 	
-	<li class="menu__link"><a href="#MATL" alt="MATL (Materials)">MATL (Materials)</a></li>
+	<li class="link"><a href="#MATL" alt="MATL (Materials)" class="chunk">MATL (Materials)</a></li>
 
 	
-	<li class="menu__link"><a href="#MATD" alt="MATD (Material)">MATD (Material)</a></li>
+	<li class="link"><a href="#MATD" alt="MATD (Material)" class="chunk">MATD (Material)</a></li>
 
 	
-	<li class="menu__link"><a href="#MATD.DATA" alt="MATD.DATA">MATD.DATA</a></li>
+	<li class="link"><a href="#MATD.DATA" alt="MATD.DATA" class="chunk">MATD.DATA</a></li>
 
 	
-	<li class="menu__link"><a href="#ATRB" alt="ATRB">ATRB</a></li>
+	<li class="link"><a href="#ATRB" alt="ATRB" class="chunk">ATRB</a></li>
 
 	
-	<li class="menu__link"><a href="#TX0D" alt="TX0D">TX0D</a></li>
+	<li class="link"><a href="#TX0D" alt="TX0D" class="chunk">TX0D</a></li>
 
 	
-	<li class="menu__link"><a href="#PRFX" alt="PRFX">PRFX</a></li>
+	<li class="link"><a href="#PRFX" alt="PRFX" class="chunk">PRFX</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Models</h5></li>
+		<li class="category"><span class="category-title">Models</span></li>
 		
 	
-	<li class="menu__link"><a href="#MODL" alt="MODL (Model)">MODL (Model)</a></li>
+	<li class="link"><a href="#MODL" alt="MODL (Model)" class="chunk">MODL (Model)</a></li>
 
 	
-	<li class="menu__link"><a href="#MTYP" alt="MTYP">MTYP</a></li>
+	<li class="link"><a href="#MTYP" alt="MTYP" class="chunk">MTYP</a></li>
 
 	
-	<li class="menu__link"><a href="#MNDX" alt="MNDX">MNDX</a></li>
+	<li class="link"><a href="#MNDX" alt="MNDX" class="chunk">MNDX</a></li>
 
 	
-	<li class="menu__link"><a href="#PRNT" alt="PRNT">PRNT</a></li>
+	<li class="link"><a href="#PRNT" alt="PRNT" class="chunk">PRNT</a></li>
 
 	
-	<li class="menu__link"><a href="#FLGS" alt="FLGS">FLGS</a></li>
+	<li class="link"><a href="#FLGS" alt="FLGS" class="chunk">FLGS</a></li>
 
 	
-	<li class="menu__link"><a href="#TRAN" alt="TRAN">TRAN</a></li>
+	<li class="link"><a href="#TRAN" alt="TRAN" class="chunk">TRAN</a></li>
 
 	
-	<li class="menu__link"><a href="#SWCI" alt="SWCI">SWCI</a></li>
+	<li class="link"><a href="#SWCI" alt="SWCI" class="chunk">SWCI</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Geometry</h5></li>
+		<li class="category"><span class="category-title">Geometry</span></li>
 		
 	
-	<li class="menu__link"><a href="#GEOM" alt="GEOM (Geometry)">GEOM (Geometry)</a></li>
+	<li class="link"><a href="#GEOM" alt="GEOM (Geometry)" class="chunk">GEOM (Geometry)</a></li>
 
 	
-	<li class="menu__link"><a href="#ENVL" alt="ENVL (Envelope)">ENVL (Envelope)</a></li>
+	<li class="link"><a href="#ENVL" alt="ENVL (Envelope)" class="chunk">ENVL (Envelope)</a></li>
 
 	
-	<li class="menu__link"><a href="#SEGM" alt="SEGM">SEGM</a></li>
+	<li class="link"><a href="#SEGM" alt="SEGM" class="chunk">SEGM</a></li>
 
 	
-	<li class="menu__link"><a href="#SHDW" alt="SHDW">SHDW</a></li>
+	<li class="link"><a href="#SHDW" alt="SHDW" class="chunk">SHDW</a></li>
 
 	
-	<li class="menu__link"><a href="#MATI" alt="MATI">MATI</a></li>
+	<li class="link"><a href="#MATI" alt="MATI" class="chunk">MATI</a></li>
 
 	
-	<li class="menu__link"><a href="#POSL" alt="POSL">POSL</a></li>
+	<li class="link"><a href="#POSL" alt="POSL" class="chunk">POSL</a></li>
 
 	
-	<li class="menu__link"><a href="#NRML" alt="NRML">NRML</a></li>
+	<li class="link"><a href="#NRML" alt="NRML" class="chunk">NRML</a></li>
 
 	
-	<li class="menu__link"><a href="#UV0L" alt="UV0L">UV0L</a></li>
+	<li class="link"><a href="#UV0L" alt="UV0L" class="chunk">UV0L</a></li>
 
 	
-	<li class="menu__link"><a href="#CLRL" alt="CLRL">CLRL</a></li>
+	<li class="link"><a href="#CLRL" alt="CLRL" class="chunk">CLRL</a></li>
 
 	
-	<li class="menu__link"><a href="#CLRB" alt="CLRB">CLRB</a></li>
+	<li class="link"><a href="#CLRB" alt="CLRB" class="chunk">CLRB</a></li>
 
 	
-	<li class="menu__link"><a href="#WGHT" alt="WGHT">WGHT</a></li>
+	<li class="link"><a href="#WGHT" alt="WGHT" class="chunk">WGHT</a></li>
 
 	
-	<li class="menu__link"><a href="#NDXL" alt="NDXL">NDXL</a></li>
+	<li class="link"><a href="#NDXL" alt="NDXL" class="chunk">NDXL</a></li>
 
 	
-	<li class="menu__link"><a href="#NDXT" alt="NDXT">NDXT</a></li>
+	<li class="link"><a href="#NDXT" alt="NDXT" class="chunk">NDXT</a></li>
 
 	
-	<li class="menu__link"><a href="#STRP" alt="STRP">STRP</a></li>
+	<li class="link"><a href="#STRP" alt="STRP" class="chunk">STRP</a></li>
 
 	
-	<li class="menu__link"><a href="#VLTB" alt="VLTB">VLTB</a></li>
+	<li class="link"><a href="#VLTB" alt="VLTB" class="chunk">VLTB</a></li>
 
 	
-	<li class="menu__link"><a href="#VLTL" alt="VLTL">VLTL</a></li>
+	<li class="link"><a href="#VLTL" alt="VLTL" class="chunk">VLTL</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Cloth</h5></li>
+		<li class="category"><span class="category-title">Cloth</span></li>
 		
 	
-	<li class="menu__link"><a href="#CLTH" alt="CLTH (Cloth)">CLTH (Cloth)</a></li>
+	<li class="link"><a href="#CLTH" alt="CLTH (Cloth)" class="chunk">CLTH (Cloth)</a></li>
 
 	
-	<li class="menu__link"><a href="#CTEX" alt="CTEX">CTEX</a></li>
+	<li class="link"><a href="#CTEX" alt="CTEX" class="chunk">CTEX</a></li>
 
 	
-	<li class="menu__link"><a href="#CPOS" alt="CPOS">CPOS</a></li>
+	<li class="link"><a href="#CPOS" alt="CPOS" class="chunk">CPOS</a></li>
 
 	
-	<li class="menu__link"><a href="#CUV0" alt="CUV0">CUV0</a></li>
+	<li class="link"><a href="#CUV0" alt="CUV0" class="chunk">CUV0</a></li>
 
 	
-	<li class="menu__link"><a href="#FIDX" alt="FIDX">FIDX</a></li>
+	<li class="link"><a href="#FIDX" alt="FIDX" class="chunk">FIDX</a></li>
 
 	
-	<li class="menu__link"><a href="#FWGT" alt="FWGT">FWGT</a></li>
+	<li class="link"><a href="#FWGT" alt="FWGT" class="chunk">FWGT</a></li>
 
 	
-	<li class="menu__link"><a href="#CMSH" alt="CMSH">CMSH</a></li>
+	<li class="link"><a href="#CMSH" alt="CMSH" class="chunk">CMSH</a></li>
 
 	
-	<li class="menu__link"><a href="#SPRS" alt="SPRS">SPRS</a></li>
+	<li class="link"><a href="#SPRS" alt="SPRS" class="chunk">SPRS</a></li>
 
 	
-	<li class="menu__link"><a href="#CPRS" alt="CPRS">CPRS</a></li>
+	<li class="link"><a href="#CPRS" alt="CPRS" class="chunk">CPRS</a></li>
 
 	
-	<li class="menu__link"><a href="#BPRS" alt="BPRS">BPRS</a></li>
+	<li class="link"><a href="#BPRS" alt="BPRS" class="chunk">BPRS</a></li>
 
 	
-	<li class="menu__link"><a href="#COLL" alt="COLL">COLL</a></li>
+	<li class="link"><a href="#COLL" alt="COLL" class="chunk">COLL</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Animation</h5></li>
+		<li class="category"><span class="category-title">Animation</span></li>
 		
 	
-	<li class="menu__link"><a href="#SKL2" alt="SKL2 (Skeleton)">SKL2 (Skeleton)</a></li>
+	<li class="link"><a href="#SKL2" alt="SKL2 (Skeleton)" class="chunk">SKL2 (Skeleton)</a></li>
 
 	
-	<li class="menu__link"><a href="#BLN2" alt="BLN2">BLN2</a></li>
+	<li class="link"><a href="#BLN2" alt="BLN2" class="chunk">BLN2</a></li>
 
 	
-	<li class="menu__link"><a href="#ANM2" alt="ANM2 (Animation)">ANM2 (Animation)</a></li>
+	<li class="link"><a href="#ANM2" alt="ANM2 (Animation)" class="chunk">ANM2 (Animation)</a></li>
 
 	
-	<li class="menu__link"><a href="#CYCL" alt="CYCL">CYCL</a></li>
+	<li class="link"><a href="#CYCL" alt="CYCL" class="chunk">CYCL</a></li>
 
 	
-	<li class="menu__link"><a href="#KFR3" alt="KFR3">KFR3</a></li>
+	<li class="link"><a href="#KFR3" alt="KFR3" class="chunk">KFR3</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Other</h5></li>
+		<li class="category"><span class="category-title">Other</span></li>
 		
 	
-	<li class="menu__link"><a href="#CL1L" alt="CL1L">CL1L</a></li>
+	<li class="link"><a href="#CL1L" alt="CL1L" class="chunk">CL1L</a></li>
 
 	
-	<li class="menu__link"><a href="#NAME" alt="NAME">NAME</a></li>
+	<li class="link"><a href="#NAME" alt="NAME" class="chunk">NAME</a></li>
 
 	
-	<li class="menu__link"><a href="#BBOX" alt="BBOX">BBOX</a></li>
+	<li class="link"><a href="#BBOX" alt="BBOX" class="chunk">BBOX</a></li>
 
 	
-		<li class="menu__category"><h5 class="category-title">Deprecated</h5></li>
+		<li class="category"><span class="category-title">Deprecated</span></li>
 		
 	
-	<li class="menu__link"><a href="#LGTP" alt="LGTP">LGTP</a></li>
+	<li class="link"><a href="#LGTP" alt="LGTP" class="chunk">LGTP</a></li>
 
 	
-	<li class="menu__link"><a href="#LGTI" alt="LGTI">LGTI</a></li>
+	<li class="link"><a href="#LGTI" alt="LGTI" class="chunk">LGTI</a></li>
 
 	
-	<li class="menu__link"><a href="#LGTS" alt="LGTS">LGTS</a></li>
+	<li class="link"><a href="#LGTS" alt="LGTS" class="chunk">LGTS</a></li>
 
 	
-	<li class="menu__link"><a href="#FOGD" alt="FOGD">FOGD</a></li>
+	<li class="link"><a href="#FOGD" alt="FOGD" class="chunk">FOGD</a></li>
 
 
-    </ul>
-</nav>
+	</ul>
+</aside>
 
 
 			
@@ -262,7 +258,7 @@
 				
 	
 						
-							<section class="block block-overview">
+							<section class="block">
 
 <h2 id="overview">Overview</h2>
 
@@ -2389,7 +2385,8 @@ being limited to Star Wars: Battlefront II.</p>
 		<section class="chunk block">
 			<h2 class="title" id="STRP">STRP</h2>
 			
-			<p>List of triangles strips. The start of a strip is indicated by 2 entries with a high bit set (0x8000 or 32768 added). Triangles are listed CW, CCW, CW, CCW... NOTE: In some meshes this chunk has a trailing short which is not calculated into the length/size of this chunk or the # of indices. This short can be ignored. If added to the last polygon it will break it as it always seems to be 0.</p>
+			<p>List of triangles strips. The start of a strip is indicated by 2 entries with a high bit set (0x8000 or 32768 added). Triangles are listed CW, CCW, CW, CCW...</p>
+<p>NOTE: In some meshes this chunk has a trailing short which is not calculated into the length/size of this chunk or the # of indices. This short can be ignored. If added to the last polygon it will break it as it always seems to be 0.</p>
 			<table class="hierarchy">
 				<thead>
 					<tr>
@@ -2970,7 +2967,7 @@ being limited to Star Wars: Battlefront II.</p>
 		<section class="chunk block">
 			<h2 class="title" id="SPRS">SPRS</h2>
 			
-			<p>Stretch constraint data. Keeps cloth size by storing relations between points (like edges around a quad).</p>
+			<p>Stretch constraint data. Keeps cloth size by storing relations between points (like edges around a quad). Relations between two fixed points are <em>not</em> stored</p>
 			<table class="hierarchy">
 				<thead>
 					<tr>
@@ -3030,7 +3027,7 @@ being limited to Star Wars: Battlefront II.</p>
 		<section class="chunk block">
 			<h2 class="title" id="CPRS">CPRS</h2>
 			
-			<p>Cross constraint data. Keeps individual pieces of the cloth from shearing (cross relations between points). Think of the edges as sticky tape, glueing the points together.</p>
+			<p>Cross constraint data. Keeps individual pieces of the cloth from shearing (cross relations between points). Think of the edges as sticky tape, glueing the points together. Relations between two fixed points are <em>not</em> stored</p>
 			<table class="hierarchy">
 				<thead>
 					<tr>
@@ -3090,7 +3087,7 @@ being limited to Star Wars: Battlefront II.</p>
 		<section class="chunk block">
 			<h2 class="title" id="BPRS">BPRS</h2>
 			
-			<p>Bend constraint data. Keeps the cloth's shape (relations between border-points of the cloth mesh, disables bending along those edges).</p>
+			<p>Bend constraint data. Keeps the cloth's shape (relations between border-points of the cloth mesh, disables bending along those edges). Relations between two fixed points are <em>not</em> stored</p>
 			<table class="hierarchy">
 				<thead>
 					<tr>
