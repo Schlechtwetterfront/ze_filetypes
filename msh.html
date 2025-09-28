@@ -2129,7 +2129,7 @@ being limited to Star Wars: Battlefront II.</p>
 		<section class="chunk block">
 			<h2 class="title" id="SHDW">SHDW</h2>
 			
-			<p>Shadow mesh geometry.</p>
+			<p>Shadow mesh geometry. This is a half-edge structure for stencil shadow casting.</p>
 			<table class="hierarchy">
 				<thead>
 					<tr>
@@ -2190,7 +2190,7 @@ being limited to Star Wars: Battlefront II.</p>
 						class="short"
 					>short int [4][]</td>
 					<td>8 each</td>
-					<td><p>Edge. The following 4 entries form one edge.</p></td>
+					<td><p>Half-edge.</p></td>
 				</tr>
 				
 				<tr>
@@ -2206,7 +2206,7 @@ being limited to Star Wars: Battlefront II.</p>
 						class="short"
 					>> short int</td>
 					<td>2</td>
-					<td><p>Reference into an edge. Defines the target vertex (the local edge vertex of the referenced edge) to which the edge should be dran from the local vertex.</p></td>
+					<td><p>Index of the next edge. This edge's vertex index plus the next edge's vertex index form the 'physical' edge. This can be followed to form a face. Eventually it should return to the first edge.</p></td>
 				</tr>
 				
 				<tr>
@@ -2214,7 +2214,7 @@ being limited to Star Wars: Battlefront II.</p>
 						class="short"
 					>> short int</td>
 					<td>2</td>
-					<td><p>Second reference into an edge. In all example .msh files I've seen this always refers to the same vertex as the first edge reference.</p></td>
+					<td><p>Opposite edge index. This is the edge index of the edge entry that shares the same 'physical' edge but belongs to the adjacent face. A shadow mesh should always be closed and thus this should always be set.</p></td>
 				</tr>
 				
 				<tr>
